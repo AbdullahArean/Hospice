@@ -1,4 +1,4 @@
-package com.aem.hospice.Encryption;
+package com.aem.hospice.arean;
 import java.util.*;
 public class Encryption {
 
