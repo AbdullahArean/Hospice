@@ -1,4 +1,4 @@
-package com.mehadi.hospice;
+package com.aem.hospice.mehadi;
 
 
 import java.util.Scanner;

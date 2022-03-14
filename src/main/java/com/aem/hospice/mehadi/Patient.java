@@ -1,4 +1,4 @@
-package com.mehadi.hospice;
+package com.aem.hospice.mehadi;
 
 public class Patient {
     private String Name;
