@@ -1,98 +1,49 @@
 package com.aem.hospice.arean;
-import java.util.*;
+import javax.crypto.Cipher;
+import java.security.*;
+import java.util.Base64;
+
 public class Encryption {
+    private PrivateKey privateKey;
+    private PublicKey publicKey;
 
-    private Scanner scanner;
-    private Random random;
-    private ArrayList<Character> list;
-    private ArrayList<Character> Shuffledlist;
-    private char character;
-    private String line;
-    private char[] letters;
-    private char[] Secretletters;
-
-    Encryption(){
-        scanner = new Scanner(System.in);
-        random= new Random();
-        list= new ArrayList();
-        Shuffledlist= new ArrayList();
-        character= ' ';
-        newkey();
-        askquestion();
-    }
-    private void askquestion(){
-        while(true){
-            System.out.println("****************************************");
-            System.out.println("What do you want to do?");
-            System.out.println("(N)ewkey, (G)etkey (E)ncrypt, (D)ecrypt, (Q)uit");
-            char response = Character.toUpperCase(scanner.nextLine().charAt(0));
-            switch (response){
-                case 'N' :
-                    newkey();
-                    break;
-                case 'G' :
-                    getkey();
-                    break;
-                case 'E' :
-                    encrypt();
-                    break;
-                case 'D' :
-                    decrypt();
-                    break;
-                case 'Q' :
-                    quit();
-                    break;
-                default:
-                    System.out.println("Not a valid input");
-                    break;
-            }
-
+    public Encryption( ){
+        try{
+            KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+            generator.initialize(2048);
+            KeyPair pair = generator.generateKeyPair();
+            publicKey = pair.getPublic();
+            privateKey = pair.getPrivate();
         }
-
-
+        catch (Exception ignored){}
     }
-    private void newkey(){
-        character = ' ';
-        list.clear();
-        Shuffledlist.clear();
-        for(int i=32; i<127; i++){
-            list.add(Character.valueOf(character));
-            character++;
-        }
-        Shuffledlist = new ArrayList(list);
-        Collections.shuffle(Shuffledlist);
-        System.out.println("A new key has been generated");
-
-
+    public String Encrypt( String message, PublicKey publicKey) throws Exception{
+        byte[] messageToBytes = message.getBytes();
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        cipher.init(Cipher.ENCRYPT_MODE, publicKey);
+        byte[] encryptedByte = cipher.doFinal(messageToBytes);
+        return encode(encryptedByte);
     }
-    private void getkey(){
-        System.out.println("Key: ");
-        for(Character x:list){
-            System.out.print(x);
-        }
-        System.out.println();
-        for(Character x : Shuffledlist){
-            System.out.print(x);
-        }
-        System.out.println();
-
+    private String encode(byte[] data) {return Base64.getEncoder().encodeToString(data);
     }
-    private void encrypt(){
-        System.out.println("Enter a message to be encrypted: ");
-        String message = scanner.nextLine();
-        letters = message.toCharArray();
-
+    public String Decrypt(String encryptedMessage, PrivateKey privateKey) throws Exception {
+        byte[] encryptedBytes = decode(encryptedMessage);
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+        cipher.init(Cipher.DECRYPT_MODE, privateKey);
+        byte[] decryptedMessage = cipher.doFinal(encryptedBytes);
+        return new String(decryptedMessage, "UTF8");
     }
-    private void decrypt(){
-
+    private byte[] decode(String data) {return Base64.getDecoder().decode(data);}
+    public PublicKey getPublicKey(){
+        return publicKey;
     }
-    private void quit(){
-
+    public PrivateKey getPrivateKey(){
+        return privateKey;
     }
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Encryption e = new Encryption();
+        String s =e.Encrypt("1213",e.getPublicKey());
+        System.out.println(e.Decrypt(s, e.getPrivateKey()));
+
     }
-
-
 }
