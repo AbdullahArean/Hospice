@@ -2,6 +2,9 @@ package com.aem.hospice.arean;
 
 import com.aem.hospice.mehadi.Patient;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,7 +30,7 @@ public class login {
         }
 
     }
-    private static void login() throws SQLException {
+    private static void login() throws Exception {
         Connection conn = database.MakeConnection();
         if(conn==null) System.out.println("NULL");
         Statement mysta = conn.createStatement();
@@ -43,8 +46,7 @@ public class login {
             String sql = "Select * from hospice.login where uid=\""+uid+"\";";
             ResultSet rs = mysta.executeQuery(sql);
             while(rs.next()){
-                //System.out.println(rs.getString("password"));
-                if( Objects.equals(rs.getString("password"), pass)) {System.out.println("Login Successful"); return;}
+              if( Objects.equals(rs.getString("password"),pass )) {System.out.println("Login Successful"); return;}
 
             }
             System.out.println("Wrong UID or Password");
