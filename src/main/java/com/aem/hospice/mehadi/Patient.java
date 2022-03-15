@@ -1,4 +1,11 @@
 package com.aem.hospice.mehadi;
+import com.aem.hospice.arean.*;
+
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Patient {
     private String Name;
@@ -10,6 +17,49 @@ public class Patient {
     private double PharmacyExpanse;
     private double LabExpanse;
     private double TotalBill;
+
+    //Arean's work
+    private PublicKey publicKey;
+    private PrivateKey privateKey;
+    private String uid;
+    private String pass=" ";
+    private Encryption e;
+
+    public void databaseinp() throws Exception {
+        Connection conn = database.MakeConnection();
+        if(conn==null) System.out.println("NULL");
+        Statement mysta = conn.createStatement();
+        //String sql = "Select * from hospice.login";
+//        ResultSet rs = mysta.executeQuery(sql);
+//        while(rs.next()){
+//            System.out.println(rs.getInt("uid"));
+//            System.out.println(rs.getString("password"));
+//
+//        }
+
+        //add into login database
+//        String command = "insert into login values ("+e.Encrypt(uid,publicKey)+","+e.Encrypt(pass,publicKey)+","+publicKey+");";
+
+       String command = "insert into login values ('"+uid+"', '"+pass+"', '"+publicKey+"', '"+privateKey+"');";
+
+       mysta.execute(command);
+
+
+        //add into patient database
+
+
+    }
+     public Patient() throws Exception {
+        e = new Encryption();
+        privateKey=e.getPrivateKey();
+        publicKey =e.getPublicKey();
+        uid = "p"+7878;// uid generate
+        pass = "abcd";
+        System.out.println("Unique ID: "+uid + "\nOne Time Password, Please change:=> " + pass);
+        databaseinp();
+
+
+    }
 
     public void setName(String Name)
     {
