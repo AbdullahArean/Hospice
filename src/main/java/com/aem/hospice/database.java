@@ -28,7 +28,7 @@ public class database {
     }
     public static Boolean loginvalidate(String uid, String pass) throws Exception {
         Connection conn = database.MakeConnection();
-        if(conn==null) System.out.println("NULL");
+        if(conn==null) {System.out.println("NULL"); return false;}
         Statement mysta = conn.createStatement();
         String sql = "Select * from hospice.login where uid=\""+uid+"\";";
         ResultSet rs = mysta.executeQuery(sql);

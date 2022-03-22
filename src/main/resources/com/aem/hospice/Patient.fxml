@@ -9,10 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <BorderPane prefHeight="400.0" prefWidth="600.0">
+        <BorderPane prefHeight="720.0" prefWidth="1080.0">
             <left>
                 <VBox prefHeight="400.0" prefWidth="201.0" BorderPane.alignment="CENTER">
                     <children>
@@ -105,6 +104,19 @@
             <top>
                 <HBox prefHeight="100.0" prefWidth="509.0" BorderPane.alignment="CENTER" />
             </top>
+         <right>
+            <AnchorPane prefHeight="620.0" prefWidth="881.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="202.0" text="Button" />
+                  <Button layoutX="239.0" layoutY="14.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="202.0" text="Button" />
+                  <Button layoutX="459.0" layoutY="14.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="202.0" text="Button" />
+                  <Button layoutX="673.0" layoutY="14.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="202.0" text="Button" />
+                  <Button layoutX="16.0" layoutY="190.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="202.0" text="Button" />
+                  <Button layoutX="241.0" layoutY="190.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="202.0" text="Button" />
+                  <Button layoutX="461.0" layoutY="190.0" mnemonicParsing="false" prefHeight="158.0" prefWidth="202.0" text="Button" />
+               </children>
+            </AnchorPane>
+         </right>
         </BorderPane>
     </children>
 </AnchorPane>
