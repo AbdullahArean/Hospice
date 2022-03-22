@@ -1,10 +1,10 @@
 package com.aem.hospice.mehadi;
 import com.aem.hospice.arean.*;
+import com.aem.hospice.database;
 
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Patient {

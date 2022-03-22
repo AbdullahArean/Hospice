@@ -1,7 +1,10 @@
-package com.aem.hospice.arean;
+package com.aem.hospice;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Objects;
 
 public class database {
     private static Connection conn;
@@ -21,6 +24,18 @@ public class database {
         return null;
     }
     public static void main(String[] args) throws Exception {
+
+    }
+    public static Boolean loginvalidate(String uid, String pass) throws Exception {
+        Connection conn = database.MakeConnection();
+        if(conn==null) System.out.println("NULL");
+        Statement mysta = conn.createStatement();
+        String sql = "Select * from hospice.login where uid=\""+uid+"\";";
+        ResultSet rs = mysta.executeQuery(sql);
+        while(rs.next()){
+            if( Objects.equals(rs.getString("password"),pass )) {return true;}
+        }
+        return false;
 
     }
 }
