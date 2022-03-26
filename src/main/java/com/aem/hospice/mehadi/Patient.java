@@ -1,7 +1,6 @@
 package com.aem.hospice.mehadi;
 import com.aem.hospice.arean.*;
 import com.aem.hospice.database;
-
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.sql.Connection;
@@ -45,7 +44,9 @@ public class Patient {
        mysta.execute(command);
 
 
+
         //add into patient database
+        //add it into login database
 
 
     }
