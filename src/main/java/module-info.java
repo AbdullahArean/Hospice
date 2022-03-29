@@ -6,4 +6,10 @@ module com.aem.hospice {
 
     opens com.aem.hospice to javafx.fxml;
     exports com.aem.hospice;
+    exports com.aem.hospice.classes;
+    opens com.aem.hospice.classes to javafx.fxml;
+    exports com.aem.hospice.pages;
+    opens com.aem.hospice.pages to javafx.fxml;
+    exports com.aem.hospice.controller;
+    opens com.aem.hospice.controller to javafx.fxml;
 }
