@@ -52,3 +52,67 @@ public class database {
         return sql;
     }
 }
+/*
+create database hospice;
+use hospice;
+create table login(
+uid varchar(100),
+password varchar(100)
+);
+
+create table patient(
+uid varchar(100),
+name varchar(1000),
+type int,
+gender varchar(20),
+age int,
+mail varchar(100),
+medicalhistory varchar(2000),
+DoctorExpanse Double(20,6),
+PharmacyExpanse Double(20,6),
+LabExpanse Double(20,6),
+OtherExpanse Double(20,6),
+TotalBill Double(20,6)
+);
+INSERT INTO patient (uid)
+VALUES ("10000");
+
+create table employee(
+uid varchar(100),
+name varchar(1000),
+type int,
+gender varchar(20),
+age int,
+mail varchar(100),
+MonthlySalary Double(20,6)
+);
+INSERT INTO employee (uid)
+VALUES ("30000");
+
+create table service(
+uid varchar(100),
+name varchar(1000),
+type int,
+description varchar(1000),
+cost_unit Double(20,6),
+discount Double(20,6)
+);
+INSERT INTO service (uid)
+VALUES ("10");
+
+create table providedservice(
+ps_uid varchar(100),
+s_uid varchar(100),
+p_uid varchar(100),
+e_uid varchar(100),
+r_uid varchar(100),
+s_type int,
+quantity int,
+payment_status int,
+bill Double(20,6),
+paid Double (20,6)
+
+);
+INSERT INTO providedservice (ps_uid)
+VALUES ("100000");
+ */
