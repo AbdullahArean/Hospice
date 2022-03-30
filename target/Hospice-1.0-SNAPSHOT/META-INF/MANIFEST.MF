@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven 3.8.1
+Built-By: arean
+Build-Jdk: 17.0.2
+Class-Path: javafx-controls-11.0.2.jar javafx-controls-11.0.2-linux.jar 
+ javafx-graphics-11.0.2.jar javafx-graphics-11.0.2-linux.jar javafx-base
+ -11.0.2.jar javafx-base-11.0.2-linux.jar javafx-fxml-11.0.2.jar javafx-
+ fxml-11.0.2-linux.jar
+Main-Class: com.aem.hospice.Hospice
+

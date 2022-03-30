@@ -4,82 +4,19 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        {
+            "type": "java",
+            "name": "Hospice",
+            "request": "launch",
+            "mainClass": "com.aem.hospice/com.aem.hospice.Hospice",
+            "projectName": "Hospice"
+        },
         
         {
             "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "Launch Employeepage",
-            "request": "launch",
-            "mainClass": "com.aem.hospice/com.aem.hospice.Employeepage",
-            "projectName": "Hospice"
-        },
-        {
-            "type": "java",
-            "name": "Launch HelloApplication",
-            "request": "launch",
-            "mainClass": "com.aem.hospice/com.aem.hospice.HelloApplication",
-            "projectName": "Hospice"
-        },
-        {
-            "type": "java",
-            "name": "Launch Login",
-            "request": "launch",
-            "mainClass": "com.aem.hospice/com.aem.hospice.Login",
-            "projectName": "Hospice"
-        },
-        {
-            "type": "java",
-            "name": "Launch Patientpage",
-            "request": "launch",
-            "mainClass": "com.aem.hospice/com.aem.hospice.Patientpage",
-            "projectName": "Hospice"
-        },
-        {
-            "type": "java",
-            "name": "Launch Register",
-            "request": "launch",
-            "mainClass": "com.aem.hospice/com.aem.hospice.Register",
-            "projectName": "Hospice"
-        },
-        {
-            "type": "java",
-            "name": "Launch Encryption",
-            "request": "launch",
-            "mainClass": "com.aem.hospice/com.aem.hospice.arean.Encryption",
-            "projectName": "Hospice"
-        },
-        {
-            "type": "java",
-            "name": "Launch table",
-            "request": "launch",
-            "mainClass": "com.aem.hospice/com.aem.hospice.arean.table",
-            "projectName": "Hospice"
-        },
-        {
-            "type": "java",
-            "name": "Launch database",
-            "request": "launch",
-            "mainClass": "com.aem.hospice/com.aem.hospice.database",
-            "projectName": "Hospice"
-        },
-        {
-            "type": "java",
-            "name": "Launch test",
-            "request": "launch",
-            "mainClass": "com.aem.hospice/com.aem.hospice.ishwor.test",
-            "projectName": "Hospice"
-        },
-        {
-            "type": "java",
-            "name": "Launch Test",
-            "request": "launch",
-            "mainClass": "com.aem.hospice/com.aem.hospice.mehadi.Test",
-            "projectName": "Hospice"
         }
     ]
 }
