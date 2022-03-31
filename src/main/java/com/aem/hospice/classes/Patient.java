@@ -1,6 +1,6 @@
 package com.aem.hospice.classes;
 
-import com.aem.hospice.pages.AlertBox;
+import com.aem.hospice.PopUp.AlertBox;
 
 import java.sql.*;
 

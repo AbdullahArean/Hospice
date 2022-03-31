@@ -9,10 +9,12 @@ module com.aem.hospice {
     exports com.aem.hospice;
     exports com.aem.hospice.classes;
     opens com.aem.hospice.classes to javafx.fxml;
-    exports com.aem.hospice.pages;
-    opens com.aem.hospice.pages to javafx.fxml;
-    exports com.aem.hospice.controller;
-    opens com.aem.hospice.controller to javafx.fxml;
-    exports com.aem.hospice.Merge;
-    opens com.aem.hospice.Merge to javafx.fxml;
+    exports com.aem.hospice.PopUp;
+    opens com.aem.hospice.PopUp to javafx.fxml;
+    exports com.aem.hospice.Employee;
+    opens com.aem.hospice.Employee to javafx.fxml;
+    exports com.aem.hospice.Patient;
+    opens com.aem.hospice.Patient to javafx.fxml;
+    exports com.aem.hospice.LoginRegister;
+    opens com.aem.hospice.LoginRegister to javafx.fxml;
 }
