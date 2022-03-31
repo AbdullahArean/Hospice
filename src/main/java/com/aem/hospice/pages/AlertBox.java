@@ -13,7 +13,7 @@ public class AlertBox {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Patient Database");
-        window.setMinWidth(250);
+        window.setMinWidth(400);
 
         Label label1 = new Label();
         label1.setText(message);

@@ -1,11 +1,11 @@
+
 package com.aem.hospice;
+        import javafx.application.Application;
+        import javafx.fxml.FXMLLoader;
+        import javafx.scene.Scene;
+        import javafx.stage.Stage;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import java.io.IOException;
+        import java.io.IOException;
 
 public class Login extends Application {
     static  Stage  window;
@@ -13,7 +13,8 @@ public class Login extends Application {
     public void start(Stage stage) throws IOException {
         window = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("Login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
+        Scene scene = new Scene(fxmlLoader.load(), 604, 400);
+
         window.setTitle("hospiceLogin!");
         window.setScene(scene);
         window.show();

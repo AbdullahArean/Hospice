@@ -72,7 +72,7 @@ public class Employee {
         databaseinp();
     }
 
-    Employee(String uid) throws SQLException {
+    public Employee(String uid) throws SQLException {
         Connection conn = database.MakeConnection();
         if(conn==null) {System.out.println("NULL");}
         Statement mysta = conn.createStatement();
@@ -92,8 +92,7 @@ public class Employee {
 
     public static void main(String[] args) throws SQLException {
         Employee e1 = new Employee("tahian",2,"male",32,"a@gmail.com",45000);
-        Employee e2 = new Employee("2006");
-        System.out.println(e2.gender);
+
     }
 
     public String getUid() {

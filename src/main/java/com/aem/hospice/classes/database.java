@@ -1,5 +1,8 @@
 package com.aem.hospice.classes;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 import java.util.Objects;
 
@@ -20,6 +23,7 @@ public class database {
         return null;
     }
     public static void main(String[] args) throws Exception {
+        ObservableList<ProvidedService> list = GetProvidedService(1,"p_uid","10005");
     }
     public static Boolean loginvalidate(String uid, String pass) throws Exception {
         Connection conn = database.MakeConnection();
@@ -51,6 +55,46 @@ public class database {
         }
         return sql;
     }
+    public static String generate_uid(String table, String pcol, int login, String password) throws SQLException {
+        Connection conn = MakeConnection();
+        if(conn==null) {System.out.println("NULL");}
+        Statement mysta = conn.createStatement();
+        String sql = "Select * from hospice."+table+";";
+        ResultSet rs = mysta.executeQuery(sql);
+        while(rs.next()){
+            sql = rs.getString(pcol);
+
+        }
+        int temp =Integer.parseInt(sql)+1;
+        sql= String.valueOf(temp);
+        if(login==1) {
+            String command = "insert into login values ('" + sql + "','"+password+"');";
+            mysta.execute(command);
+        }
+        return sql;
+    }
+    public static ObservableList<ProvidedService> GetProvidedService(int type, String coln, String uid5){
+
+       int cn=0; ObservableList<ProvidedService> list = FXCollections.observableArrayList();
+        try {
+            conn = database.MakeConnection();
+            Statement mysta = conn.createStatement();
+            String sql ="SELECT * from providedservice WHERE s_type= '" + type + "' AND " + coln + "= '" + uid5 + "' ;";
+            //System.out.println(sql);
+            ResultSet rs = mysta.executeQuery(sql);
+            while(rs.next()){
+                //cn++;
+                list.add(new ProvidedService(rs.getString("ps_uid")));
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+       // System.out.println(cn);
+        return list;
+    }
+
 }
 /*
 create database hospice;

@@ -73,14 +73,22 @@ public class ProvidedService {
         this.e_uid= e_uid;
         this.quantity=quantity;
         this.ps_uid = generate_uid("providedservice","ps_uid",0);
+        this.bill = generate_bill_type(quantity);
         databaseinp();
     }
 
-    ProvidedService(String uid) throws SQLException {
+    private double generate_bill_type(int quantity) throws SQLException {
+        Service s1 = new Service(this.s_uid);
+        this.s_type = s1.getType();
+        return s1.getCost_unit()*quantity;
+
+    }
+
+    public ProvidedService(String uid) throws SQLException {
         Connection conn = database.MakeConnection();
         if(conn==null) {System.out.println("NULL");}
         Statement mysta = conn.createStatement();
-        String sql = "Select * from hospice.providedservice where uid=\""+uid+"\";";
+        String sql = "Select * from hospice.providedservice where ps_uid=\""+uid+"\";";
         ResultSet rs = mysta.executeQuery(sql);
         while(rs.next()){
             this.ps_uid =rs.getString("ps_uid");
@@ -98,7 +106,8 @@ public class ProvidedService {
     }
 
     public static void main(String[] args) throws SQLException {
-        ProvidedService p1 = new ProvidedService("30001","1010","2013",5);
+        ProvidedService p1 = new ProvidedService("13","10005","30001",1);
+        ProvidedService p2 = new ProvidedService("14","10005","30001",1);
     }
 
     public String getPs_uid() {

@@ -87,8 +87,8 @@ public class Service {
     }
 
     public static void main(String[] args) throws SQLException {
-       Service s1 = new Service("test1",45,"a test",340,0);
-
+       Service s1 = new Service("ECG",2,"A Test",1000,0);
+        Service s2 = new Service("Ecocardiogram",2,"A Tablet",1400,0);
     }
 
     public String getUid() {

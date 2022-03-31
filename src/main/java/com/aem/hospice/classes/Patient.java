@@ -1,5 +1,7 @@
 package com.aem.hospice.classes;
 
+import com.aem.hospice.pages.AlertBox;
+
 import java.sql.*;
 
 import static com.aem.hospice.classes.database.generate_uid;
@@ -68,6 +70,15 @@ public class Patient {
         pstmt.setDouble(12, TotalBill);
         return pstmt;
     }
+    public Patient(String name, String mail, String password) throws SQLException {
+        this.name = name;
+        this.mail = mail;
+        this.uid=generate_uid("patient","uid",1,password);
+        AlertBox.display("Patient ID Creation Successfull","UID : "+ uid);
+
+        databaseinp();
+
+    }
     Patient(String name, String gender, int age, String mail, String medicalhistory) throws SQLException {
         this.name = name;
         this.gender = gender;
@@ -78,7 +89,7 @@ public class Patient {
         databaseinp();
 
     }
-    Patient(String uid) throws SQLException {
+    public Patient(String uid) throws SQLException {
         Connection conn = database.MakeConnection();
         if(conn==null) {System.out.println("NULL");}
         Statement mysta = conn.createStatement();
