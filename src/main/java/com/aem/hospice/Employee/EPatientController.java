@@ -18,7 +18,6 @@ public class EPatientController extends EmployeepageController{
 
             stage.setTitle("Hospice");
             Scene scene=new Scene(root);
-            scene.getStylesheets().add(this.getClass().getResource("test.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         }
