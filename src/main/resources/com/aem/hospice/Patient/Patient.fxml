@@ -11,9 +11,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.Patient.PatientpageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.Patient.PatientpageController">
     <left>
         <VBox prefHeight="292.0" prefWidth="143.0" style="-fx-background-color: #A2A2A1FF;" BorderPane.alignment="CENTER">
             <children>
@@ -114,6 +115,39 @@
                                 <Image url="@../../img/search.jpg" />
                             </image>
                         </ImageView>
+                        <Circle fill="#e1e4e8" layoutX="272.0" layoutY="49.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="219.0" layoutY="86.0" text="Total Expanse">
+                            <font>
+                                <Font name="DejaVu Sans Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Circle fill="#e1e4e8" layoutX="396.0" layoutY="50.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="378.0" layoutY="87.0" text="Paid">
+                            <font>
+                                <Font name="DejaVu Sans Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Circle fill="#e1e4e8" layoutX="523.0" layoutY="49.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="511.0" layoutY="86.0" text="Due">
+                            <font>
+                                <Font name="DejaVu Sans Bold" size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="total_expanse" layoutX="245.0" layoutY="37.0" prefHeight="26.0" prefWidth="61.0" text="Label">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="paid" layoutX="375.0" layoutY="41.0" prefHeight="26.0" prefWidth="56.0" text="Label">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="due" layoutX="496.0" layoutY="37.0" prefHeight="26.0" prefWidth="59.0" text="Label">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
                     </children>
                 </AnchorPane>
             </children>
@@ -136,12 +170,13 @@
     <center>
         <AnchorPane prefHeight="278.0" prefWidth="457.0" BorderPane.alignment="CENTER">
             <children>
-                <TableView layoutX="-1.0" layoutY="-1.0" prefHeight="430.0" prefWidth="622.0" style="-fx-background-color: #274368;">
+                <TableView fx:id="exptable" layoutY="5.0" prefHeight="429.0" prefWidth="612.0" style="-fx-background-color: #77bf86;">
                     <columns>
-                        <TableColumn prefWidth="151.1999603509903" text="Service Name" />
-                        <TableColumn prefWidth="124.00006103515625" text="Employee ID" />
-                        <TableColumn prefWidth="152.79998779296875" text="Expanse" />
-                        <TableColumn prefWidth="206.39999389648438" text="Status" />
+                        <TableColumn fx:id="col_sname" prefWidth="155.0" text="Service Name" />
+                        <TableColumn fx:id="col_squantity" prefWidth="117.0" text="Quantity" />
+                        <TableColumn fx:id="col_sexpanse" minWidth="0.0" prefWidth="92.0" text="Expanse" />
+                        <TableColumn fx:id="col_paid" prefWidth="88.0" text="Paid" />
+                        <TableColumn fx:id="col_pstatus" prefWidth="180.0" text="Payment Status" />
                     </columns>
                 </TableView>
             </children>

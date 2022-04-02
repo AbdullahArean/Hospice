@@ -50,7 +50,7 @@ public class ProvidedService {
     private void Databaseinput() {
         String query = "INSERT INTO providedservice(ps_uid,s_uid ,p_uid, e_uid, r_uid,s_type,quantity,payment_status,bill,paid)" + "VALUES (?, ?, ?,?, ?, ?,?,?,?,?)";
         try {
-            int status = getPreparedStatement(query).executeUpdate();
+            getPreparedStatement(query).executeUpdate();
         } catch(Exception e){
             e.printStackTrace();
         }
@@ -96,12 +96,6 @@ public class ProvidedService {
         }
 
     }
-
-    public static void main(String[] args) throws SQLException {
-        ProvidedService p1 = new ProvidedService("13","10005","30001",1);
-        ProvidedService p2 = new ProvidedService("14","10005","30001",1);
-    }
-
     public String getPs_uid() {
         return ps_uid;
     }
