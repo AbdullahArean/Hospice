@@ -11,13 +11,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.LoginRegister.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.LoginRegister.LoginController">
     <left>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="414.0" fitWidth="312.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="257.0" fitWidth="336.0" layoutX="13.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../img/HospiceLogo.jpg" />
+                        <Image url="@../../img/LogoHospice.png" />
                     </image>
                 </ImageView>
             </children>
@@ -54,7 +54,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Label layoutX="62.0" layoutY="302.0" text="Don't have an account?" />
+                <Label layoutX="62.0" layoutY="303.0" text="Don't have an account?" />
                 <Button layoutX="48.0" layoutY="331.0" mnemonicParsing="false" onAction="#Register" prefHeight="28.0" prefWidth="183.0" style="-fx-background-color: #243fae;" text="Register As Patient" textFill="#dddfe4">
                     <font>
                         <Font name="System Bold" size="14.0" />
