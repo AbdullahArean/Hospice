@@ -17,7 +17,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
-
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import java.io.IOException;
@@ -60,11 +59,8 @@ public class LabReportController extends PatientpageController implements Initia
         try{
             FXMLLoader loader=new FXMLLoader(getClass().getResource("LabReport.fxml"));
             Parent root=loader.load();
-
-            // System.out.println("second ");
             Stage stage=(Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-
-            stage.setTitle("Hospice");
+            stage.setTitle("Patient Lab Report & Bill");
             Scene scene=new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -78,7 +74,6 @@ public class LabReportController extends PatientpageController implements Initia
             Connection conn = database.MakeConnection();
             Statement mysta = conn.createStatement();
             String sql = "SELECT * from providedservice WHERE s_type= '" + type + "' AND " + coln + "= '" + uid5 + "' ;";
-            //System.out.println(sql);
             ResultSet rs = mysta.executeQuery(sql);
             while (rs.next()) {
                 e+= rs.getDouble("bill");
@@ -98,7 +93,7 @@ public class LabReportController extends PatientpageController implements Initia
         total_expanse.setText(""+e);
         paid.setText(""+p);
         due.setText(""+d);
-        col_ntest.setCellValueFactory(new PropertyValueFactory<>("s_uid"));
+        col_ntest.setCellValueFactory(new PropertyValueFactory<>("s_type"));
         col_expanse.setCellValueFactory(new PropertyValueFactory<>("bill"));
         col_quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         col_pstatus.setCellValueFactory(new PropertyValueFactory<>("payment_status"));
