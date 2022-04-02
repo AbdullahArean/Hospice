@@ -4,11 +4,9 @@ import com.aem.hospice.LoginRegister.Login;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class Hospice extends Application {
 @Override
-public void start(Stage stage) throws IOException {
+public void start(Stage stage) {
     try{
         new Login().start(stage);
     }
