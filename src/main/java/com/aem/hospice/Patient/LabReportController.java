@@ -2,6 +2,8 @@ package com.aem.hospice.Patient;
 
 import com.aem.hospice.classes.ProvidedService;
 import com.aem.hospice.classes.database;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,6 +56,7 @@ public class LabReportController extends PatientpageController implements Initia
 
     @FXML
     private Label total_expanse;
+    private ObservableList<ProvidedService> list = FXCollections.observableArrayList();
 
     public void labreport(ActionEvent actionEvent)throws IOException {
         try{
@@ -79,6 +82,7 @@ public class LabReportController extends PatientpageController implements Initia
                 e+= rs.getDouble("bill");
                 p+= rs.getDouble("paid");
                 d+=rs.getDouble("bill")-rs.getDouble("paid");
+                list.add(new ProvidedService(rs.getString("ps_uid")));
 
             }
 
@@ -98,7 +102,7 @@ public class LabReportController extends PatientpageController implements Initia
         col_quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         col_pstatus.setCellValueFactory(new PropertyValueFactory<>("payment_status"));
         col_paid.setCellValueFactory(new PropertyValueFactory<>("paid"));
-        labtable.setItems(database.GetProvidedService(2,"p_uid",patient1.getUid()));
+        labtable.setItems(list);
 
     }
 }
