@@ -75,4 +75,17 @@ public class database {
         }
         return list;
     }
+    public static void ChangePassword(String uid, String password){
+        String query = "UPDATE login set password=? WHERE uid =? ;";
+        try {
+            PreparedStatement pstmt =  database.MakeConnection().prepareStatement(query);
+            pstmt.setString(2, uid);
+            pstmt.setString(1, password);
+            pstmt.executeUpdate();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
 }

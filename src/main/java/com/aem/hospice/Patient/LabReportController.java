@@ -85,6 +85,7 @@ public class LabReportController extends PatientpageController implements Initia
                 list.add(new ProvidedService(rs.getString("ps_uid")));
 
             }
+            patient1.setLabExpanse(e);
 
         } catch (Exception e) {
             e.printStackTrace();

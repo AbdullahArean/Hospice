@@ -79,6 +79,8 @@ public class PatientExpanseController extends PatientpageController implements I
                 list.add(new ProvidedService(rs.getString("ps_uid")));
 
             }
+            patient1.setTotalBill(e);
+            patient1.setOtherExpanse(e-patient1.getLabExpanse()- patient1.getPharmacyExpanse());
 
         } catch (Exception e) {
             e.printStackTrace();

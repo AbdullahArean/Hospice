@@ -80,6 +80,7 @@ public class MedicineController extends PatientpageController implements Initial
                 d+=rs.getDouble("bill")-rs.getDouble("paid");
                 list.add(new ProvidedService(rs.getString("ps_uid")));
             }
+            patient1.setPharmacyExpanse(e);
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,9 +1,7 @@
 package com.aem.hospice.classes;
 
 import com.aem.hospice.PopUp.AlertBox;
-
 import java.sql.*;
-
 import static com.aem.hospice.classes.database.generate_uid;
 
 public class Patient {
@@ -19,43 +17,32 @@ public class Patient {
     private double LabExpanse=0;
     private double OtherExpanse =0;
     private double TotalBill=0;
-    private Connection conn;
-    private Statement mysta;
-    private void databaseinp() throws SQLException {
-        conn = database.MakeConnection();
-        if(conn==null) {System.out.println("NULL");}
-        mysta = conn.createStatement();
-        PreparedStatement pstmt = null;
+    private PreparedStatement pstmt;
+
+
+    private void databaseinp(){
         String query = "INSERT INTO patient(uid, name, type,gender,age,mail,medicalhistory,DoctorExpanse,PharmacyExpanse,LabExpanse,OtherExpanse,TotalBill)" + "VALUES (?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?)";
         try {
             pstmt = getPreparedStatement(query);
-            int status = pstmt.executeUpdate();
-            if(status > 0) {
-                System.out.println("Record is inserted successfully !!!");
-            }
+            pstmt.executeUpdate();
+
         } catch(Exception e){
             e.printStackTrace();
         }
     }
     private void databaseupdate(){
-        conn = database.MakeConnection();
-        PreparedStatement pstmt = null;
         String query = "UPDATE patient set uid=?, name=?, type=?,gender=?,age=?,mail=?,medicalhistory=?,DoctorExpanse=?,PharmacyExpanse=?,LabExpanse=?,OtherExpanse=?,TotalBill=? WHERE uid =? ;";
         try {
             pstmt = getPreparedStatement(query);
             pstmt.setString(13, uid);
-            int status = pstmt.executeUpdate();
-            if(status > 0) {
-                System.out.println("Record is inserted successfully !!!");
-            }
+            pstmt.executeUpdate();
         } catch(Exception e){
             e.printStackTrace();
         }
 
     }
     private PreparedStatement getPreparedStatement(String query) throws SQLException {
-        PreparedStatement pstmt;
-        pstmt = conn.prepareStatement(query);
+        pstmt = database.MakeConnection().prepareStatement(query);
         pstmt.setString(1, uid);
         pstmt.setString(2, name);
         pstmt.setInt(3, type);
@@ -75,7 +62,6 @@ public class Patient {
         this.mail = mail;
         this.uid=generate_uid("patient","uid",1,password);
         AlertBox.display("Patient ID Creation Successfull","UID : "+ uid);
-
         databaseinp();
 
     }
@@ -89,27 +75,29 @@ public class Patient {
         databaseinp();
 
     }
-    public Patient(String uid) throws SQLException {
-        Connection conn = database.MakeConnection();
-        if(conn==null) {System.out.println("NULL");}
-        Statement mysta = conn.createStatement();
+    public Patient(String uid){
         String sql = "Select * from hospice.patient where uid=\""+uid+"\";";
-        ResultSet rs = mysta.executeQuery(sql);
-        while(rs.next()){
-           this.uid =rs.getString("uid");
-           this.name = rs.getString("name");
-           this.type = rs.getInt("type");
-           this.gender = rs.getString("gender");
-           this.age = rs.getInt("age");
-           this.mail = rs.getString("mail");
-           this.medicalhistory = rs.getString("medicalhistory");
-           this.DoctorExpanse = rs.getDouble("DoctorExpanse");
-            this.PharmacyExpanse = rs.getDouble("PharmacyExpanse");
-            this.LabExpanse = rs.getDouble("LabExpanse");
-            this.OtherExpanse = rs.getDouble("OtherExpanse");
-            this.TotalBill = rs.getDouble("TotalBill");
+        try {
+            ResultSet rs = database.MakeConnection().createStatement().executeQuery(sql);
+            while(rs.next()){
+                this.uid =rs.getString("uid");
+                this.name = rs.getString("name");
+                this.type = rs.getInt("type");
+                this.gender = rs.getString("gender");
+                this.age = rs.getInt("age");
+                this.mail = rs.getString("mail");
+                this.medicalhistory = rs.getString("medicalhistory");
+                this.DoctorExpanse = rs.getDouble("DoctorExpanse");
+                this.PharmacyExpanse = rs.getDouble("PharmacyExpanse");
+                this.LabExpanse = rs.getDouble("LabExpanse");
+                this.OtherExpanse = rs.getDouble("OtherExpanse");
+                this.TotalBill = rs.getDouble("TotalBill");
 
+            }
+        } catch(Exception e){
+            e.printStackTrace();
         }
+
     }
     public void changepassword(){
         //password change

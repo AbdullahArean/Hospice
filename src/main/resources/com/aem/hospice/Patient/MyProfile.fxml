@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.Patient.MyProfileController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.Patient.MyProfileController">
    <left>
       <VBox prefHeight="292.0" prefWidth="143.0" style="-fx-background-color: #A2A2A1FF;" BorderPane.alignment="CENTER">
          <children>
@@ -133,76 +133,86 @@
          </children></HBox>
    </bottom>
    <right>
-        <AnchorPane prefHeight="278.0" prefWidth="457.0" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="408.0" prefWidth="612.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="23.0" layoutY="33.0" text="Name" textFill="#080604">
+            <Label layoutX="11.0" layoutY="33.0" text="Name" textFill="#080604">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField layoutX="115.0" layoutY="29.0" prefHeight="26.0" prefWidth="178.0" />
-            <Label layoutX="23.0" layoutY="74.0" prefHeight="19.0" prefWidth="78.0" text="UserName" textFill="#080604">
+            <TextField layoutX="79.0" layoutY="29.0" prefHeight="26.0" prefWidth="214.0" />
+            <Label layoutX="10.0" layoutY="74.0" prefHeight="19.0" prefWidth="78.0" text="UID" textFill="#080604">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField layoutX="116.0" layoutY="71.0" prefHeight="26.0" prefWidth="178.0" />
-            <Label layoutX="25.0" layoutY="172.0" text="Age" textFill="#080604">
+            <TextField layoutX="80.0" layoutY="71.0" prefHeight="26.0" prefWidth="214.0" />
+            <Label layoutX="14.0" layoutY="172.0" text="Age" textFill="#080604">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField layoutX="115.0" layoutY="169.0" prefHeight="26.0" prefWidth="178.0" />
-            <Label layoutX="12.0" layoutY="4.0" prefHeight="20.0" prefWidth="178.0" text="Personal Detials" textFill="#e47711">
+            <TextField layoutX="80.0" layoutY="169.0" prefHeight="26.0" prefWidth="213.0" />
+            <Label layoutX="6.0" layoutY="4.0" prefHeight="20.0" prefWidth="178.0" text="Personal Detials" textFill="#e47711">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="12.0" layoutY="208.0" text="Contact info" textFill="#e47711">
+            <Label layoutX="10.0" layoutY="208.0" text="Contact info" textFill="#e47711">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="23.0" layoutY="243.0" text="Phone" textFill="#080604">
+            <Label layoutX="13.0" layoutY="243.0" text="Mail" textFill="#080604">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="25.0" layoutY="285.0" text="Gmail" textFill="#080604">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <TextField layoutX="115.0" layoutY="240.0" prefHeight="26.0" prefWidth="178.0" />
-            <TextField layoutX="116.0" layoutY="281.0" prefHeight="26.0" prefWidth="178.0" />
-            <Button layoutX="508.0" layoutY="397.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #3710e0;" text="Save" textFill="#dedbea">
+            <TextField layoutX="78.0" layoutY="238.0" prefHeight="17.0" prefWidth="217.0" />
+            <Button layoutX="502.0" layoutY="390.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #3710e0;" text="Save" textFill="#dedbea">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button layoutX="371.0" layoutY="398.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="125.0" style="-fx-background-color: #3710e0;" text="Clear" textFill="#dedbea">
+            <Button layoutX="373.0" layoutY="391.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="107.0" style="-fx-background-color: #3710e0;" text="Clear" textFill="#dedbea">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Separator layoutX="319.0" layoutY="28.0" orientation="VERTICAL" prefHeight="336.0" prefWidth="5.0" style="-fx-background-color: #000000;" />
-            <TextField layoutX="338.0" layoutY="28.0" prefHeight="166.0" prefWidth="258.0" />
-            <Label layoutX="347.0" layoutY="4.0" text="Symptoms" textFill="#e47711">
+            <Label layoutX="331.0" layoutY="7.0" prefHeight="20.0" prefWidth="218.0" text="Previous Medical History" textFill="#e47711">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="347.0" layoutY="208.0" prefHeight="20.0" prefWidth="218.0" text="Previous Medical History" textFill="#e47711">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField layoutX="334.0" layoutY="236.0" prefHeight="154.0" prefWidth="263.0" />
-            <Label layoutX="21.0" layoutY="121.0" prefHeight="19.0" prefWidth="78.0" text="Gender" textFill="#080604">
+            <TextField layoutX="332.0" layoutY="38.0" prefHeight="154.0" prefWidth="259.0" />
+            <Label layoutX="10.0" layoutY="121.0" prefHeight="19.0" prefWidth="78.0" text="Gender" textFill="#080604">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField layoutX="116.0" layoutY="118.0" prefHeight="26.0" prefWidth="178.0" />
+            <TextField layoutX="81.0" layoutY="118.0" prefHeight="26.0" prefWidth="213.0" />
+            <Label layoutX="9.0" layoutY="277.0" text="Password Section" textFill="#e47711">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="312.0" prefHeight="16.0" prefWidth="115.0" text="Old Password" textFill="#080604">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="354.0" prefHeight="16.0" prefWidth="128.0" text="New Password" textFill="#080604">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <PasswordField layoutX="181.0" layoutY="308.0" />
+            <PasswordField layoutX="182.0" layoutY="351.0" />
+            <PasswordField layoutX="181.0" layoutY="391.0" />
+            <Label layoutX="10.0" layoutY="392.0" prefHeight="16.0" prefWidth="172.0" text="Retype New Password" textFill="#080604">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
          </children>
         </AnchorPane>
    </right>
