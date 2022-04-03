@@ -2,7 +2,7 @@ package com.aem.hospice.LoginRegister;
 
 import com.aem.hospice.Employee.EmployeepageController;
 import com.aem.hospice.Patient.PatientpageController;
-import com.aem.hospice.classes.database;
+import com.aem.hospice.Classes.database;
 import com.aem.hospice.PopUp.AlertBox;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

@@ -140,19 +140,19 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField layoutX="79.0" layoutY="29.0" prefHeight="26.0" prefWidth="214.0" />
+            <TextField fx:id="tf_name" layoutX="79.0" layoutY="29.0" prefHeight="26.0" prefWidth="214.0" />
             <Label layoutX="10.0" layoutY="74.0" prefHeight="19.0" prefWidth="78.0" text="UID" textFill="#080604">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField layoutX="80.0" layoutY="71.0" prefHeight="26.0" prefWidth="214.0" />
+            <TextField fx:id="tf_uid" layoutX="80.0" layoutY="71.0" prefHeight="26.0" prefWidth="214.0" />
             <Label layoutX="14.0" layoutY="172.0" text="Age" textFill="#080604">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField layoutX="80.0" layoutY="169.0" prefHeight="26.0" prefWidth="213.0" />
+            <TextField fx:id="tf_age" layoutX="80.0" layoutY="169.0" prefHeight="26.0" prefWidth="213.0" />
             <Label layoutX="6.0" layoutY="4.0" prefHeight="20.0" prefWidth="178.0" text="Personal Detials" textFill="#e47711">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -168,12 +168,12 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField layoutX="78.0" layoutY="238.0" prefHeight="17.0" prefWidth="217.0" />
-            <Button layoutX="502.0" layoutY="390.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #3710e0;" text="Save" textFill="#dedbea">
+            <TextField fx:id="tf_mail" layoutX="78.0" layoutY="238.0" prefHeight="17.0" prefWidth="217.0" />
+            <Button fx:id="bt_save" layoutX="502.0" layoutY="390.0" mnemonicParsing="false" onAction="#bt_save_pressed" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #3710e0;" text="Save" textFill="#dedbea">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button layoutX="373.0" layoutY="391.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="107.0" style="-fx-background-color: #3710e0;" text="Clear" textFill="#dedbea">
+            <Button fx:id="bt_clear" layoutX="373.0" layoutY="391.0" mnemonicParsing="false" onAction="#bt_clear_pressed" prefHeight="28.0" prefWidth="107.0" style="-fx-background-color: #3710e0;" text="Clear" textFill="#dedbea">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -183,13 +183,13 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="332.0" layoutY="38.0" prefHeight="154.0" prefWidth="259.0" />
+            <TextField fx:id="tf_medicalhistory" layoutX="332.0" layoutY="38.0" prefHeight="154.0" prefWidth="259.0" />
             <Label layoutX="10.0" layoutY="121.0" prefHeight="19.0" prefWidth="78.0" text="Gender" textFill="#080604">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TextField layoutX="81.0" layoutY="118.0" prefHeight="26.0" prefWidth="213.0" />
+            <TextField fx:id="tf_gender" layoutX="81.0" layoutY="118.0" prefHeight="26.0" prefWidth="213.0" />
             <Label layoutX="9.0" layoutY="277.0" text="Password Section" textFill="#e47711">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -205,9 +205,9 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <PasswordField layoutX="181.0" layoutY="308.0" />
-            <PasswordField layoutX="182.0" layoutY="351.0" />
-            <PasswordField layoutX="181.0" layoutY="391.0" />
+            <PasswordField fx:id="pf_oldpass" layoutX="181.0" layoutY="308.0" />
+            <PasswordField fx:id="pf_newpass" layoutX="182.0" layoutY="351.0" />
+            <PasswordField fx:id="pf_newpass2" layoutX="181.0" layoutY="391.0" />
             <Label layoutX="10.0" layoutY="392.0" prefHeight="16.0" prefWidth="172.0" text="Retype New Password" textFill="#080604">
                <font>
                   <Font name="System Bold" size="13.0" />

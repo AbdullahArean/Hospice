@@ -7,8 +7,8 @@ module com.aem.hospice {
 
     opens com.aem.hospice to javafx.fxml;
     exports com.aem.hospice;
-    exports com.aem.hospice.classes;
-    opens com.aem.hospice.classes to javafx.fxml;
+    exports com.aem.hospice.Classes;
+    opens com.aem.hospice.Classes to javafx.fxml;
     exports com.aem.hospice.PopUp;
     opens com.aem.hospice.PopUp to javafx.fxml;
     exports com.aem.hospice.Employee;

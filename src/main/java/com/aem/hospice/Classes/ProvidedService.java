@@ -1,8 +1,8 @@
-package com.aem.hospice.classes;
+package com.aem.hospice.Classes;
 
 import java.sql.*;
 
-import static com.aem.hospice.classes.database.generate_uid;
+import static com.aem.hospice.Classes.database.generate_uid;
 
 
 public class ProvidedService {

@@ -2,7 +2,7 @@ package com.aem.hospice.Employee;
 
 import com.aem.hospice.LoginRegister.Login;
 import com.aem.hospice.Patient.PatientExpanseController;
-import com.aem.hospice.classes.Employee;
+import com.aem.hospice.Classes.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 

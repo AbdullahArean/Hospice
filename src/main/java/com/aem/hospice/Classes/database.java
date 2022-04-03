@@ -1,5 +1,6 @@
-package com.aem.hospice.classes;
+package com.aem.hospice.Classes;
 
+import com.aem.hospice.PopUp.AlertBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.sql.*;
@@ -38,18 +39,22 @@ public class database {
         return generate_uid(table,pcol,login,"1234");
     }
     public static String generate_uid(String table, String pcol, int login, String password){
+        int cn=0;
         try {
-            String sql = "Select * from hospice." + table + ";";
+            String sql = "Select * from " + table + ";";
             ResultSet rs = database.MakeConnection().createStatement().executeQuery(sql);
             String generated_uid = null;
             while (rs.next()) {
                 generated_uid = rs.getString(pcol);
+                cn++;
 
             }
-            int temp = Integer.parseInt(sql) + 1;
+            System.out.println(generated_uid+" "+cn);
+            if(generated_uid==null) generated_uid="10100";
+            int temp = Integer.parseInt(generated_uid) + 1;
             generated_uid = String.valueOf(temp);
             if (login == 1) {
-                sql = "insert into login values ('" + sql + "','"+password+"');";
+                sql = "insert into login values ('" + generated_uid + "','"+password+"');";
                 database.MakeConnection().createStatement().execute(sql);
             }
             return generated_uid;
@@ -75,16 +80,23 @@ public class database {
         }
         return list;
     }
-    public static void ChangePassword(String uid, String password){
-        String query = "UPDATE login set password=? WHERE uid =? ;";
-        try {
-            PreparedStatement pstmt =  database.MakeConnection().prepareStatement(query);
-            pstmt.setString(2, uid);
-            pstmt.setString(1, password);
-            pstmt.executeUpdate();
-        } catch(Exception e){
-            e.printStackTrace();
+    public static void ChangePassword(String uid, String oldpassword , String newpassword){
+        if(loginvalidate(uid,oldpassword)){
+            String query = "UPDATE login set password=? WHERE uid =? ;";
+            try {
+                PreparedStatement pstmt =  database.MakeConnection().prepareStatement(query);
+                pstmt.setString(2, uid);
+                pstmt.setString(1, newpassword);
+                pstmt.executeUpdate();
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+
         }
+        else{
+            AlertBox.display("Wrong Password", "Try Again");
+        }
+
 
     }
 

@@ -1,8 +1,7 @@
 package com.aem.hospice.Patient;
 import com.aem.hospice.LoginRegister.Login;
-import com.aem.hospice.classes.Patient;
+import com.aem.hospice.Classes.Patient;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.sql.SQLException;

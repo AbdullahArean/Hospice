@@ -1,8 +1,8 @@
-package com.aem.hospice.classes;
+package com.aem.hospice.Classes;
 
 import com.aem.hospice.PopUp.AlertBox;
 import java.sql.*;
-import static com.aem.hospice.classes.database.generate_uid;
+import static com.aem.hospice.Classes.database.generate_uid;
 
 public class Patient {
     private String name="";
@@ -61,8 +61,10 @@ public class Patient {
         this.name = name;
         this.mail = mail;
         this.uid=generate_uid("patient","uid",1,password);
-        AlertBox.display("Patient ID Creation Successfull","UID : "+ uid);
+        System.out.println(this.uid);
         databaseinp();
+        AlertBox.display("Patient ID Creation Successfull","UID : "+ this.uid);
+
 
     }
     Patient(String name, String gender, int age, String mail, String medicalhistory) throws SQLException {
@@ -76,7 +78,7 @@ public class Patient {
 
     }
     public Patient(String uid){
-        String sql = "Select * from hospice.patient where uid=\""+uid+"\";";
+        String sql = "Select * from patient where uid=\""+uid+"\";";
         try {
             ResultSet rs = database.MakeConnection().createStatement().executeQuery(sql);
             while(rs.next()){
@@ -228,7 +230,7 @@ public class Patient {
     //fetch other bill
     //generate total bill
     public static void main(String[] args) throws SQLException {
-        Patient p1 = new Patient("Shanto","male",20,"santo@gmail.com","none");
+        Patient p1 = new Patient("arean","ab","as");
 
     }
 

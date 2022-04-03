@@ -1,7 +1,7 @@
 package com.aem.hospice.LoginRegister;
 
 
-import com.aem.hospice.classes.Patient;
+import com.aem.hospice.Classes.Patient;
 import com.aem.hospice.PopUp.AlertBox;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,7 +39,7 @@ public class Register {
             System.out.println(e.getMessage());
         }
     }
-    public void BackToLogin(ActionEvent actionEvent) throws IOException {
+    public void BackToLogin(ActionEvent actionEvent){
         try {
             new Login().start(Login.returnStage());
         }

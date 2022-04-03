@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -13,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.Patient.DoctorPrescriptionController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.Patient.DoctorPrescriptionController">
     <left>
         <VBox prefHeight="292.0" prefWidth="143.0" style="-fx-background-color: #A2A2A1FF;" BorderPane.alignment="CENTER">
             <children>
@@ -136,7 +135,7 @@
     <center>
         <AnchorPane prefHeight="278.0" prefWidth="457.0" BorderPane.alignment="CENTER">
             <children>
-                <TableView layoutX="-2.0" layoutY="-1.0" prefHeight="428.0" prefWidth="624.0" style="-fx-background-color: #4c6e41;">
+                <TableView layoutY="1.0" prefHeight="424.0" prefWidth="612.0">
                     <columns>
                         <TableColumn prefWidth="123.99994850158691" text="Medicines" />
                         <TableColumn prefWidth="89.60003662109375" text="Duration" />

@@ -1,7 +1,7 @@
 package com.aem.hospice.Patient;
 
-import com.aem.hospice.classes.ProvidedService;
-import com.aem.hospice.classes.database;
+import com.aem.hospice.Classes.ProvidedService;
+import com.aem.hospice.Classes.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

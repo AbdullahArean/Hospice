@@ -1,8 +1,8 @@
-package com.aem.hospice.classes;
+package com.aem.hospice.Classes;
 
 import java.sql.*;
 
-import static com.aem.hospice.classes.database.generate_uid;
+import static com.aem.hospice.Classes.database.generate_uid;
 
 public class Service {
     private String uid;
@@ -11,16 +11,10 @@ public class Service {
     private double cost_unit;
     private double discount;
     private String description;
-    private Connection conn;
-    private Statement mysta;
     private void databaseupdate() throws SQLException {
-        conn = database.MakeConnection();
-        if(conn==null) {System.out.println("NULL");}
-        mysta = conn.createStatement();
-        PreparedStatement pstmt = null;
         String query = "UPDATE service set uid=?, name=?, type=?,description=?,cost_unit=?,discount=? WHERE uid =? ;";
         try {
-            pstmt = getPreparedStatement(query);
+            PreparedStatement pstmt = getPreparedStatement(query);
             pstmt.setString(7, uid);
             int status = pstmt.executeUpdate();
             if(status > 0) {
@@ -34,7 +28,7 @@ public class Service {
 
     private PreparedStatement getPreparedStatement(String query) throws SQLException {
         PreparedStatement pstmt;
-        pstmt = conn.prepareStatement(query);
+        pstmt = database.MakeConnection().prepareStatement(query);
         pstmt.setString(1, uid);
         pstmt.setString(2, name);
         pstmt.setInt(3, type);
@@ -44,17 +38,11 @@ public class Service {
         return pstmt;
     }
     private void databaseinp() throws SQLException {
-        conn = database.MakeConnection();
-        if(conn==null) {System.out.println("NULL");}
-        mysta = conn.createStatement();
-        PreparedStatement pstmt = null;
         String query = "INSERT INTO service(uid, name, type,description,cost_unit,discount)" + "VALUES (?, ?, ?,?, ?, ?)";
         try {
-            pstmt = getPreparedStatement(query);
-            int status = pstmt.executeUpdate();
-            if(status > 0) {
-                System.out.println("Record is inserted successfully !!!");
-            }
+            PreparedStatement pstmt = getPreparedStatement(query);
+            pstmt.executeUpdate();
+
         } catch(Exception e){
             e.printStackTrace();
         }
@@ -69,26 +57,25 @@ public class Service {
         databaseinp();
     }
 
-    Service(String uid) throws SQLException {
-        Connection conn = database.MakeConnection();
-        if(conn==null) {System.out.println("NULL");}
-        Statement mysta = conn.createStatement();
+    Service(String uid){
+
         String sql = "Select * from hospice.service where uid=\""+uid+"\";";
-        ResultSet rs = mysta.executeQuery(sql);
-        while(rs.next()){
-            this.uid =rs.getString("uid");
-            this.name = rs.getString("name");
-            this.type = rs.getInt("type");
-            this.description = rs.getString("description");
-            this.cost_unit= rs.getDouble("cost_unit");
-            this.discount =rs.getDouble("discount");
+        try{
+            ResultSet rs = database.MakeConnection().createStatement().executeQuery(sql);
+            while(rs.next()){
+                this.uid =rs.getString("uid");
+                this.name = rs.getString("name");
+                this.type = rs.getInt("type");
+                this.description = rs.getString("description");
+                this.cost_unit= rs.getDouble("cost_unit");
+                this.discount =rs.getDouble("discount");
 
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
-    }
 
-    public static void main(String[] args) throws SQLException {
-       Service s1 = new Service("ECG",2,"A Test",1000,0);
-        Service s2 = new Service("Ecocardiogram",2,"A Tablet",1400,0);
     }
 
     public String getUid() {
