@@ -27,7 +27,7 @@
                                                 <Font name="System Bold" size="11.0" />
                                             </font>
                                         </Button>
-                                        <Button layoutX="-16.0" layoutY="47.0" mnemonicParsing="false" onAction="#dpButton" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #F1F4FFFF;" text="Doctor prescription">
+                                        <Button layoutX="-16.0" layoutY="47.0" mnemonicParsing="false" onAction="#dpButton" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #95DBE5FF;" text="Doctor prescription">
                                             <font>
                                                 <Font name="System Bold" size="11.0" />
                                             </font>

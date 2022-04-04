@@ -44,7 +44,7 @@
                                                 <Font name="System Bold" size="11.0" />
                                             </font>
                                         </Button>
-                                        <Button layoutX="-16.0" layoutY="176.0" mnemonicParsing="false" onAction="#PatientExpanseButton" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #F1F4FFFF;" text="Patient Exapanse">
+                                        <Button layoutX="-16.0" layoutY="176.0" mnemonicParsing="false" onAction="#PatientExpanseButton" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #95DBE5FF;" text="Patient Exapanse">
                                             <font>
                                                 <Font name="System Bold" size="11.0" />
                                             </font>

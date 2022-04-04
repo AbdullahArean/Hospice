@@ -27,10 +27,7 @@ public class LoginController {
         try{
             FXMLLoader loader=new FXMLLoader(getClass().getResource("LoginController.fxml"));
             Parent root=loader.load();
-
-           // System.out.println("second ");
             stage=(Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-
             stage.setTitle("Hospice");
             Scene scene=new Scene(root);
             stage.setScene(scene);
