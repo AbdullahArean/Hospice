@@ -1,7 +1,7 @@
 package com.aem.hospice.Patient;
 
 import com.aem.hospice.Classes.ProvidedService;
-import com.aem.hospice.Classes.database;
+import com.aem.hospice.Classes.DBLogInManagerMySQL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -68,7 +68,7 @@ public class PatientExpanseController extends PatientpageController implements I
     }
     public void calculateexpanse(String coln, String uid5){
         try {
-            Connection conn = database.MakeConnection();
+            Connection conn = DBLogInManagerMySQL.MakeConnection();
             Statement mysta = conn.createStatement();
             String sql = "SELECT * from providedservice WHERE " + coln + "= '" + uid5 + "' ;";
             ResultSet rs = mysta.executeQuery(sql);

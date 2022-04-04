@@ -2,7 +2,7 @@ package com.aem.hospice.Classes;
 
 import java.sql.*;
 
-import static com.aem.hospice.Classes.database.generate_uid;
+import static com.aem.hospice.Classes.DBLogInManagerMySQL.GenerateUid;
 
 
 public class ProvidedService {
@@ -29,7 +29,7 @@ public class ProvidedService {
     private PreparedStatement getPreparedStatement(String query) {
 
         try{PreparedStatement PrepareStatement_PS;
-        PrepareStatement_PS = database.MakeConnection().prepareStatement(query);
+        PrepareStatement_PS = DBLogInManagerMySQL.MakeConnection().prepareStatement(query);
         PrepareStatement_PS.setString(1, ps_uid);
         PrepareStatement_PS.setString(2, s_uid);
         PrepareStatement_PS.setString(3, p_uid);
@@ -60,7 +60,7 @@ public class ProvidedService {
         this.p_uid = p_uid;
         this.e_uid= e_uid;
         this.quantity=quantity;
-        this.ps_uid = generate_uid("providedservice","ps_uid",0);
+        this.ps_uid = DBLogInManagerMySQL.GenerateUid("providedservice","ps_uid",0);
         this.bill = generate_bill_type_name(quantity);
         Databaseinput();
     }
@@ -76,7 +76,7 @@ public class ProvidedService {
     public ProvidedService(String uid){
         String sql = "Select * from hospice.providedservice where ps_uid=\""+uid+"\";";
         try{
-            ResultSet rs = database.MakeConnection().createStatement().executeQuery(sql);
+            ResultSet rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
             while(rs.next()){
                 this.ps_uid =rs.getString("ps_uid");
                 this.s_uid =rs.getString("s_uid");

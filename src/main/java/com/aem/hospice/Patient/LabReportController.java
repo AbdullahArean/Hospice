@@ -1,7 +1,7 @@
 package com.aem.hospice.Patient;
 
 import com.aem.hospice.Classes.ProvidedService;
-import com.aem.hospice.Classes.database;
+import com.aem.hospice.Classes.DBLogInManagerMySQL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -74,7 +74,7 @@ public class LabReportController extends PatientpageController implements Initia
     }
     public void calculateexpanse(int type, String coln, String uid5){
         try {
-            Connection conn = database.MakeConnection();
+            Connection conn = DBLogInManagerMySQL.MakeConnection();
             Statement mysta = conn.createStatement();
             String sql = "SELECT * from providedservice WHERE s_type= '" + type + "' AND " + coln + "= '" + uid5 + "' ;";
             ResultSet rs = mysta.executeQuery(sql);

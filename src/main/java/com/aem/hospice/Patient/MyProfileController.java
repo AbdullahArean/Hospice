@@ -1,6 +1,6 @@
 package com.aem.hospice.Patient;
 
-import com.aem.hospice.Classes.database;
+import com.aem.hospice.Classes.DBLogInManagerMySQL;
 import com.aem.hospice.PopUp.AlertBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +14,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -101,7 +100,7 @@ public class MyProfileController extends PatientpageController implements Initia
             patient1.setMedicalhistory(tf_medicalhistory.getText());
             patient1.setGender(tf_gender.getText());
             if(pf_newpass.getText().equals(pf_newpass2.getText())){
-                database.ChangePassword(patient1.getUid(),pf_oldpass.getText(), pf_newpass.getText());
+                DBLogInManagerMySQL.ChangePassword(patient1.getUid(),pf_oldpass.getText(), pf_newpass.getText());
             }
             else{
                 AlertBox.display("Password didn't matched", "Try Again");

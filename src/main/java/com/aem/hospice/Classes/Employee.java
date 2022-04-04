@@ -2,7 +2,7 @@ package com.aem.hospice.Classes;
 
 import java.sql.*;
 
-import static com.aem.hospice.Classes.database.generate_uid;
+import static com.aem.hospice.Classes.DBLogInManagerMySQL.GenerateUid;
 
 public class Employee {
     private String uid=" ";
@@ -15,7 +15,7 @@ public class Employee {
     private Connection conn;
     private Statement mysta;
     private void databaseupdate() throws SQLException {
-        conn = database.MakeConnection();
+        conn = DBLogInManagerMySQL.MakeConnection();
         if(conn==null) {System.out.println("NULL");}
         mysta = conn.createStatement();
         PreparedStatement pstmt = null;
@@ -46,7 +46,7 @@ public class Employee {
         return pstmt;
     }
     private void databaseinp() throws SQLException {
-        conn = database.MakeConnection();
+        conn = DBLogInManagerMySQL.MakeConnection();
         if(conn==null) {System.out.println("NULL");}
         mysta = conn.createStatement();
         PreparedStatement pstmt = null;
@@ -68,12 +68,12 @@ public class Employee {
         this.age = age;
         this.mail = mail;
         this.MonthlySalary = monthlySalary;
-        this.uid = generate_uid("employee","uid",1);
+        this.uid = DBLogInManagerMySQL.GenerateUid("employee","uid",1);
         databaseinp();
     }
 
     public Employee(String uid) throws SQLException {
-        Connection conn = database.MakeConnection();
+        Connection conn = DBLogInManagerMySQL.MakeConnection();
         if(conn==null) {System.out.println("NULL");}
         Statement mysta = conn.createStatement();
         String sql = "Select * from hospice.employee where uid=\""+uid+"\";";

@@ -2,7 +2,7 @@ package com.aem.hospice.Classes;
 
 import java.sql.*;
 
-import static com.aem.hospice.Classes.database.generate_uid;
+import static com.aem.hospice.Classes.DBLogInManagerMySQL.GenerateUid;
 
 public class Service {
     private String uid;
@@ -28,7 +28,7 @@ public class Service {
 
     private PreparedStatement getPreparedStatement(String query) throws SQLException {
         PreparedStatement pstmt;
-        pstmt = database.MakeConnection().prepareStatement(query);
+        pstmt = DBLogInManagerMySQL.MakeConnection().prepareStatement(query);
         pstmt.setString(1, uid);
         pstmt.setString(2, name);
         pstmt.setInt(3, type);
@@ -53,7 +53,7 @@ public class Service {
         this.description= description;
         this.cost_unit=cost_unit;
         this.discount=discount;
-        this.uid = generate_uid("service","uid",0);
+        this.uid = DBLogInManagerMySQL.GenerateUid("service","uid",0);
         databaseinp();
     }
 
@@ -61,7 +61,7 @@ public class Service {
 
         String sql = "Select * from hospice.service where uid=\""+uid+"\";";
         try{
-            ResultSet rs = database.MakeConnection().createStatement().executeQuery(sql);
+            ResultSet rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
             while(rs.next()){
                 this.uid =rs.getString("uid");
                 this.name = rs.getString("name");

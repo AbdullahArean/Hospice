@@ -2,7 +2,7 @@ package com.aem.hospice.LoginRegister;
 
 import com.aem.hospice.Employee.EmployeepageController;
 import com.aem.hospice.Patient.PatientpageController;
-import com.aem.hospice.Classes.database;
+import com.aem.hospice.Classes.DBLogInManagerMySQL;
 import com.aem.hospice.PopUp.AlertBox;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,7 +59,7 @@ public class LoginController {
         uid1=uid.getText();
         pass1 = password.getText();
 
-        if(database.loginvalidate(uid1,pass1))
+        if(DBLogInManagerMySQL.LogInValidate(uid1,pass1))
         {
 
             Stage s = Login.returnStage();

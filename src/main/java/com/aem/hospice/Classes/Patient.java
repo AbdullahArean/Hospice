@@ -1,10 +1,12 @@
 package com.aem.hospice.Classes;
 
 import com.aem.hospice.PopUp.AlertBox;
-import java.sql.*;
-import static com.aem.hospice.Classes.database.generate_uid;
 
-public class Patient {
+import java.sql.*;
+
+import static com.aem.hospice.Classes.DBLogInManagerMySQL.GenerateUid;
+
+public class Patient implements RealEntity {
     private String name="";
     private String  uid;
     private int type = 1;
@@ -17,92 +19,26 @@ public class Patient {
     private double LabExpanse=0;
     private double OtherExpanse =0;
     private double TotalBill=0;
-    private PreparedStatement pstmt;
+    private ClassDBConnector DBConnection;
 
-
-    private void databaseinp(){
-        String query = "INSERT INTO patient(uid, name, type,gender,age,mail,medicalhistory,DoctorExpanse,PharmacyExpanse,LabExpanse,OtherExpanse,TotalBill)" + "VALUES (?, ?, ?,?, ?, ?,?, ?, ?,?, ?, ?)";
-        try {
-            pstmt = getPreparedStatement(query);
-            pstmt.executeUpdate();
-
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-    private void databaseupdate(){
-        String query = "UPDATE patient set uid=?, name=?, type=?,gender=?,age=?,mail=?,medicalhistory=?,DoctorExpanse=?,PharmacyExpanse=?,LabExpanse=?,OtherExpanse=?,TotalBill=? WHERE uid =? ;";
-        try {
-            pstmt = getPreparedStatement(query);
-            pstmt.setString(13, uid);
-            pstmt.executeUpdate();
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-
-    }
-    private PreparedStatement getPreparedStatement(String query) throws SQLException {
-        pstmt = database.MakeConnection().prepareStatement(query);
-        pstmt.setString(1, uid);
-        pstmt.setString(2, name);
-        pstmt.setInt(3, type);
-        pstmt.setString(4, gender);
-        pstmt.setInt(5, age);
-        pstmt.setString(6, mail);
-        pstmt.setString(7, medicalhistory);
-        pstmt.setDouble(8, DoctorExpanse);
-        pstmt.setDouble(9, PharmacyExpanse);
-        pstmt.setDouble(10, LabExpanse);
-        pstmt.setDouble(11, OtherExpanse);
-        pstmt.setDouble(12, TotalBill);
-        return pstmt;
-    }
     public Patient(String name, String mail, String password) throws SQLException {
+        DBConnection = new PatientDBConnectorMySQL();
         this.name = name;
         this.mail = mail;
-        this.uid=generate_uid("patient","uid",1,password);
-        System.out.println(this.uid);
-        databaseinp();
-        AlertBox.display("Patient ID Creation Successfull","UID : "+ this.uid);
+        this.uid= GenerateUid("patient","uid",1,password);
+        DBConnection.InsertIntoDatabase(this);
+        try{
+            AlertBox.display("Patient ID Creation Successfull","UID : "+ this.uid);
+        }catch (Exception e){
+            System.out.println("Patient ID Creation Successfull "+"\nUID : "+ this.uid);
+        }
 
-
-    }
-    Patient(String name, String gender, int age, String mail, String medicalhistory) throws SQLException {
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-        this.mail = mail;
-        this.medicalhistory = medicalhistory;
-        this.uid=generate_uid("patient","uid",1);
-        databaseinp();
 
     }
     public Patient(String uid){
-        String sql = "Select * from patient where uid=\""+uid+"\";";
-        try {
-            ResultSet rs = database.MakeConnection().createStatement().executeQuery(sql);
-            while(rs.next()){
-                this.uid =rs.getString("uid");
-                this.name = rs.getString("name");
-                this.type = rs.getInt("type");
-                this.gender = rs.getString("gender");
-                this.age = rs.getInt("age");
-                this.mail = rs.getString("mail");
-                this.medicalhistory = rs.getString("medicalhistory");
-                this.DoctorExpanse = rs.getDouble("DoctorExpanse");
-                this.PharmacyExpanse = rs.getDouble("PharmacyExpanse");
-                this.LabExpanse = rs.getDouble("LabExpanse");
-                this.OtherExpanse = rs.getDouble("OtherExpanse");
-                this.TotalBill = rs.getDouble("TotalBill");
-
-            }
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-
-    }
-    public void changepassword(){
-        //password change
+        this.uid = uid;
+        DBConnection = new PatientDBConnectorMySQL();
+        DBConnection.InsertIntoDatabase(this);
     }
 
     public String getName() {
@@ -111,7 +47,7 @@ public class Patient {
 
     public void setName(String name) {
         this.name = name;
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public String getUid() {
@@ -120,8 +56,7 @@ public class Patient {
 
     public void setUid(String uid) {
         this.uid = uid;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public int getType() {
@@ -130,8 +65,7 @@ public class Patient {
 
     public void setType(int type) {
         this.type = type;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public String getGender() {
@@ -140,8 +74,7 @@ public class Patient {
 
     public void setGender(String gender) {
         this.gender = gender;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public int getAge() {
@@ -150,8 +83,7 @@ public class Patient {
 
     public void setAge(int age) {
         this.age = age;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public String getMail() {
@@ -160,8 +92,7 @@ public class Patient {
 
     public void setMail(String mail) {
         this.mail = mail;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public String getMedicalhistory() {
@@ -170,8 +101,7 @@ public class Patient {
 
     public void setMedicalhistory(String medicalhistory) {
         this.medicalhistory = medicalhistory;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public double getDoctorExpanse() {
@@ -180,8 +110,7 @@ public class Patient {
 
     public void setDoctorExpanse(double doctorExpanse) {
         DoctorExpanse = doctorExpanse;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public double getPharmacyExpanse() {
@@ -190,8 +119,7 @@ public class Patient {
 
     public void setPharmacyExpanse(double pharmacyExpanse) {
         PharmacyExpanse = pharmacyExpanse;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public double getLabExpanse() {
@@ -200,8 +128,7 @@ public class Patient {
 
     public void setLabExpanse(double labExpanse) {
         LabExpanse = labExpanse;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public double getOtherExpanse() {
@@ -210,8 +137,7 @@ public class Patient {
 
     public void setOtherExpanse(double otherExpanse) {
         OtherExpanse = otherExpanse;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public double getTotalBill() {
@@ -220,8 +146,7 @@ public class Patient {
 
     public void setTotalBill(double totalBill) {
         TotalBill = totalBill;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     //Feth doctor bill
@@ -229,10 +154,8 @@ public class Patient {
     //fetch lab bill
     //fetch other bill
     //generate total bill
-    public static void main(String[] args) throws SQLException {
-        Patient p1 = new Patient("arean","ab","as");
+   
 
-    }
 
 
 
