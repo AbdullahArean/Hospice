@@ -12,7 +12,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.Employee.EServiceController">
     <left>
         <VBox prefHeight="292.0" prefWidth="143.0" style="-fx-background-color: #A2A2A1FF;" BorderPane.alignment="CENTER">
@@ -134,61 +136,95 @@
             </children></HBox>
     </bottom>
     <center>
-        <AnchorPane prefHeight="399.0" prefWidth="576.0" style="-fx-background-color: #050505;" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="423.0" prefWidth="609.0" style="-fx-background-color: #F1F4FFFF;" BorderPane.alignment="CENTER">
             <children>
-                <TableView layoutX="1.0" layoutY="-1.0" prefHeight="177.0" prefWidth="614.0" style="-fx-background-color: #4c6e41;">
+                <TableView fx:id="estable" layoutX="1.0" layoutY="-1.0" prefHeight="162.0" prefWidth="616.0" style="-fx-background-color: #A2A2A1FF;">
                     <columns>
-                        <TableColumn prefWidth="123.99994850158691" text="Service UID" />
-                        <TableColumn prefWidth="122.0" text="Service Name" />
-                        <TableColumn minWidth="0.0" prefWidth="208.0" text="Service Description" />
-                        <TableColumn minWidth="0.0" prefWidth="161.0" text="Cost Per Unit" />
+                        <TableColumn fx:id="col_suid" prefWidth="102.0" text="Service UID" />
+                        <TableColumn fx:id="col_sname" prefWidth="141.0" text="Service Name" />
+                        <TableColumn fx:id="col_sdesc" minWidth="0.0" prefWidth="153.0" text="Service Description" />
+                        <TableColumn minWidth="0.0" prefWidth="105.0" text="Cost Per Unit" />
+                  <TableColumn prefWidth="112.0" text="Service Type" />
                     </columns>
                 </TableView>
-            <Label layoutX="14.0" layoutY="182.0" text="Add Service : " textFill="#03ffe7">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Label>
-            <Label layoutX="16.0" layoutY="205.0" text="Service UID : " textFill="#f2c604">
+            <Label layoutX="11.0" layoutY="177.0" text="Service Name : ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="124.0" layoutY="202.0" prefHeight="24.0" prefWidth="159.0" promptText="Enter Service UID" />
-            <Label layoutX="312.0" layoutY="205.0" text="Service Name : " textFill="#f2c604">
+            <TextField layoutX="151.0" layoutY="174.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Service Name" />
+            <Label layoutX="14.0" layoutY="208.0" text="Cost Per Unit :">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="446.0" layoutY="202.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Service Name" />
-            <Label layoutX="311.0" layoutY="239.0" text="Cost Per Unit :" textFill="#f2c604">
+            <TextField layoutX="152.0" layoutY="201.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Cost Per Unit" />
+            <Label layoutX="334.0" layoutY="185.0" prefHeight="18.0" prefWidth="178.0" text="Service Description : ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="446.0" layoutY="236.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Cost Per Unit" />
-            <Label layoutX="16.0" layoutY="239.0" prefHeight="18.0" prefWidth="178.0" text="Service Description : " textFill="#f2c604">
+            <TextArea layoutX="336.0" layoutY="207.0" prefHeight="49.0" prefWidth="281.0" promptText="Enter Service Description" />
+            <Label layoutX="18.0" layoutY="270.0" text="Service UID : ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextArea layoutX="16.0" layoutY="260.0" prefHeight="58.0" prefWidth="296.0" promptText="Enter Service Description" />
-            <Label layoutX="34.0" layoutY="357.0" text="Delete Service : " textFill="#03ffe7">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="34.0" layoutY="389.0" text="Service UID : " textFill="#f2c604">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <TextField layoutX="151.0" layoutY="386.0" prefHeight="24.0" prefWidth="145.0" promptText="Enter Service UID" />
-            <Button layoutX="531.0" layoutY="272.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" style="-fx-background-color: #011ef5;" text="ADD" textFill="#f7008c">
+            <TextField layoutX="152.0" layoutY="268.0" prefHeight="24.0" prefWidth="169.0" promptText="Enter Service UID" />
+            <Button layoutX="518.0" layoutY="167.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="96.0" style="-fx-background-color: #95DBE5FF;" text="ADD">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="525.0" layoutY="381.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="85.0" style="-fx-background-color: #011ef5;" text="Delete" textFill="#f7008c">
+            <Button layoutX="518.0" layoutY="264.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: #95DBE5FF;" text="Delete">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="20.0" layoutY="309.0" text="Service UID  : ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="150.0" layoutY="306.0" prefHeight="24.0" prefWidth="167.0" promptText="Enter Service UID" />
+            <Label layoutX="17.0" layoutY="237.0" text="Service Type : ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="152.0" layoutY="228.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Service Type" />
+            <Line endX="504.0" layoutX="114.0" layoutY="261.0" startX="-100.0" />
+            <Line endX="504.0" layoutX="117.0" layoutY="300.0" startX="-100.0" />
+            <Label layoutX="18.0" layoutY="340.0" text="Service Name : ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="151.0" layoutY="337.0" prefHeight="24.0" prefWidth="167.0" promptText="Enter Service Name" />
+            <Label layoutX="22.0" layoutY="368.0" text="Cost Per Unit :">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="150.0" layoutY="365.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Cost Per Unit" />
+            <Label layoutX="332.0" layoutY="339.0" prefHeight="18.0" prefWidth="178.0" text="Service Description : ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextArea layoutX="329.0" layoutY="361.0" prefHeight="53.0" prefWidth="287.0" promptText="Enter Service Description" />
+            <Label layoutX="20.0" layoutY="394.0" text="Service Type : ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="151.0" layoutY="393.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Service Type" />
+            <Button layoutX="519.0" layoutY="302.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #95DBE5FF;" text="Update">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="325.0" layoutY="303.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #95DBE5FF;" text="Load">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>

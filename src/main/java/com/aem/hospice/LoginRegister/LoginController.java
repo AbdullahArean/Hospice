@@ -78,4 +78,9 @@ public class LoginController {
 
     }
 
+    public void resetpass(ActionEvent actionEvent) {
+    }
+
+    public void recoveruid(ActionEvent actionEvent) {
+    }
 }
