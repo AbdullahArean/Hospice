@@ -23,12 +23,12 @@ public class LoginController {
     private static Stage stage;
 
     String uid1, pass1;
-    public void login(ActionEvent actionEvent)throws IOException{
+    public void login(ActionEvent actionEvent){
         try{
             FXMLLoader loader=new FXMLLoader(getClass().getResource("LoginController.fxml"));
             Parent root=loader.load();
             stage=(Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-            stage.setTitle("Hospice");
+            stage.setTitle("Hospice Log In");
             Scene scene=new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -36,10 +36,6 @@ public class LoginController {
         catch(Exception e){
             System.out.println(e.getMessage());
         }
-    }
-    public static Stage returnStage(){
-        return stage;
-
     }
 
     public void Register(ActionEvent actionEvent) throws IOException{
@@ -56,17 +52,15 @@ public class LoginController {
         uid1=uid.getText();
         pass1 = password.getText();
 
-        if(DBLogInManagerMySQL.LogInValidate(uid1,pass1))
+        if(!uid1.isEmpty() && DBLogInManagerMySQL.LogInValidate(uid1,pass1))
         {
-
-            Stage s = Login.returnStage();
-            if(uid1.charAt(0)=='1')
+            if(uid1.charAt(0)=='1') //Patient
             {
-
                PatientpageController pp = new PatientpageController(uid1);
-               pp.patient(actionEvent);
+               pp.patientpagestart(actionEvent);
             }
-            else if(uid1.charAt(0) == '3'){
+            else if(uid1.charAt(0) == '3')//Employee
+            {
                 EmployeepageController ep = new EmployeepageController(uid1);
                 ep.employee(actionEvent);
             }

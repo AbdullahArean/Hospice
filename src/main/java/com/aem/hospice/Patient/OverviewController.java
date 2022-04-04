@@ -14,7 +14,7 @@ public class OverviewController extends PatientpageController {
             Parent root=loader.load();
             Stage stage=(Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
-            stage.setTitle("Hospice");
+            stage.setTitle("Hospice Patient Overview");
             Scene scene=new Scene(root);
             stage.setScene(scene);
             stage.show();

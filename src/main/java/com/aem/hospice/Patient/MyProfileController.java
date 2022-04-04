@@ -59,7 +59,7 @@ public class MyProfileController extends PatientpageController implements Initia
 
             Stage stage=(Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
-            stage.setTitle("Hospice");
+            stage.setTitle("Hospice Patient My Profile");
             Scene scene=new Scene(root);
             stage.setScene(scene);
             stage.show();

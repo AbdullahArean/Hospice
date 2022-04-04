@@ -58,7 +58,7 @@ public class PatientExpanseController extends PatientpageController implements I
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Patient.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setTitle("Hospice");
+            stage.setTitle("Hospice Patient Total Expanse");
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -66,11 +66,11 @@ public class PatientExpanseController extends PatientpageController implements I
             System.out.println(e.getMessage());
         }
     }
-    public void calculateexpanse(String coln, String uid5){
+    public void calculateexpanse(String coln, String givenuid){
         try {
             Connection conn = DBLogInManagerMySQL.MakeConnection();
             Statement mysta = conn.createStatement();
-            String sql = "SELECT * from providedservice WHERE " + coln + "= '" + uid5 + "' ;";
+            String sql = "SELECT * from providedservice WHERE " + coln + "= '" + givenuid + "' ;";
             ResultSet rs = mysta.executeQuery(sql);
             while (rs.next()) {
                 e+= rs.getDouble("bill");

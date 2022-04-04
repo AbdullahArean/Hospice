@@ -60,7 +60,7 @@ public class MedicineController extends PatientpageController implements Initial
 
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setTitle("Hospice Patient Medicine & Bill");
+            stage.setTitle("Hospice Patient Medicine");
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -89,6 +89,7 @@ public class MedicineController extends PatientpageController implements Initial
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         calculateexpanse(1,"p_uid", patient1.getUid());
+        patient1.setPharmacyExpanse(e);
         total_expanse.setText(""+e);
         paid.setText(""+p);
         due.setText(""+d);

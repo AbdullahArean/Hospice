@@ -4,7 +4,7 @@ import java.sql.*;
 
 import static com.aem.hospice.Classes.DBLogInManagerMySQL.GenerateUid;
 
-public class Employee {
+public class Employee implements RealEntity{
     private String uid=" ";
     private String name= " ";
     private int type;

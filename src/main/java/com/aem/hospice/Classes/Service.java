@@ -11,7 +11,7 @@ public class Service {
     private double cost_unit;
     private double discount;
     private String description;
-    private void databaseupdate() throws SQLException {
+    private void databaseupdate() {
         String query = "UPDATE service set uid=?, name=?, type=?,description=?,cost_unit=?,discount=? WHERE uid =? ;";
         try {
             PreparedStatement pstmt = getPreparedStatement(query);

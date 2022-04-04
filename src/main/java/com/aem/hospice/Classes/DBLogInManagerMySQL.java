@@ -1,7 +1,6 @@
 package com.aem.hospice.Classes;
 
 import com.aem.hospice.PopUp.AlertBox;
-
 import java.sql.*;
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -93,5 +92,24 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
         Matcher m = p.matcher(password);
         return m.matches();
     }
+//    public static ObservableList<ProvidedService> FetchBillFromProvidedService(int type, String coln, String uid5){
+//        ObservableList<ProvidedService> list = FXCollections.observableArrayList();
+//        try {
+//            Connection conn = DBLogInManagerMySQL.MakeConnection();
+//            Statement mysta = conn.createStatement();
+//            String sql = "SELECT * from providedservice WHERE s_type= '" + type + "' AND " + coln + "= '" + uid5 + "' ;";
+//            ResultSet rs = mysta.executeQuery(sql);
+//            while (rs.next()) {
+//                e+= rs.getDouble("bill");
+//                p+= rs.getDouble("paid");
+//                d+=rs.getDouble("bill")-rs.getDouble("paid");
+//                list.add(new ProvidedService(rs.getString("ps_uid")));
+//            }
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+//    }
 
 }

@@ -15,11 +15,8 @@ public class DoctorPrescriptionController extends PatientpageController {
         try{
             FXMLLoader loader=new FXMLLoader(getClass().getResource("DoctorPrescription.fxml"));
             Parent root=loader.load();
-
-            // System.out.println("second ");
             Stage stage=(Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-
-            stage.setTitle("Hospice");
+            stage.setTitle("Hospice Doctor Prescription");
             Scene scene=new Scene(root);
             stage.setScene(scene);
             stage.show();

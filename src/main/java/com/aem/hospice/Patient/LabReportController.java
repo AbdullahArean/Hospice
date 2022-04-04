@@ -63,7 +63,7 @@ public class LabReportController extends PatientpageController implements Initia
             FXMLLoader loader=new FXMLLoader(getClass().getResource("LabReport.fxml"));
             Parent root=loader.load();
             Stage stage=(Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-            stage.setTitle("Hospice Patient Lab Report & Bill");
+            stage.setTitle("Hospice Patient Lab Report");
             Scene scene=new Scene(root);
             stage.setScene(scene);
             stage.show();
