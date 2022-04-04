@@ -21,7 +21,7 @@
                      <children>
                         <AnchorPane layoutX="65.0" prefHeight="428.0" prefWidth="147.0">
                            <children>
-                              <Button layoutX="-16.0" layoutY="4.0" mnemonicParsing="false" onAction="#OverviewButton" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #F1F4FFFF;" text="Overview">
+                              <Button layoutX="-16.0" layoutY="4.0" mnemonicParsing="false" onAction="#OverviewButton" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #95DBE5FF;" text="Overview">
                                  <font>
                                     <Font name="System Bold" size="11.0" />
                                  </font>

@@ -11,55 +11,77 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.LoginRegister.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.LoginRegister.LoginController">
     <left>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="257.0" fitWidth="336.0" layoutX="13.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="257.0" fitWidth="336.0" layoutX="4.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../img/LogoHospice.png" />
                     </image>
                 </ImageView>
+            <ImageView fitHeight="28.0" fitWidth="116.0" layoutX="167.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/aemfooter.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
     </left>
     <center>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #95DBE5FF;" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="99.0" layoutY="14.0" text="Log In">
+                <Label layoutX="102.0" layoutY="56.0" text="Log In">
                     <font>
                         <Font name="System Bold" size="25.0" />
                     </font>
                 </Label>
-                <Label layoutX="78.0" layoutY="50.0" prefHeight="18.0" prefWidth="154.0" text="to your Hospice account" textFill="#080808">
+                <Label layoutX="78.0" layoutY="85.0" prefHeight="18.0" prefWidth="154.0" text="to your Hospice account" textFill="#080808">
                     <font>
                         <Font name="System Bold" size="11.0" />
                     </font>
                 </Label>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3f5f7" height="106.0" layoutX="11.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="278.0" />
-                <Label layoutX="14.0" layoutY="140.0" text="User ID">
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3f5f7" height="106.0" layoutX="11.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #F1F4FFFF;" width="278.0" />
+                <Label layoutX="16.0" layoutY="140.0" text="User ID">
                     <font>
                         <Font name="System Bold" size="13.0" />
                     </font>
                 </Label>
-                <TextField fx:id="uid" layoutX="99.0" layoutY="136.0" promptText="UID" />
-                <Label layoutX="14.0" layoutY="180.0" text="Password">
+                <TextField fx:id="uid" layoutX="99.0" layoutY="136.0" prefHeight="30.0" prefWidth="172.0" promptText="Enter UID" />
+                <Label layoutX="14.0" layoutY="186.0" text="Password">
                     <font>
                         <Font name="System Bold" size="13.0" />
                     </font>
                 </Label>
-                <PasswordField fx:id="password" layoutX="99.0" layoutY="176.0" promptText="Password" />
-                <Button layoutX="12.0" layoutY="254.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="26.0" prefWidth="254.0" style="-fx-background-color: #243fae;" text="Login" textFill="#dddfe4">
+                <PasswordField fx:id="password" layoutX="99.0" layoutY="181.0" prefHeight="28.0" prefWidth="173.0" promptText="Enter Password" />
+                <Button layoutX="12.0" layoutY="243.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="32.0" prefWidth="275.0" style="-fx-background-color: #243fae;" text="Login" textFill="#dddfe4">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Label layoutX="62.0" layoutY="303.0" text="Don't have an account?" />
-                <Button layoutX="48.0" layoutY="331.0" mnemonicParsing="false" onAction="#Register" prefHeight="28.0" prefWidth="183.0" style="-fx-background-color: #243fae;" text="Register As Patient" textFill="#dddfe4">
+                <Label layoutX="38.0" layoutY="285.0" prefHeight="12.0" prefWidth="79.0" text="Forgot UID?" />
+                <Button fx:id="recoveruid" layoutX="10.0" layoutY="303.0" mnemonicParsing="false" onAction="#recoveruid" prefHeight="28.0" prefWidth="128.0" style="-fx-background-color: #243fae;" text="Recover UID " textFill="#dddfe4">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
+            <Button layoutX="10.0" layoutY="362.0" mnemonicParsing="false" onAction="#Register" prefHeight="28.0" prefWidth="279.0" style="-fx-background-color: #243fae;" text="Register As Patient" textFill="#dddfe4">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="66.0" layoutY="347.0" text="Don't have an account?" />
+            <Button layoutX="141.0" layoutY="302.0" mnemonicParsing="false" onAction="#resetpass" prefHeight="26.0" prefWidth="146.0" style="-fx-background-color: #243fae;" text="Reset Password" textFill="#dddfe4">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="155.0" layoutY="286.0" text="Forgot Password?" />
+            <ImageView fitHeight="36.0" fitWidth="37.0" layoutX="123.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/lock.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
     </center>

@@ -12,29 +12,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.LoginRegister.Register">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.LoginRegister.Register">
     <bottom>
-        <HBox prefHeight="34.0" prefWidth="600.0" style="-fx-background-color: #00fffb;" BorderPane.alignment="CENTER">
-            <children>
-                <AnchorPane prefHeight="34.0" prefWidth="601.0">
-                    <children>
-                        <Label layoutX="316.0" layoutY="4.0" text="Powered by : ">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="424.0" layoutY="4.0" text="TeamAEM Technology" textFill="#fc000d">
-                            <font>
-                                <Font name="System Bold" size="14.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </AnchorPane>
-            </children>
+        <HBox prefHeight="34.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="34.0" prefWidth="608.0" style="-fx-background-color: #95DBE5FF;">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="137.0" layoutX="447.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/aemfooter.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
         </HBox>
     </bottom>
     <left>
-        <VBox prefHeight="366.0" prefWidth="122.0" style="-fx-background-color: #ff00aa;" BorderPane.alignment="CENTER">
+        <VBox prefHeight="366.0" prefWidth="122.0" style="-fx-background-color: #F1F4FFFF;" BorderPane.alignment="CENTER">
             <children>
                 <AnchorPane prefHeight="366.0" prefWidth="197.0">
                <children>
@@ -48,7 +43,7 @@
         </VBox>
     </left>
    <center>
-        <AnchorPane prefHeight="400.0" prefWidth="476.0" style="-fx-background-color: #c3ff00;" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="400.0" prefWidth="476.0" style="-fx-background-color: #A2A2A1FF;" BorderPane.alignment="CENTER">
             <children>
                 <Label layoutX="20.0" layoutY="88.0" text="Name" textFill="#021ceb">
                     <font>

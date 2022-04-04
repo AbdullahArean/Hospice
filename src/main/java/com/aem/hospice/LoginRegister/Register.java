@@ -53,9 +53,10 @@ public class Register {
             String pmail = mail.getText();
             String pass1 = password1.getText();
             String pass2 = password2.getText();
-            if(pass2.equals(pass1)){
+            if(pass2.equals(pass1) && pass1!=null){
                 Patient patient = new Patient(pname, pmail,pass1);
-                new Login().start(Login.returnStage());
+                LoginController loginController = new LoginController();
+                loginController.login(actionEvent);
             }
             else
                 AlertBox.display("Password Didn't matched","Try Again");

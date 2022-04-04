@@ -15,7 +15,7 @@ public class Login extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 604, 400);
 
-        window.setTitle("hospiceLogin!");
+        window.setTitle("Hospice");
         window.setScene(scene);
         window.show();
     }

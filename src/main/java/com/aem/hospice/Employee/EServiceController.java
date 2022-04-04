@@ -19,7 +19,7 @@ public class EServiceController extends EmployeepageController {
             // System.out.println("second ");
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
-            stage.setTitle("Hospice");
+            stage.setTitle("Hospice Employee Service");
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -27,4 +27,5 @@ public class EServiceController extends EmployeepageController {
             System.out.println(e.getMessage());
         }
     }
+
 }

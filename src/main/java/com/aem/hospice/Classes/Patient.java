@@ -38,7 +38,7 @@ public class Patient implements RealEntity {
     public Patient(String uid){
         this.uid = uid;
         DBConnection = new PatientDBConnectorMySQL();
-        DBConnection.InsertIntoDatabase(this);
+        DBConnection.InsertFromDatabase(this);
     }
 
     public String getName() {
@@ -154,7 +154,7 @@ public class Patient implements RealEntity {
     //fetch lab bill
     //fetch other bill
     //generate total bill
-   
+
 
 
 
