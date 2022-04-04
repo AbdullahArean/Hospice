@@ -53,13 +53,13 @@ public class Register {
             String pmail = mail.getText();
             String pass1 = password1.getText();
             String pass2 = password2.getText();
-            if(pass2.equals(pass1) && pass1!=null){
+            if(!pname.isEmpty() && !pmail.isEmpty() && !pass1.isEmpty() && pass2.equals(pass1)){
                 Patient patient = new Patient(pname, pmail,pass1);
                 LoginController loginController = new LoginController();
                 loginController.login(actionEvent);
             }
             else
-                AlertBox.display("Password Didn't matched","Try Again");
+                AlertBox.display("Invalid Input","Try Again");
         }
         catch (Exception e){
             System.out.println(e.getMessage());
