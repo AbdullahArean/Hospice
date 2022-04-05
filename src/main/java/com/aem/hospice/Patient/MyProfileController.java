@@ -99,12 +99,16 @@ public class MyProfileController extends PatientpageController implements Initia
             patient1.setMail(tf_mail.getText());
             patient1.setMedicalhistory(tf_medicalhistory.getText());
             patient1.setGender(tf_gender.getText());
-            if(!pf_oldpass.getText().isEmpty() && pf_newpass.getText().equals(pf_newpass2.getText())){
-                DBLogInManagerMySQL.ChangePassword(patient1.getUid(),pf_oldpass.getText(), pf_newpass.getText());
-                AlertBox.display("Password Changed Successfully","Back to My Profile");
-            }
-            else{
-                AlertBox.display("Password didn't matched", "Try Again");
+
+            if(!pf_oldpass.getText().isEmpty()){
+
+                if( pf_newpass.getText().equals(pf_newpass2.getText())){
+                    DBLogInManagerMySQL.ChangePassword(patient1.getUid(),pf_oldpass.getText(), pf_newpass.getText());
+                    AlertBox.display("Password Changed Successfully","Back to My Profile");
+                }
+                else{
+                    AlertBox.display("Password didn't matched", "Try Again");
+                }
             }
             MyProfileController myprofile = new MyProfileController();
             myprofile.myprofile(event);

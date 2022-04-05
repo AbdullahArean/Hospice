@@ -93,7 +93,7 @@ public class MedicineController extends PatientpageController implements Initial
         total_expanse.setText(""+e);
         paid.setText(""+p);
         due.setText(""+d);
-        col_medname.setCellValueFactory(new PropertyValueFactory<>("s_uid"));
+        col_medname.setCellValueFactory(new PropertyValueFactory<>("s_name"));
         col_medexpase.setCellValueFactory(new PropertyValueFactory<>("bill"));
         col_medquantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         col_pstatus.setCellValueFactory(new PropertyValueFactory<>("payment_status"));

@@ -1,7 +1,7 @@
 package com.aem.hospice.Classes;
 
 public interface ClassDBConnector{
-    void InsertIntoDatabase(RealEntity person);
-    void UpdateIntoDatabase(RealEntity person);
-    void InsertFromDatabase(RealEntity person);
+    void InsertIntoDatabase(RealEntity entity);
+    void UpdateIntoDatabase(RealEntity entity);
+    void InsertFromDatabase(RealEntity entity);
 }

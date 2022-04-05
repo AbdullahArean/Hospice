@@ -98,7 +98,7 @@ public class LabReportController extends PatientpageController implements Initia
         total_expanse.setText(""+e);
         paid.setText(""+p);
         due.setText(""+d);
-        col_ntest.setCellValueFactory(new PropertyValueFactory<>("s_type"));
+        col_ntest.setCellValueFactory(new PropertyValueFactory<>("s_name"));
         col_expanse.setCellValueFactory(new PropertyValueFactory<>("bill"));
         col_quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         col_pstatus.setCellValueFactory(new PropertyValueFactory<>("payment_status"));

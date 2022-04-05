@@ -92,7 +92,7 @@ public class PatientExpanseController extends PatientpageController implements I
         total_expanse.setText(""+e);
         paid.setText(""+p);
         due.setText(""+d);
-        col_sname.setCellValueFactory(new PropertyValueFactory<>("s_type"));
+        col_sname.setCellValueFactory(new PropertyValueFactory<>("s_name"));
         col_sexpanse.setCellValueFactory(new PropertyValueFactory<>("bill"));
         col_squantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         col_pstatus.setCellValueFactory(new PropertyValueFactory<>("payment_status"));

@@ -17,10 +17,11 @@ public class ProvidedService {
     private int payment_status=0;
     private double bill=0;
     private double paid=0;
+    private ProvidedServiceDBConnectorMySQL providedServiceDBConnectorMySQL;
     private void databaseupdate(){
-        String query = "UPDATE providedservice set ps_uid=?,s_uid=? ,p_uid=?, e_uid=?, r_uid=?,s_type=?,quantity=?,payment_status=?, bill=?,paid=? WHERE ps_uid =? ;";
+        String query = "UPDATE providedservice set ps_uid=?,s_uid=? ,p_uid=?, e_uid=?, r_uid=?,s_type=?,quantity=?,payment_status=?, bill=?,paid=?,s_name=? WHERE ps_uid =? ;";
         try {
-            getPreparedStatement(query).setString(11, ps_uid);
+            getPreparedStatement(query).setString(12, ps_uid);
             getPreparedStatement(query).executeUpdate();
         } catch(Exception e){
             e.printStackTrace();
@@ -29,25 +30,26 @@ public class ProvidedService {
     private PreparedStatement getPreparedStatement(String query) {
 
         try{PreparedStatement PrepareStatement_PS;
-        PrepareStatement_PS = DBLogInManagerMySQL.MakeConnection().prepareStatement(query);
-        PrepareStatement_PS.setString(1, ps_uid);
-        PrepareStatement_PS.setString(2, s_uid);
-        PrepareStatement_PS.setString(3, p_uid);
-        PrepareStatement_PS.setString(4, e_uid);
-        PrepareStatement_PS.setString(5, r_uid);
-        PrepareStatement_PS.setInt(6, s_type);
-        PrepareStatement_PS.setInt(7, quantity);
-        PrepareStatement_PS.setInt(8, payment_status);
-        PrepareStatement_PS.setDouble(9, bill);
-        PrepareStatement_PS.setDouble(10, paid);
-        return PrepareStatement_PS;}
+            PrepareStatement_PS = DBLogInManagerMySQL.MakeConnection().prepareStatement(query);
+            PrepareStatement_PS.setString(1, ps_uid);
+            PrepareStatement_PS.setString(2, s_uid);
+            PrepareStatement_PS.setString(3, p_uid);
+            PrepareStatement_PS.setString(4, e_uid);
+            PrepareStatement_PS.setString(5, r_uid);
+            PrepareStatement_PS.setInt(6, s_type);
+            PrepareStatement_PS.setInt(7, quantity);
+            PrepareStatement_PS.setInt(8, payment_status);
+            PrepareStatement_PS.setDouble(9, bill);
+            PrepareStatement_PS.setDouble(10, paid);
+            PrepareStatement_PS.setString(11,s_name);
+            return PrepareStatement_PS;}
         catch (Exception E){
             E.printStackTrace();
 
         }
         return null;
     }
-    private void Databaseinput() {
+    private void InsertIntoDatabase() {
         String query = "INSERT INTO providedservice(ps_uid,s_uid ,p_uid, e_uid, r_uid,s_type,quantity,payment_status,bill,paid)" + "VALUES (?, ?, ?,?, ?, ?,?,?,?,?)";
         try {
             getPreparedStatement(query).executeUpdate();
@@ -62,7 +64,7 @@ public class ProvidedService {
         this.quantity=quantity;
         this.ps_uid = DBLogInManagerMySQL.GenerateUid("providedservice","ps_uid",0);
         this.bill = generate_bill_type_name(quantity);
-        Databaseinput();
+        InsertIntoDatabase();
     }
 
     private double generate_bill_type_name(int quantity) throws SQLException {
@@ -74,6 +76,7 @@ public class ProvidedService {
     }
 
     public ProvidedService(String uid){
+        this.ps_uid = uid;
         String sql = "Select * from hospice.providedservice where ps_uid=\""+uid+"\";";
         try{
             ResultSet rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
@@ -88,6 +91,7 @@ public class ProvidedService {
                 this.s_type = rs.getInt("s_type");
                 this.bill= rs.getDouble("bill");
                 this.paid =rs.getDouble("paid");
+                this.s_name = rs.getString("s_name");
 
             }
 
@@ -95,6 +99,11 @@ public class ProvidedService {
             e.printStackTrace();
         }
 
+    }
+
+
+    public static void main(String[] args) throws SQLException {
+        ProvidedService ps = new ProvidedService("12","10001","30001",2);
     }
     public String getPs_uid() {
         return ps_uid;
@@ -188,5 +197,7 @@ public class ProvidedService {
     public String getS_name(){
         return s_name;
     }
+
+
 }
 
