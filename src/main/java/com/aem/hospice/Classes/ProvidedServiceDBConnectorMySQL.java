@@ -19,6 +19,7 @@ public class ProvidedServiceDBConnectorMySQL implements ClassDBConnector{
             PrepareStatement_PS.setInt(8, ps.getPayment_status());
             PrepareStatement_PS.setDouble(9, ps.getBill());
             PrepareStatement_PS.setDouble(10, ps.getPaid());
+            PrepareStatement_PS.setString(11,ps.getS_name());
             return PrepareStatement_PS;}
         catch (Exception E){
             E.printStackTrace();
@@ -28,7 +29,7 @@ public class ProvidedServiceDBConnectorMySQL implements ClassDBConnector{
     }
     @Override
     public void InsertIntoDatabase(RealEntity entity) {
-        String query = "INSERT INTO providedservice(ps_uid,s_uid ,p_uid, e_uid, r_uid,s_type,quantity,payment_status,bill,paid)" + "VALUES (?, ?, ?,?, ?, ?,?,?,?,?)";
+        String query = "INSERT INTO providedservice(ps_uid,s_uid ,p_uid, e_uid, r_uid,s_type,quantity,payment_status,bill,paid,s_name)" + "VALUES (?, ?, ?,?, ?, ?,?,?,?,?,?)";
         try {
             PrepareStatement_PS =getPreparedStatement(query, (ProvidedService)entity);
             PrepareStatement_PS.executeUpdate();
@@ -40,10 +41,10 @@ public class ProvidedServiceDBConnectorMySQL implements ClassDBConnector{
 
     @Override
     public void UpdateIntoDatabase(RealEntity entity) {
-        String query = "UPDATE providedservice set ps_uid=?,s_uid=? ,p_uid=?, e_uid=?, r_uid=?,s_type=?,quantity=?,payment_status=?, bill=?,paid=? WHERE ps_uid =? ;";
+        String query = "UPDATE providedservice set ps_uid=?,s_uid=? ,p_uid=?, e_uid=?, r_uid=?,s_type=?,quantity=?,payment_status=?, bill=?,paid=?,s_name=? WHERE ps_uid =? ;";
         try {
             PrepareStatement_PS =getPreparedStatement(query,(ProvidedService)entity);
-            PrepareStatement_PS.setString(11, ((ProvidedService)entity).getPs_uid());
+            PrepareStatement_PS.setString(12, ((ProvidedService)entity).getPs_uid());
             PrepareStatement_PS.executeUpdate();
         } catch(Exception e){
             e.printStackTrace();
@@ -57,7 +58,7 @@ public class ProvidedServiceDBConnectorMySQL implements ClassDBConnector{
         try{
             ResultSet rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
             while(rs.next()){
-                ((ProvidedService)entity).setPs_uid(rs.getString("ps_uid"));
+                ((ProvidedService)entity).setS_uid(rs.getString("ps_uid"));
                 ((ProvidedService)entity).setS_uid(rs.getString("s_uid"));
                 ((ProvidedService)entity).setP_uid(rs.getString("p_uid"));
                 ((ProvidedService)entity).setE_uid(rs.getString("e_uid"));
@@ -67,6 +68,7 @@ public class ProvidedServiceDBConnectorMySQL implements ClassDBConnector{
                 ((ProvidedService)entity).setS_type(rs.getInt("s_type"));
                 ((ProvidedService)entity).setBill( rs.getDouble("bill"));
                 ((ProvidedService)entity).setPaid( rs.getDouble("paid"));
+                ((ProvidedService)entity).setPs_uid(rs.getString("s_name"));
 
             }
 
