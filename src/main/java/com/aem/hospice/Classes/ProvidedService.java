@@ -18,11 +18,13 @@ public class ProvidedService {
     private double bill=0;
     private double paid=0;
     private ProvidedServiceDBConnectorMySQL providedServiceDBConnectorMySQL;
+    PreparedStatement pst;
     private void databaseupdate(){
         String query = "UPDATE providedservice set ps_uid=?,s_uid=? ,p_uid=?, e_uid=?, r_uid=?,s_type=?,quantity=?,payment_status=?, bill=?,paid=?,s_name=? WHERE ps_uid =? ;";
         try {
-            getPreparedStatement(query).setString(12, ps_uid);
-            getPreparedStatement(query).executeUpdate();
+            pst = getPreparedStatement(query);
+            pst.setString(12, this.ps_uid);
+            pst.executeUpdate();
         } catch(Exception e){
             e.printStackTrace();
         }
@@ -50,9 +52,10 @@ public class ProvidedService {
         return null;
     }
     private void InsertIntoDatabase() {
-        String query = "INSERT INTO providedservice(ps_uid,s_uid ,p_uid, e_uid, r_uid,s_type,quantity,payment_status,bill,paid)" + "VALUES (?, ?, ?,?, ?, ?,?,?,?,?)";
+        String query = "INSERT INTO providedservice(ps_uid,s_uid ,p_uid, e_uid, r_uid,s_type,quantity,payment_status,bill,paid,s_name)" + "VALUES (?, ?, ?,?, ?, ?,?,?,?,?,?)";
         try {
-            getPreparedStatement(query).executeUpdate();
+            pst =getPreparedStatement(query);
+            pst.executeUpdate();
         } catch(Exception e){
             e.printStackTrace();
         }
@@ -92,9 +95,7 @@ public class ProvidedService {
                 this.bill= rs.getDouble("bill");
                 this.paid =rs.getDouble("paid");
                 this.s_name = rs.getString("s_name");
-
             }
-
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -103,7 +104,9 @@ public class ProvidedService {
 
 
     public static void main(String[] args) throws SQLException {
-        ProvidedService ps = new ProvidedService("12","10001","30001",2);
+        ProvidedService ps = new ProvidedService("100001");
+        Service s = new Service(ps.getS_uid());
+        ps.setS_name(s.getName());
     }
     public String getPs_uid() {
         return ps_uid;
@@ -193,6 +196,7 @@ public class ProvidedService {
 
     public void setS_name(String name){
         this.s_name = name;
+        databaseupdate();
     }
     public String getS_name(){
         return s_name;
