@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,8 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.TextField?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.Employee.EOverviewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.Employee.EOverviewController">
     <left>
         <VBox prefHeight="292.0" prefWidth="143.0" style="-fx-background-color: #A2A2A1FF;" BorderPane.alignment="CENTER">
             <children>
@@ -23,12 +23,12 @@
                             <children>
                                 <AnchorPane layoutX="65.0" prefHeight="428.0" prefWidth="147.0">
                                     <children>
-                                        <Button layoutX="-16.0" layoutY="4.0" mnemonicParsing="false" onAction="#OverviewButton" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #F1F4FFFF;" text="Overview">
+                                        <Button layoutX="-16.0" layoutY="4.0" mnemonicParsing="false" onAction="#OverviewButton" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #95DBE5FF #95DBE5FF;" text="Overview">
                                             <font>
                                                 <Font name="System Bold" size="11.0" />
                                             </font>
                                         </Button>
-                                        <Button layoutX="-16.0" layoutY="47.0" mnemonicParsing="false" onAction="#service_b" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #95DBE5FF;" text="Service">
+                                        <Button layoutX="-16.0" layoutY="47.0" mnemonicParsing="false" onAction="#service_b" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #F1F4FFFF #F1F4FFFF;" text="Service">
                                             <font>
                                                 <Font name="System Bold" size="11.0" />
                                             </font>
