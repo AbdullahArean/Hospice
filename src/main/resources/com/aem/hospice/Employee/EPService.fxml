@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.Employee.EPServiceController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.Employee.EPServiceController">
     <left>
         <VBox prefHeight="292.0" prefWidth="143.0" style="-fx-background-color: #A2A2A1FF;" BorderPane.alignment="CENTER">
             <children>
@@ -29,12 +29,12 @@
                                                 <Font name="System Bold" size="11.0" />
                                             </font>
                                         </Button>
-                                        <Button layoutX="-16.0" layoutY="47.0" mnemonicParsing="false" onAction="#service_b" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #95DBE5FF;" text="Service">
+                                        <Button layoutX="-16.0" layoutY="47.0" mnemonicParsing="false" onAction="#service_b" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #F1F4FFFF #F1F4FFFF;" text="Service">
                                             <font>
                                                 <Font name="System Bold" size="11.0" />
                                             </font>
                                         </Button>
-                                        <Button layoutX="-16.0" layoutY="90.0" mnemonicParsing="false" onAction="#pservice_b" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #F1F4FFFF;" text="Provide a Service">
+                                        <Button layoutX="-16.0" layoutY="90.0" mnemonicParsing="false" onAction="#pservice_b" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #95DBE5FF #95DBE5FF #95DBE5FF #95DBE5FF;" text="Provide a Service">
                                             <font>
                                                 <Font name="System Bold" size="11.0" />
                                             </font>
