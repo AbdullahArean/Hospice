@@ -2,6 +2,7 @@ package com.aem.hospice.Classes;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ProvidedServiceDBConnectorMySQL implements ClassDBConnector{
     private PreparedStatement PrepareStatement_PS;
@@ -76,5 +77,9 @@ public class ProvidedServiceDBConnectorMySQL implements ClassDBConnector{
             e.printStackTrace();
         }
 
+    }
+    public static void ProvidedServicedelete(String uid) throws SQLException {
+        String sql = "DELETE from hospice.providedservice where ps_uid=\""+uid+"\";";
+        DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql);
     }
 }

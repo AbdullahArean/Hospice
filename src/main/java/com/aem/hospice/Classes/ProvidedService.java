@@ -16,7 +16,7 @@ public class ProvidedService implements RealEntity{
     private double paid=0;
     private ProvidedServiceDBConnectorMySQL providedServiceDBConnectorMySQL;
 
-    ProvidedService(String s_uid,String p_uid, String e_uid, int quantity) throws SQLException {
+    public ProvidedService(String s_uid, String p_uid, String e_uid, int quantity) throws SQLException {
         this.s_uid = s_uid;
         this.p_uid = p_uid;
         this.e_uid= e_uid;
@@ -64,10 +64,7 @@ public class ProvidedService implements RealEntity{
 
 
     public static void main(String[] args) throws SQLException {
-        ProvidedService ps = new ProvidedService("100002");
-        System.out.println(ps.getQuantity());
-        ps.setQuantity(3);
-        ps.setS_type(1);
+        ProvidedService p = new ProvidedService("13","10005","30001",3);
     }
     public String getPs_uid() {
         return ps_uid;

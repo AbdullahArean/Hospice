@@ -9,7 +9,7 @@ public class Service implements RealEntity{
     private String description;
     ServiceDBConnectorMySQL serviceDBConnectorMySQL;
 
-    Service(String name, int type, String description,  double cost_unit, double discount){
+    public Service(String name, int type, String description, double cost_unit, double discount){
         this.name = name;
         this.type = type;
         this.description= description;
@@ -20,11 +20,12 @@ public class Service implements RealEntity{
         serviceDBConnectorMySQL.InsertIntoDatabase(this);
     }
 
-    Service(String uid){
+    public Service(String uid){
         this.uid = uid;
         serviceDBConnectorMySQL = new ServiceDBConnectorMySQL();
         serviceDBConnectorMySQL.InsertFromDatabase(this);
     }
+
 
     public String getUid() {
         return uid;

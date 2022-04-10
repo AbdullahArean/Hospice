@@ -143,8 +143,8 @@
                         <TableColumn fx:id="col_suid" prefWidth="102.0" text="Service UID" />
                         <TableColumn fx:id="col_sname" prefWidth="141.0" text="Service Name" />
                         <TableColumn fx:id="col_sdesc" minWidth="0.0" prefWidth="153.0" text="Service Description" />
-                        <TableColumn minWidth="0.0" prefWidth="105.0" text="Cost Per Unit" />
-                  <TableColumn prefWidth="112.0" text="Service Type" />
+                        <TableColumn fx:id="col_cpu" minWidth="0.0" prefWidth="105.0" text="Cost Per Unit" />
+                  <TableColumn fx:id="col_stype" prefWidth="112.0" text="Service Type" />
                     </columns>
                 </TableView>
             <Label layoutX="11.0" layoutY="177.0" text="Service Name : ">
@@ -152,31 +152,31 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="151.0" layoutY="174.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Service Name" />
+            <TextField fx:id="add_sname" layoutX="151.0" layoutY="174.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Service Name" />
             <Label layoutX="14.0" layoutY="208.0" text="Cost Per Unit :">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="152.0" layoutY="201.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Cost Per Unit" />
+            <TextField fx:id="add_cpu" layoutX="152.0" layoutY="201.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Cost Per Unit" />
             <Label layoutX="334.0" layoutY="185.0" prefHeight="18.0" prefWidth="178.0" text="Service Description : ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextArea layoutX="336.0" layoutY="207.0" prefHeight="49.0" prefWidth="281.0" promptText="Enter Service Description" />
+            <TextArea fx:id="add_sd" layoutX="336.0" layoutY="207.0" prefHeight="49.0" prefWidth="281.0" promptText="Enter Service Description" />
             <Label layoutX="18.0" layoutY="270.0" text="Service UID : ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="152.0" layoutY="268.0" prefHeight="24.0" prefWidth="169.0" promptText="Enter Service UID" />
-            <Button layoutX="518.0" layoutY="167.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="96.0" style="-fx-background-color: #95DBE5FF;" text="ADD">
+            <TextField fx:id="del_suid" layoutX="152.0" layoutY="268.0" prefHeight="24.0" prefWidth="352.0" promptText="Enter Service UID to Delete " />
+            <Button layoutX="518.0" layoutY="167.0" mnemonicParsing="false" onAction="#bt_addservice_p" prefHeight="34.0" prefWidth="96.0" style="-fx-background-color: #95DBE5FF;" text="ADD">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="518.0" layoutY="264.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: #95DBE5FF;" text="Delete">
+            <Button layoutX="518.0" layoutY="264.0" mnemonicParsing="false" onAction="#bt_delservice_p" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: #95DBE5FF;" text="Delete">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
@@ -186,13 +186,13 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="150.0" layoutY="306.0" prefHeight="24.0" prefWidth="167.0" promptText="Enter Service UID" />
+            <TextField fx:id="upd_suid" layoutX="150.0" layoutY="306.0" prefHeight="24.0" prefWidth="167.0" promptText="Enter Service UID" />
             <Label layoutX="17.0" layoutY="237.0" text="Service Type : ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="152.0" layoutY="228.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Service Type" />
+            <TextField fx:id="add_st" layoutX="152.0" layoutY="228.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Service Type" />
             <Line endX="504.0" layoutX="114.0" layoutY="261.0" startX="-100.0" />
             <Line endX="504.0" layoutX="117.0" layoutY="300.0" startX="-100.0" />
             <Label layoutX="18.0" layoutY="340.0" text="Service Name : ">
@@ -200,31 +200,31 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="151.0" layoutY="337.0" prefHeight="24.0" prefWidth="167.0" promptText="Enter Service Name" />
+            <TextField fx:id="upd_sname" layoutX="151.0" layoutY="337.0" prefHeight="24.0" prefWidth="167.0" promptText="Service Name" />
             <Label layoutX="22.0" layoutY="368.0" text="Cost Per Unit :">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="150.0" layoutY="365.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Cost Per Unit" />
+            <TextField fx:id="upd_cpu" layoutX="150.0" layoutY="365.0" prefHeight="24.0" prefWidth="170.0" promptText="Cost Per Unit" />
             <Label layoutX="332.0" layoutY="339.0" prefHeight="18.0" prefWidth="178.0" text="Service Description : ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextArea layoutX="329.0" layoutY="361.0" prefHeight="53.0" prefWidth="287.0" promptText="Enter Service Description" />
+            <TextArea fx:id="upd_sd" layoutX="329.0" layoutY="361.0" prefHeight="53.0" prefWidth="287.0" promptText="Service Description" />
             <Label layoutX="20.0" layoutY="394.0" text="Service Type : ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="151.0" layoutY="393.0" prefHeight="24.0" prefWidth="170.0" promptText="Enter Service Type" />
-            <Button layoutX="519.0" layoutY="302.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #95DBE5FF;" text="Update">
+            <TextField fx:id="upd_st" layoutX="151.0" layoutY="393.0" prefHeight="24.0" prefWidth="170.0" promptText="Service Type" />
+            <Button layoutX="519.0" layoutY="302.0" mnemonicParsing="false" onAction="#bt_update_p" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #95DBE5FF;" text="Update">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="325.0" layoutY="303.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #95DBE5FF;" text="Load">
+            <Button layoutX="325.0" layoutY="303.0" mnemonicParsing="false" onAction="#bt_loadservice_p" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #95DBE5FF;" text="Load">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>

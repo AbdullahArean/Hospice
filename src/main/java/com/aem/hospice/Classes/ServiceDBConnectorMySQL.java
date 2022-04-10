@@ -65,4 +65,11 @@ public class ServiceDBConnectorMySQL implements ClassDBConnector{
 
 
     }
+    public static void Servicedelete(String uid) throws SQLException {
+        String sql = "DELETE from hospice.service where uid=\""+uid+"\";";
+        String sql2 = "DELETE from hospice.providedservice WHERE s_uid= '" + uid +"' ;";
+        DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql);
+        //Comment it out if you dont want it to delete record from provided service
+        DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql2);
+    }
 }
