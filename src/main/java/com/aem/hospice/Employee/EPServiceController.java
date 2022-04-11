@@ -105,6 +105,7 @@ public class EPServiceController extends EmployeepageController implements Initi
         String euid = employee.getUid();
         Integer quantity = Integer.valueOf(add_q.getText());
         ProvidedService ps1 = new ProvidedService(suid,puid,euid,quantity);
+        ps1.setQuantity(quantity);
         ps1.setPaid(Double.valueOf(add_paid.getText()));
         AlertBox.display("New Provided Service Created","Please Click Ok to continue");
         EPServiceController eps = new EPServiceController();

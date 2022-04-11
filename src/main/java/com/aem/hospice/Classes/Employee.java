@@ -91,7 +91,7 @@ public class Employee implements RealEntity{
     }
 
     public static void main(String[] args) throws SQLException {
-        Employee e1 = new Employee("tahian",2,"male",32,"a@gmail.com",45000);
+        Employee e1 = new Employee("arean",1,"male",54,"a@gmail.com",45000);
 
     }
 

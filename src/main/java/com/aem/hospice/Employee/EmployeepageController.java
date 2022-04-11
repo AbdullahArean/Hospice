@@ -20,8 +20,15 @@ public class EmployeepageController {
 
     public void employee(ActionEvent actionEvent)throws IOException {
         try{
-            EOverviewController over=new EOverviewController();
-            over.eoverview(actionEvent);
+
+            if(employee.getType()==1){
+                DoctorOverviewController dover = new DoctorOverviewController();
+                dover.doctoroverview(actionEvent);
+            }
+            else{
+                EOverviewController over=new EOverviewController();
+                over.eoverview(actionEvent);
+            }
         }
         catch(Exception e){
             System.out.println(e.getMessage());
