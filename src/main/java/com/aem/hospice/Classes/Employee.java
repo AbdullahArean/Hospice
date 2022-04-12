@@ -1,5 +1,7 @@
 package com.aem.hospice.Classes;
 
+import com.aem.hospice.PopUp.AlertBox;
+
 import java.sql.*;
 
 import static com.aem.hospice.Classes.DBLogInManagerMySQL.GenerateUid;
@@ -12,87 +14,30 @@ public class Employee implements RealEntity{
     private int age;
     private String mail=" ";
     private double MonthlySalary=0;
-    private Connection conn;
-    private Statement mysta;
-    private void databaseupdate() throws SQLException {
-        conn = DBLogInManagerMySQL.MakeConnection();
-        if(conn==null) {System.out.println("NULL");}
-        mysta = conn.createStatement();
-        PreparedStatement pstmt = null;
-        String query = "UPDATE employee set uid=?, name=?, type=?,gender=?,age=?,mail=?,MonthlySalary=? WHERE uid =? ;";
-        try {
-            pstmt = getPreparedStatement(query);
-            pstmt.setString(8, uid);
-            int status = pstmt.executeUpdate();
-            if(status > 0) {
-                System.out.println("Record is inserted successfully !!!");
-            }
-        } catch(Exception e){
-            e.printStackTrace();
-        }
+    private ClassDBConnector DBConnection;
 
-    }
 
-    private PreparedStatement getPreparedStatement(String query) throws SQLException {
-        PreparedStatement pstmt;
-        pstmt = conn.prepareStatement(query);
-        pstmt.setString(1, uid);
-        pstmt.setString(2, name);
-        pstmt.setInt(3, type);
-        pstmt.setString(4, gender);
-        pstmt.setInt(5, age);
-        pstmt.setString(6, mail);
-        pstmt.setDouble(7, MonthlySalary);
-        return pstmt;
-    }
-    private void databaseinp() throws SQLException {
-        conn = DBLogInManagerMySQL.MakeConnection();
-        if(conn==null) {System.out.println("NULL");}
-        mysta = conn.createStatement();
-        PreparedStatement pstmt = null;
-        String query = "INSERT INTO employee(uid, name, type,gender,age,mail,MonthlySalary)" + "VALUES (?, ?, ?,?, ?, ?,?)";
-        try {
-            pstmt = getPreparedStatement(query);
-            int status = pstmt.executeUpdate();
-            if(status > 0) {
-                System.out.println("Record is inserted successfully !!!");
-            }
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-    Employee(String name, int type, String gender, int age, String mail, double monthlySalary) throws SQLException {
+    public Employee(String name, int type, String gender, int age, String mail, double monthlySalary) throws SQLException {
+        DBConnection = new EmployeeDBConnectorMySQL();
         this.name = name;
         this.type = type;
         this.gender = gender;
         this.age = age;
         this.mail = mail;
         this.MonthlySalary = monthlySalary;
-        this.uid = DBLogInManagerMySQL.GenerateUid("employee","uid",1);
-        databaseinp();
-    }
-
-    public Employee(String uid) throws SQLException {
-        Connection conn = DBLogInManagerMySQL.MakeConnection();
-        if(conn==null) {System.out.println("NULL");}
-        Statement mysta = conn.createStatement();
-        String sql = "Select * from hospice.employee where uid=\""+uid+"\";";
-        ResultSet rs = mysta.executeQuery(sql);
-        while(rs.next()){
-            this.uid =rs.getString("uid");
-            this.name = rs.getString("name");
-            this.type = rs.getInt("type");
-            this.gender = rs.getString("gender");
-            this.age = rs.getInt("age");
-            this.mail = rs.getString("mail");
-            this.MonthlySalary = rs.getDouble("MonthlySalary");
-
+        this.uid = DBLogInManagerMySQL.GenerateUid("employee","uid",1,"1234");
+        DBConnection.InsertIntoDatabase(this);
+        try{
+            AlertBox.display("Employee ID Creation Successfull","UID : "+ this.uid);
+        }catch (Exception e){
+            System.out.println("Employee ID Creation Failed "+" : "+ e);
         }
     }
 
-    public static void main(String[] args) throws SQLException {
-        Employee e1 = new Employee("arean",1,"male",54,"a@gmail.com",45000);
-
+    public Employee(String uid) throws SQLException {
+        this.uid = uid;
+        DBConnection = new EmployeeDBConnectorMySQL();
+        DBConnection.InsertFromDatabase(this);
     }
 
     public String getUid() {
@@ -101,8 +46,6 @@ public class Employee implements RealEntity{
 
     public void setUid(String uid) throws SQLException {
         this.uid = uid;
-
-        databaseupdate();
     }
 
     public String getName() {
@@ -111,8 +54,7 @@ public class Employee implements RealEntity{
 
     public void setName(String name) throws SQLException {
         this.name = name;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public int getType() {
@@ -122,7 +64,7 @@ public class Employee implements RealEntity{
     public void setType(int type) throws SQLException {
         this.type = type;
 
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public String getGender() {
@@ -131,8 +73,7 @@ public class Employee implements RealEntity{
 
     public void setGender(String gender) throws SQLException {
         this.gender = gender;
-
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
     }
 
     public int getAge() throws SQLException {
@@ -142,7 +83,7 @@ public class Employee implements RealEntity{
 
     public void setAge(int age) throws SQLException {
         this.age = age;
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
 
     }
 
@@ -152,7 +93,7 @@ public class Employee implements RealEntity{
 
     public void setMail(String mail) throws SQLException {
         this.mail = mail;
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
 
     }
 
@@ -162,7 +103,7 @@ public class Employee implements RealEntity{
 
     public void setMonthlySalary(double monthlySalary) throws SQLException {
         MonthlySalary = monthlySalary;
-        databaseupdate();
+        DBConnection.UpdateIntoDatabase(this);
 
     }
 }

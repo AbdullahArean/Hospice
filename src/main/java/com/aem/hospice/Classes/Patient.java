@@ -30,7 +30,7 @@ public class Patient implements RealEntity {
         try{
             AlertBox.display("Patient ID Creation Successfull","UID : "+ this.uid);
         }catch (Exception e){
-            System.out.println("Patient ID Creation Successfull "+"\nUID : "+ this.uid);
+            System.out.println("Patient ID Creation Unsuccessfull "+e);
         }
 
 

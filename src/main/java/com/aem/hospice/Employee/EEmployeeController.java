@@ -23,130 +23,134 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class EEmployeeController extends EmployeepageController implements Initializable {
+    @FXML
+    private TextField add_eage;
 
     @FXML
-    private TextField add_paid;
+    private TextField add_egender;
 
     @FXML
-    private TextField add_puid;
+    private TextField add_email;
 
     @FXML
-    private TextField add_q;
+    private TextField add_ems;
 
     @FXML
-    private TextField add_suid;
+    private TextField add_ename;
 
     @FXML
-    private TableColumn<ProvidedService, Double> col_bill;
+    private TextField add_etype;
 
     @FXML
-    private TableColumn<ProvidedService, String> col_euid;
+    private TextField del_euid;
 
     @FXML
-    private TableColumn<ProvidedService, Double> col_paid;
+    private TextField upd_eage;
 
     @FXML
-    private TableColumn<ProvidedService, String> col_psuid;
+    private TextField upd_egender;
 
     @FXML
-    private TableColumn<ProvidedService, String> col_puid;
+    private TextField upd_email;
 
     @FXML
-    private TableColumn<ProvidedService, String> col_suid;
+    private TextField upd_ems;
 
     @FXML
-    private TableColumn<ProvidedService, Integer> col_sq;
+    private TextField upd_ename;
 
     @FXML
-    private TextField del_psuid;
-
-    @FXML
-    private TableView<ProvidedService> epstable;
-
-    @FXML
-    private TextField upd_bill;
+    private TextField upd_etype;
 
     @FXML
     private TextField upd_euid;
+    @FXML
+    private TableColumn<Employee, Integer> col_page;
 
     @FXML
-    private TextField upd_paid;
+    private TableColumn<Employee, String> col_pgender;
 
     @FXML
-    private TextField upd_psuid;
+    private TableColumn<Employee, String> col_pmail;
 
     @FXML
-    private TextField upd_puid;
+    private TableColumn<Employee, Double> col_pmh;
 
     @FXML
-    private TextField upd_q;
+    private TableColumn<Employee, String> col_pname;
 
     @FXML
-    private TextField upd_suid;
-    private ObservableList<ProvidedService> list = FXCollections.observableArrayList();
+    private TableColumn<Employee, String> col_puid;
 
-    private void showpservices(){
-        try {
-            String sql = "SELECT * from providedservice WHERE ps_uid>100000";
-            ResultSet rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
-            while (rs.next()) {
-                list.add(new ProvidedService(rs.getString("ps_uid")));
-            }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
     @FXML
-    void bt_addpservice_p(ActionEvent event) throws SQLException, IOException {
-        String suid = add_suid.getText();
-        String puid =add_puid.getText();
-        String euid = employee.getUid();
-        Integer quantity = Integer.valueOf(add_q.getText());
-        ProvidedService ps1 = new ProvidedService(suid,puid,euid,quantity);
-        ps1.setQuantity(quantity);
-        ps1.setPaid(Double.valueOf(add_paid.getText()));
-        AlertBox.display("New Provided Service Created","Please Click Ok to continue");
-        EPServiceController eps = new EPServiceController();
-        eps.epservice(event);
+    private TableColumn<Employee, Integer> col_etype;
+
+    @FXML
+    private TableView<Employee> eptable;
+
+    private ObservableList<Employee> list = FXCollections.observableArrayList();
+
+
+
+    @FXML
+    void SignOutButton(ActionEvent event) {
 
     }
 
     @FXML
-    void bt_delpservice_p(ActionEvent event) throws SQLException, IOException {
-        ProvidedServiceDBConnectorMySQL.ProvidedServicedelete(del_psuid.getText());
-        AlertBox.display("Provided Service Deleted","Please Click Ok to continue");
-        EPServiceController eps = new EPServiceController();
-        eps.epservice(event);
+    void bt_addemployee_p(ActionEvent event) throws IOException, SQLException {
+        Employee e1 = new Employee(add_ename.getText(),Integer.parseInt(add_etype.getText()),add_egender.getText(),Integer.parseInt(add_eage.getText()), add_email.getText(),Double.parseDouble(add_ems.getText()));
+        EEmployeeController epa = new EEmployeeController();
+        epa.eemployee(event);
 
     }
 
     @FXML
-    void bt_psload_p(ActionEvent event) throws SQLException {
-        String givenuid =upd_psuid.getText();
-        ProvidedService ps1 = new ProvidedService(givenuid);
-        upd_bill.setText(""+ps1.getBill());
-        upd_euid.setText(""+ps1.getE_uid());
-        upd_paid.setText(""+ps1.getPaid());
-        upd_q.setText(""+ps1.getQuantity());
-        upd_suid.setText(""+ps1.getS_uid());
-        upd_puid.setText(""+ps1.getP_uid());
+    void bt_delemployee_p(ActionEvent event) throws SQLException, IOException {
+        EmployeeDBConnectorMySQL.Employeedelete(del_euid.getText());
+        AlertBox.display("Employee Successfully Deleted","Press Ok to Continue");
+        EEmployeeController epa = new EEmployeeController();
+        epa.eemployee(event);
+
     }
 
     @FXML
-    void bt_psupdate_p(ActionEvent event) throws SQLException, IOException {
-        ProvidedService ps2 = new ProvidedService(upd_psuid.getText());
-        ps2.setQuantity(Integer.parseInt(upd_q.getText()));
-        ps2.setS_uid(upd_suid.getText());
-        ps2.setE_uid(upd_euid.getText());
-        ps2.setPaid(Double.parseDouble(upd_paid.getText()));
-        ps2.setP_uid(upd_puid.getText());
-        AlertBox.display("Provided Service Updated","Please Click Ok to continue");
-        EPServiceController eps = new EPServiceController();
-        eps.epservice(event);
+    void bt_loademployee_p(ActionEvent event) throws SQLException {
+        String givenuid = upd_euid.getText();
+        Employee p1 = new Employee(givenuid);
+        upd_ems.setText(""+p1.getMonthlySalary());
+        upd_eage.setText(""+p1.getAge());
+        upd_email.setText(""+p1.getMail());
+        upd_ename.setText(""+p1.getName());
+        upd_egender.setText(""+p1.getGender());
+        upd_etype.setText(""+p1.getType());
 
     }
+
+    @FXML
+    void bt_setdefaultpass_p(ActionEvent event) {
+        DBLogInManagerMySQL.ChangePasswordAdminPrevilage(upd_euid.getText(),"1234");
+        AlertBox.display("Password Changed to Default", "Password is set to 1234");
+
+    }
+
+    @FXML
+    void bt_updateemployee_p(ActionEvent event) throws SQLException, IOException {
+        Employee p1 = new Employee(upd_euid.getText());
+        p1.setGender(upd_egender.getText());
+        p1.setName(upd_ename.getText());
+        p1.setMail(upd_email.getText());
+        p1.setAge(Integer.parseInt(upd_eage.getText()));
+        p1.setType(Integer.parseInt(upd_etype.getText()));
+        p1.setMonthlySalary(Double.parseDouble(upd_ems.getText()));
+        AlertBox.display("Employee Detailes Successfully Updated","Press Ok to Continue");
+        EEmployeeController epa = new EEmployeeController();
+        epa.eemployee(event);
+
+    }
+
+
 
     public void eemployee(ActionEvent actionEvent) throws IOException {
         try {
@@ -164,19 +168,72 @@ public class EEmployeeController extends EmployeepageController implements Initi
             System.out.println(e.getMessage());
         }
     }
+    private void CollectFromDatabase() {
+        try {
+            String sql = "SELECT * from employee WHERE uid>30000";
+            ResultSet rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
+            while (rs.next()) {
+                list.add(new Employee(rs.getString("uid")));
+            }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        showpservices();
-        col_psuid.setCellValueFactory(new PropertyValueFactory<>("ps_uid"));
-        col_suid.setCellValueFactory(new PropertyValueFactory<>("s_uid"));
-        col_euid.setCellValueFactory(new PropertyValueFactory<>("e_uid"));
-        col_bill.setCellValueFactory(new PropertyValueFactory<>("bill"));
-        col_paid.setCellValueFactory(new PropertyValueFactory<>("paid"));
-        col_sq.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        col_puid.setCellValueFactory(new PropertyValueFactory<>("p_uid"));
-        epstable.setItems(list);
+        CollectFromDatabase();
+        col_puid.setCellValueFactory(new PropertyValueFactory<>("uid"));
+        col_pname.setCellValueFactory(new PropertyValueFactory<>("name"));
+        col_page.setCellValueFactory(new PropertyValueFactory<>("age"));
+        col_pmail.setCellValueFactory(new PropertyValueFactory<>("mail"));
+        col_pgender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        col_pmh.setCellValueFactory(new PropertyValueFactory<>("MonthlySalary"));
+        col_etype.setCellValueFactory(new PropertyValueFactory<>("type"));
+        eptable.setItems(list);
     }
 
+
 }
+//
+//    @FXML
+//    void bt_addpatient_p(ActionEvent event) throws SQLException, IOException {
+
+//    }
+//
+//    @FXML
+//    void bt_delpatient_p(ActionEvent event) throws SQLException, IOException {
+
+//    }
+//
+//    @FXML
+//    void bt_loadpatient_p(ActionEvent event) {
+////        String givenuid = upd_puid.getText();
+////        Patient p1 = new Patient(givenuid);
+////        upd_mh.setText(""+p1.getMedicalhistory());
+////        upd_page.setText(""+p1.getAge());
+////        upd_pmail.setText(""+p1.getMail());
+////        upd_pname.setText(""+p1.getName());
+////        upd_pgender.setText(""+p1.getGender());
+//
+//
+//    }
+//
+//    @FXML
+//    void bt_updatepatient_p(ActionEvent event) throws IOException {
+////        Patient p1 = new Patient(upd_puid.getText());
+////        p1.setGender(upd_pgender.getText());
+////        p1.setName(upd_pname.getText());
+////        p1.setMail(upd_pmail.getText());
+////        p1.setAge(Integer.parseInt(upd_page.getText()));
+////        p1.setMedicalhistory(upd_mh.getText());
+////        AlertBox.display("Patient Info Sucessfully Updated", "Press Ok to continue");
+////        EPatientController epa = new EPatientController();
+////        epa.epatient(event);
+//
+//
+//    }
+//
+//
