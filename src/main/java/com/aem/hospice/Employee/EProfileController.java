@@ -21,6 +21,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EProfileController extends EmployeepageController implements Initializable {
+    @FXML
+    private TextField tf_ems;
+
+    @FXML
+    private TextField tf_etype;
 
     @FXML
     private Button bt_clear;
@@ -47,9 +52,6 @@ public class EProfileController extends EmployeepageController implements Initia
     private TextField tf_mail;
 
     @FXML
-    private TextField tf_medicalhistory;
-
-    @FXML
     private TextField tf_name;
 
     @FXML
@@ -74,12 +76,13 @@ public class EProfileController extends EmployeepageController implements Initia
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        tf_name.setText(patient1.getName());
-//        tf_age.setText(""+patient1.getAge());
-//        tf_gender.setText(patient1.getGender());
-//        tf_mail.setText(patient1.getMail());
-//        tf_medicalhistory.setText(patient1.getMedicalhistory());
-//        tf_uid.setText(patient1.getUid());
+        tf_name.setText(employee.getName());
+        tf_age.setText(""+employee.getAge());
+        tf_gender.setText(""+employee.getGender());
+        tf_mail.setText(""+employee.getMail());
+        tf_ems.setText(""+employee.getMonthlySalary());
+        tf_uid.setText(employee.getUid());
+        tf_etype.setText(""+employee.getType());
     }
 
     @FXML
@@ -97,22 +100,23 @@ public class EProfileController extends EmployeepageController implements Initia
     @FXML
     void bt_save_pressed(ActionEvent event) {
         try{
-//            patient1.setName(tf_name.getText());
-//            patient1.setAge(Integer.parseInt(tf_age.getText()));
-//            patient1.setMail(tf_mail.getText());
-//            patient1.setMedicalhistory(tf_medicalhistory.getText());
-//            patient1.setGender(tf_gender.getText());
-//
-//            if(!pf_oldpass.getText().isEmpty()){
-//
-//                if( pf_newpass.getText().equals(pf_newpass2.getText())){
-//                    DBLogInManagerMySQL.ChangePassword(patient1.getUid(),pf_oldpass.getText(), pf_newpass.getText());
-//                    AlertBox.display("Password Changed Successfully","Back to My Profile");
-//                }
-//                else{
-//                    AlertBox.display("Password didn't matched", "Try Again");
-//                }
-//            }
+            employee.setName(tf_name.getText());
+            employee.setAge(Integer.parseInt(tf_age.getText()));
+            employee.setMail(tf_mail.getText());
+            employee.setMonthlySalary(Double.parseDouble(tf_ems.getText()));
+            employee.setGender(tf_gender.getText());
+            employee.setType(Integer.parseInt(tf_etype.getText()));
+
+            if(!pf_oldpass.getText().isEmpty()){
+
+                if( pf_newpass.getText().equals(pf_newpass2.getText())){
+                    DBLogInManagerMySQL.ChangePassword(employee.getUid(),pf_oldpass.getText(), pf_newpass.getText());
+                    AlertBox.display("Password Changed Successfully","Back to My Profile");
+                }
+                else{
+                    AlertBox.display("Password didn't matched", "Try Again");
+                }
+            }
             EProfileController myprofile = new EProfileController();
             myprofile.eprofile(event);
         }

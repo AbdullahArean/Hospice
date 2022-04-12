@@ -17,7 +17,7 @@ public class Employee implements RealEntity{
     private ClassDBConnector DBConnection;
 
 
-    public Employee(String name, int type, String gender, int age, String mail, double monthlySalary) throws SQLException {
+    public Employee(String name, int type, String gender, int age, String mail, double monthlySalary){
         DBConnection = new EmployeeDBConnectorMySQL();
         this.name = name;
         this.type = type;
@@ -34,7 +34,7 @@ public class Employee implements RealEntity{
         }
     }
 
-    public Employee(String uid) throws SQLException {
+    public Employee(String uid){
         this.uid = uid;
         DBConnection = new EmployeeDBConnectorMySQL();
         DBConnection.InsertFromDatabase(this);
@@ -44,7 +44,7 @@ public class Employee implements RealEntity{
         return uid;
     }
 
-    public void setUid(String uid) throws SQLException {
+    public void setUid(String uid){
         this.uid = uid;
     }
 
@@ -52,7 +52,7 @@ public class Employee implements RealEntity{
         return name;
     }
 
-    public void setName(String name) throws SQLException {
+    public void setName(String name) {
         this.name = name;
         DBConnection.UpdateIntoDatabase(this);
     }
@@ -61,9 +61,8 @@ public class Employee implements RealEntity{
         return type;
     }
 
-    public void setType(int type) throws SQLException {
+    public void setType(int type){
         this.type = type;
-
         DBConnection.UpdateIntoDatabase(this);
     }
 
@@ -71,17 +70,17 @@ public class Employee implements RealEntity{
         return gender;
     }
 
-    public void setGender(String gender) throws SQLException {
+    public void setGender(String gender) {
         this.gender = gender;
         DBConnection.UpdateIntoDatabase(this);
     }
 
-    public int getAge() throws SQLException {
+    public int getAge() {
         return age;
 
     }
 
-    public void setAge(int age) throws SQLException {
+    public void setAge(int age) {
         this.age = age;
         DBConnection.UpdateIntoDatabase(this);
 
@@ -91,7 +90,7 @@ public class Employee implements RealEntity{
         return mail;
     }
 
-    public void setMail(String mail) throws SQLException {
+    public void setMail(String mail){
         this.mail = mail;
         DBConnection.UpdateIntoDatabase(this);
 
@@ -101,7 +100,7 @@ public class Employee implements RealEntity{
         return MonthlySalary;
     }
 
-    public void setMonthlySalary(double monthlySalary) throws SQLException {
+    public void setMonthlySalary(double monthlySalary) {
         MonthlySalary = monthlySalary;
         DBConnection.UpdateIntoDatabase(this);
 
