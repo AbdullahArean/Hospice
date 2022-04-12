@@ -64,6 +64,11 @@ public class LoginController {
                 EmployeepageController ep = new EmployeepageController(uid1);
                 ep.employee(actionEvent);
             }
+            if(uid1.equals("00000")){
+                EmployeepageController ep = new EmployeepageController(uid1);
+                ep.employee(actionEvent);
+
+            }
         }
         else
             AlertBox.display("Wrong ID or Password","Try Again");

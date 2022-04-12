@@ -91,13 +91,6 @@ public class EEmployeeController extends EmployeepageController implements Initi
 
     private ObservableList<Employee> list = FXCollections.observableArrayList();
 
-
-
-    @FXML
-    void SignOutButton(ActionEvent event) {
-
-    }
-
     @FXML
     void bt_addemployee_p(ActionEvent event) throws IOException, SQLException {
         Employee e1 = new Employee(add_ename.getText(),Integer.parseInt(add_etype.getText()),add_egender.getText(),Integer.parseInt(add_eage.getText()), add_email.getText(),Double.parseDouble(add_ems.getText()));
@@ -197,43 +190,3 @@ public class EEmployeeController extends EmployeepageController implements Initi
 
 
 }
-//
-//    @FXML
-//    void bt_addpatient_p(ActionEvent event) throws SQLException, IOException {
-
-//    }
-//
-//    @FXML
-//    void bt_delpatient_p(ActionEvent event) throws SQLException, IOException {
-
-//    }
-//
-//    @FXML
-//    void bt_loadpatient_p(ActionEvent event) {
-////        String givenuid = upd_puid.getText();
-////        Patient p1 = new Patient(givenuid);
-////        upd_mh.setText(""+p1.getMedicalhistory());
-////        upd_page.setText(""+p1.getAge());
-////        upd_pmail.setText(""+p1.getMail());
-////        upd_pname.setText(""+p1.getName());
-////        upd_pgender.setText(""+p1.getGender());
-//
-//
-//    }
-//
-//    @FXML
-//    void bt_updatepatient_p(ActionEvent event) throws IOException {
-////        Patient p1 = new Patient(upd_puid.getText());
-////        p1.setGender(upd_pgender.getText());
-////        p1.setName(upd_pname.getText());
-////        p1.setMail(upd_pmail.getText());
-////        p1.setAge(Integer.parseInt(upd_page.getText()));
-////        p1.setMedicalhistory(upd_mh.getText());
-////        AlertBox.display("Patient Info Sucessfully Updated", "Press Ok to continue");
-////        EPatientController epa = new EPatientController();
-////        epa.epatient(event);
-//
-//
-//    }
-//
-//
