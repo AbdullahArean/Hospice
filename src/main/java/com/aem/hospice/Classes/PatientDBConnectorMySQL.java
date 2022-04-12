@@ -71,4 +71,13 @@ public class PatientDBConnectorMySQL implements ClassDBConnector{
         }
 
     }
+    public static void Patientdelete(String uid) throws SQLException {
+        String sql = "DELETE from hospice.patient where uid=\""+uid+"\";";
+        String sql1 = "DELETE from hospice.login where uid=\""+uid+"\";";
+        String sql2 = "DELETE from hospice.providedservice WHERE p_uid= '" + uid +"' ;";
+        DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql);
+        DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql1);
+        //Comment it out if you dont want it to delete record from provided service
+        DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql2);
+    }
 }

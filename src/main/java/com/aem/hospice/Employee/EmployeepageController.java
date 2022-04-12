@@ -75,14 +75,14 @@ public class EmployeepageController {
     }
 
     @FXML
-    void employee_b(ActionEvent event) {
+    void employee_b(ActionEvent event) throws IOException {
          EEmployeeController eep = new EEmployeeController();
          eep.eemployee(event);
 
     }
 
     @FXML
-    void patient_b(ActionEvent event) {
+    void patient_b(ActionEvent event) throws IOException {
          EPatientController epa = new EPatientController();
          epa.epatient(event);
 

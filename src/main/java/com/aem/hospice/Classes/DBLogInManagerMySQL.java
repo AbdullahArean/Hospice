@@ -79,6 +79,20 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
 
 
     }
+    public static void ChangePasswordAdminPrevilage(String uid,String newpassword){
+
+            String query = "UPDATE login set password=? WHERE uid =? ;";
+            try {
+                PreparedStatement pstmt =  DBLogInManagerMySQL.MakeConnection().prepareStatement(query);
+                pstmt.setString(2, uid);
+                pstmt.setString(1, newpassword);
+                pstmt.executeUpdate();
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+
+
+    }
     public static boolean isValidPassword(String password)
     {
         String regex = "^(?=.*[0-9])"
