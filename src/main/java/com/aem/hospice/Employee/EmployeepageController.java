@@ -82,8 +82,7 @@ public class EmployeepageController {
     @FXML
     void OverviewButton(ActionEvent actionEvent) {
         try{
-            EOverviewController over=new EOverviewController();
-            over.eoverview(actionEvent);
+            employee(actionEvent);
         }
         catch (Exception e){
             System.out.println(e.getMessage());

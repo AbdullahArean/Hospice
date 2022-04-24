@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.Employee.LabAssistantOverviewController">
+    <left>
+        <VBox prefHeight="292.0" prefWidth="143.0" style="-fx-background-color: #A2A2A1FF;" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane prefHeight="428.0" prefWidth="162.0">
+                    <children>
+                        <AnchorPane layoutX="-49.0" layoutY="2.0" prefHeight="427.0" prefWidth="178.0">
+                            <children>
+                                <AnchorPane layoutX="65.0" prefHeight="428.0" prefWidth="147.0">
+                                    <children>
+                                        <Button layoutX="-16.0" layoutY="4.0" mnemonicParsing="false" onAction="#OverviewButton" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #95DBE5FF #95DBE5FF;" text="Overview">
+                                            <font>
+                                                <Font name="System Bold" size="11.0" />
+                                            </font>
+                                        </Button>
+                                        <Button layoutX="-16.0" layoutY="47.0" mnemonicParsing="false" onAction="#service_b" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #F1F4FFFF #F1F4FFFF;" text="Service">
+                                            <font>
+                                                <Font name="System Bold" size="11.0" />
+                                            </font>
+                                        </Button>
+                                        <Button layoutX="-16.0" layoutY="90.0" mnemonicParsing="false" onAction="#pservice_b" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #F1F4FFFF;" text="Provide a Service">
+                                            <font>
+                                                <Font name="System Bold" size="11.0" />
+                                            </font>
+                                        </Button>
+                                        <Button layoutX="-16.0" layoutY="133.0" mnemonicParsing="false" onAction="#patient_b" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #F1F4FFFF;" text="Patient">
+                                            <font>
+                                                <Font name="System Bold" size="11.0" />
+                                            </font>
+                                        </Button>
+                                        <Button layoutX="-16.0" layoutY="176.0" mnemonicParsing="false" onAction="#employee_b" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #F1F4FFFF;" text="Employee">
+                                            <font>
+                                                <Font name="System Bold" size="11.0" />
+                                            </font>
+                                        </Button>
+                                        <Button layoutX="-16.0" layoutY="219.0" mnemonicParsing="false" onAction="#SignOutButton" prefHeight="40.0" prefWidth="178.0" style="-fx-background-color: #F1F4FFFF;" text="Signout">
+                                            <font>
+                                                <Font name="System Bold" size="11.0" />
+                                            </font>
+                                        </Button>
+                                        <ImageView fitHeight="21.0" fitWidth="36.0" layoutX="-10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #00203FFF;">
+                                            <image>
+                                                <Image url="@../../img/ov.png" />
+                                            </image>
+                                        </ImageView>
+                                        <ImageView fitHeight="22.0" fitWidth="32.0" layoutX="-11.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #00203FFF;">
+                                            <image>
+                                                <Image url="@../../img/es.png" />
+                                            </image>
+                                        </ImageView>
+                                        <ImageView fitHeight="44.0" fitWidth="31.0" layoutX="-13.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #00203FFF;">
+                                            <image>
+                                                <Image url="@../../img/eps.png" />
+                                            </image>
+                                        </ImageView>
+                                        <ImageView fitHeight="35.0" fitWidth="28.0" layoutX="-10.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #00203FFF;">
+                                            <image>
+                                                <Image url="@../../img/ep.png" />
+                                            </image>
+                                        </ImageView>
+                                        <ImageView fitHeight="27.0" fitWidth="22.0" layoutX="-13.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #00203FFF;">
+                                            <image>
+                                                <Image url="@../../img/ee.png" />
+                                            </image>
+                                        </ImageView>
+                                        <ImageView fitHeight="19.0" fitWidth="29.0" layoutX="-9.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #00203FFF;">
+                                            <image>
+                                                <Image url="@../../img/sout.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </left>
+    <top>
+        <HBox prefHeight="108.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane prefHeight="108.0" prefWidth="795.0" style="-fx-background-color: #95DBE5FF;">
+                    <children>
+                        <Button layoutY="-1.0" mnemonicParsing="false" onAction="#ProfileButton" prefHeight="113.0" prefWidth="176.0" style="-fx-background-color: #F1F4FFFF;" text="My Profile">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="67.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../img/mp.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic></Button>
+                        <TextField layoutX="627.0" layoutY="11.0" prefHeight="26.0" prefWidth="139.0" promptText="Search " />
+                        <ImageView fitHeight="17.0" fitWidth="18.0" layoutX="743.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../img/search.jpg" />
+                            </image>
+                        </ImageView>
+                  <Label layoutX="230.0" layoutY="56.0" prefHeight="43.0" prefWidth="495.0" text="Hospice Lab Assistance Overview">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </HBox>
+    </top>
+    <bottom>
+        <HBox prefHeight="39.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane prefHeight="39.0" prefWidth="798.0" style="-fx-background-color: #95DBE5FF;">
+                    <children>
+                        <ImageView fitHeight="32.0" fitWidth="205.0" layoutX="605.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../img/aemfooter.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </children></HBox>
+    </bottom>
+    <center>
+        <AnchorPane prefHeight="278.0" prefWidth="457.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="28.0" layoutY="30.0" mnemonicParsing="false" onAction="#viewpatientinfo_l" prefHeight="99.0" prefWidth="158.0" text="View Patient Info" />
+            <Button layoutX="221.0" layoutY="30.0" mnemonicParsing="false" onAction="#ProvideLabReport_b" prefHeight="99.0" prefWidth="158.0" text="Provide Lab Report" />
+            <Button layoutX="414.0" layoutY="30.0" mnemonicParsing="false" onAction="#BuyLabEquipment_b" prefHeight="99.0" prefWidth="158.0" text="Buy Lab Equipment" />
+         </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
