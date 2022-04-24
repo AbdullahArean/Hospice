@@ -169,7 +169,7 @@ public class EPServiceController extends EmployeepageController implements Initi
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     showpservices();
-   col_psuid.setCellValueFactory(new PropertyValueFactory<>("ps_uid"));
+    col_psuid.setCellValueFactory(new PropertyValueFactory<>("ps_uid"));
     col_suid.setCellValueFactory(new PropertyValueFactory<>("s_uid"));
     col_euid.setCellValueFactory(new PropertyValueFactory<>("e_uid"));
     col_bill.setCellValueFactory(new PropertyValueFactory<>("bill"));

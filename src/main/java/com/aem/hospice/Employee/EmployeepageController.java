@@ -25,6 +25,23 @@ public class EmployeepageController {
                 DoctorOverviewController dover = new DoctorOverviewController();
                 dover.doctoroverview(actionEvent);
             }
+            else if(employee.getType()==2){
+                NurseOverviewController temp = new NurseOverviewController();
+                temp.nurseoverview(actionEvent);
+            }
+            else if(employee.getType()==3){
+                LabAssistantOverviewController temp = new LabAssistantOverviewController();
+                temp.labassistantoverview(actionEvent);
+            }
+            else if(employee.getType()==4){
+                PharmacistOverviewController temp = new PharmacistOverviewController();
+                temp.pharmacistoverview(actionEvent);
+            }
+            else if(employee.getType()==5){
+                CleanerOverviewController temp = new CleanerOverviewController();
+                temp.CleanerOverview(actionEvent);
+            }
+
             else{
                 EOverviewController over=new EOverviewController();
                 over.eoverview(actionEvent);

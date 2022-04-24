@@ -15,22 +15,30 @@ public class DoctorOverviewController extends EmployeepageController{
 
 
     @FXML
-    void appointments_p(ActionEvent event) {
+    void appointments_p(ActionEvent event){
+        DoctorAppoinmentController dp = new DoctorAppoinmentController();
+        dp.doctorappoinment(event);
     }
 
     @FXML
     void newpres_p(ActionEvent event) {
+        DoctorPrescriptionController dnp = new DoctorPrescriptionController();
+        dnp.newprescription(event);
 
     }
 
 
     @FXML
     void viewpatientinfo_p(ActionEvent event) {
+        DoctorViewPatientInfoController dpinf = new DoctorViewPatientInfoController();
+        dpinf.dviewpatientinfo(event);
 
     }
 
     @FXML
     void visit_p(ActionEvent event) {
+        DoctorVisitController dvc= new DoctorVisitController();
+        dvc.doctorvisit(event);
 
     }
 
@@ -49,4 +57,5 @@ public class DoctorOverviewController extends EmployeepageController{
             System.out.println(e.getMessage());
         }
     }
+
 }
