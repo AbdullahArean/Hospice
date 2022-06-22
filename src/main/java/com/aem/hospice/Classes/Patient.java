@@ -19,7 +19,7 @@ public class Patient implements RealEntity {
     private double LabExpanse=0;
     private double OtherExpanse =0;
     private double TotalBill=0;
-    private ClassDBConnector DBConnection;
+    private final ClassDBConnector DBConnection;
 
     public Patient(String name, String mail, String password) throws SQLException {
         DBConnection = new PatientDBConnectorMySQL();

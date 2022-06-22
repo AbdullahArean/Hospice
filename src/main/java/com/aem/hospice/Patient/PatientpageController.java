@@ -10,7 +10,7 @@ public class PatientpageController {
     public static Patient patient1 ;
 
     public PatientpageController(String uid1) throws SQLException {
-        this.patient1 = new Patient(uid1);
+        patient1 = new Patient(uid1);
     }
     public PatientpageController(){
     }

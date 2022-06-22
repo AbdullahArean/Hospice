@@ -52,7 +52,7 @@ public class MedicineController extends PatientpageController implements Initial
     @FXML
     private Label total_expanse;
 
-    private ObservableList<ProvidedService> list = FXCollections.observableArrayList();
+    private final ObservableList<ProvidedService> list = FXCollections.observableArrayList();
 
     public void medicine(ActionEvent actionEvent) throws IOException {
         try {

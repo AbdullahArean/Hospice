@@ -14,7 +14,7 @@ public class Employee implements RealEntity{
     private int age;
     private String mail=" ";
     private double MonthlySalary=0;
-    private ClassDBConnector DBConnection;
+    private final ClassDBConnector DBConnection;
 
 
     public Employee(String name, int type, String gender, int age, String mail, double monthlySalary){

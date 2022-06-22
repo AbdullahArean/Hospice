@@ -56,7 +56,7 @@ public class LabReportController extends PatientpageController implements Initia
 
     @FXML
     private Label total_expanse;
-    private ObservableList<ProvidedService> list = FXCollections.observableArrayList();
+    private final ObservableList<ProvidedService> list = FXCollections.observableArrayList();
 
     public void labreport(ActionEvent actionEvent)throws IOException {
         try{

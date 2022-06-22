@@ -14,7 +14,7 @@ public class ProvidedService implements RealEntity{
     private int payment_status=0;
     private double bill=0;
     private double paid=0;
-    private ProvidedServiceDBConnectorMySQL providedServiceDBConnectorMySQL;
+    private final ProvidedServiceDBConnectorMySQL providedServiceDBConnectorMySQL;
 
     public ProvidedService(String s_uid, String p_uid, String e_uid, int quantity) throws SQLException {
         this.s_uid = s_uid;

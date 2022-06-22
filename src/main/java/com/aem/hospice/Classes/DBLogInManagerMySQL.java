@@ -73,7 +73,7 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
             }
 
         }
-        else{
+        else {
             AlertBox.display("Wrong Password", "Try Again");
         }
 

@@ -51,7 +51,7 @@ public class PatientExpanseController extends PatientpageController implements I
     @FXML
     private Label total_expanse;
     private double e=0,p=0,d=0;
-    private ObservableList<ProvidedService> list = FXCollections.observableArrayList();
+    private final ObservableList<ProvidedService> list = FXCollections.observableArrayList();
 
     public void patientexpanse(ActionEvent actionEvent) throws IOException {
         try {
