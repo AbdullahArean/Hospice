@@ -104,7 +104,6 @@ public class MyProfileController extends PatientpageController implements Initia
 
                 if( pf_newpass.getText().equals(pf_newpass2.getText())){
                     DBLogInManagerMySQL.ChangePassword(patient1.getUid(),pf_oldpass.getText(), pf_newpass.getText());
-                    AlertBox.display("Password Changed Successfully","Back to My Profile");
                 }
                 else{
                     AlertBox.display("Password didn't matched", "Try Again");

@@ -1,6 +1,7 @@
 package com.aem.hospice.LoginRegister;
 
 
+import com.aem.hospice.Classes.DBLogInManagerMySQL;
 import com.aem.hospice.Classes.Patient;
 import com.aem.hospice.PopUp.AlertBox;
 import javafx.fxml.FXML;
@@ -54,6 +55,7 @@ public class Register {
             String pass1 = password1.getText();
             String pass2 = password2.getText();
             if(!pname.isEmpty() && !pmail.isEmpty() && !pass1.isEmpty() && pass2.equals(pass1)){
+                if(!DBLogInManagerMySQL.isValidPassword(pass1)) return;
                 Patient patient = new Patient(pname, pmail,pass1);
                 LoginController loginController = new LoginController();
                 loginController.login(actionEvent);

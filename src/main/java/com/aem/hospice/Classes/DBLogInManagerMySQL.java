@@ -20,6 +20,31 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
         }
         return null;
     }
+    public static boolean isValidPassword(String str)
+    {
+        String Regex_combination_of_letters_and_numbers = "^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$";
+        String Regex_just_letters = "^(?=.*[a-zA-Z])[a-zA-Z]+$";
+        String Regex_just_numbers = "^(?=.*[0-9])[0-9]+$";
+        String Regex_just_specialcharachters = "^(?=.*[@#$%^&+=])[@#$%^&+=]+$";
+        String Regex_combination_of_letters_and_specialcharachters = "^(?=.*[a-zA-Z])(?=.*[@#$%^&+=])[a-zA-Z@#$%^&+=]+$";
+        String Regex_combination_of_numbers_and_specialcharachters = "^(?=.*[0-9])(?=.*[@#$%^&+=])[0-9@#$%^&+=]+$";
+        String Regex_combination_of_letters_and_numbers_and_specialcharachters = "^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[@#$%^&+=])[a-zA-Z0-9@#$%^&+=]+$";
+
+        if(str.length()<8) {
+            AlertBox.display("Password is Not strong Enough, Try Again","1. Password Length must be greater than or equal 8\n" +
+                "2. Password Should include atleast one letter or special character(&,#,! etc)");return false;}
+        if(str.matches(Regex_combination_of_letters_and_numbers))
+            return true;
+        if(str.matches(Regex_combination_of_letters_and_specialcharachters))
+            return true;
+        if(str.matches(Regex_combination_of_numbers_and_specialcharachters))
+            return true;
+        if(str.matches(Regex_combination_of_letters_and_numbers_and_specialcharachters))
+            return true;
+        AlertBox.display("Password is Not strong Enough, Try Again","1. Password Length must be greater than or equal 8\n" +
+                "2. Password Should include atleast one letter or special character(&,#,! etc)");
+        return false;
+    }
     public static Boolean LogInValidate(String uid, String pass){
         try{
             String sql = "Select * from hospice.login where uid=\""+uid+"\";";
@@ -39,6 +64,10 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
         return GenerateUid(table,uidcolname,login,"1234");
     }
     public static String GenerateUid(String table, String uidcolname, int login, String password){
+        if(!isValidPassword(password)) {
+            return null;
+
+        }
         try {
             String sql = "Select * from " + table + ";";
             ResultSet rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
@@ -62,12 +91,14 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
     }
     public static void ChangePassword(String uid, String oldpassword , String newpassword){
         if(LogInValidate(uid,oldpassword)){
+            if(!isValidPassword(newpassword)) return;
             String query = "UPDATE login set password=? WHERE uid =? ;";
             try {
                 PreparedStatement pstmt =  DBLogInManagerMySQL.MakeConnection().prepareStatement(query);
                 pstmt.setString(2, uid);
                 pstmt.setString(1, newpassword);
                 pstmt.executeUpdate();
+                AlertBox.display("Password Changed Successfully","Back to My Profile");
             } catch(Exception e){
                 e.printStackTrace();
             }
@@ -80,7 +111,7 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
 
     }
     public static void ChangePasswordAdminPrevilage(String uid,String newpassword){
-
+            if(!isValidPassword(newpassword)) return;
             String query = "UPDATE login set password=? WHERE uid =? ;";
             try {
                 PreparedStatement pstmt =  DBLogInManagerMySQL.MakeConnection().prepareStatement(query);
@@ -93,37 +124,10 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
 
 
     }
-    public static boolean isValidPassword(String password)
-    {
-        String regex = "^(?=.*[0-9])"
-                + "(?=.*[a-z])(?=.*[A-Z])"
-                + "(?=.*[@#$%^&+=])"
-                + "(?=\\S+$).{8,20}$";
-        Pattern p = Pattern.compile(regex);
-        if (password == null) {
-            return false;
-        }
-        Matcher m = p.matcher(password);
-        return m.matches();
-    }
-//    public static ObservableList<ProvidedService> FetchBillFromProvidedService(int type, String coln, String uid5){
-//        ObservableList<ProvidedService> list = FXCollections.observableArrayList();
-//        try {
-//            Connection conn = DBLogInManagerMySQL.MakeConnection();
-//            Statement mysta = conn.createStatement();
-//            String sql = "SELECT * from providedservice WHERE s_type= '" + type + "' AND " + coln + "= '" + uid5 + "' ;";
-//            ResultSet rs = mysta.executeQuery(sql);
-//            while (rs.next()) {
-//                e+= rs.getDouble("bill");
-//                p+= rs.getDouble("paid");
-//                d+=rs.getDouble("bill")-rs.getDouble("paid");
-//                list.add(new ProvidedService(rs.getString("ps_uid")));
-//            }
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
 
-//    }
+    public static void main(String[] args) {
+        DBLogInManagerMySQL a = new DBLogInManagerMySQL();
+        System.out.println(a.isValidPassword("##%^1%#####"));
+    }
 
 }

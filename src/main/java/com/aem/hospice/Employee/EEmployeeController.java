@@ -123,8 +123,8 @@ public class EEmployeeController extends EmployeepageController implements Initi
 
     @FXML
     void bt_setdefaultpass_p(ActionEvent event) {
-        DBLogInManagerMySQL.ChangePasswordAdminPrevilage(upd_euid.getText(),"1234");
-        AlertBox.display("Password Changed to Default", "Password is set to 1234");
+        DBLogInManagerMySQL.ChangePasswordAdminPrevilage(upd_euid.getText(),"a12345678A");
+        AlertBox.display("Password Changed to Default", "Password is set to =>a12345678A");
 
     }
 
@@ -145,7 +145,7 @@ public class EEmployeeController extends EmployeepageController implements Initi
 
 
 
-    public void eemployee(ActionEvent actionEvent) throws IOException {
+    public void eemployee(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EEmployee.fxml"));
             Parent root = loader.load();
