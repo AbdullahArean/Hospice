@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.LoginRegister.Register">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aem.hospice.LoginRegister.ResetPasswordController">
     <bottom>
         <HBox prefHeight="34.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -45,7 +45,7 @@
    <center>
         <AnchorPane prefHeight="400.0" prefWidth="476.0" style="-fx-background-color: #A2A2A1FF;" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="20.0" layoutY="88.0" text="Name" textFill="#021ceb">
+                <Label layoutX="20.0" layoutY="88.0" text="UID" textFill="#021ceb">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Label>
@@ -53,28 +53,28 @@
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Label>
-                <Label layoutX="17.0" layoutY="190.0" text="Password Set" textFill="#021ceb">
+                <Label layoutX="17.0" layoutY="190.0" text="Password Reset" textFill="#021ceb">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Label>
-                <TextField id="name" fx:id="name" layoutX="171.0" layoutY="85.0" prefHeight="26.0" prefWidth="254.0" promptText="Enter Your User Name" />
+                <TextField id="name" fx:id="uid" layoutX="171.0" layoutY="85.0" prefHeight="26.0" prefWidth="254.0" promptText="Enter Your UID" />
                 <TextField fx:id="mail" layoutX="171.0" layoutY="131.0" prefHeight="26.0" prefWidth="254.0" promptText="Enter Your Mail" />
                 <PasswordField fx:id="password1" layoutX="171.0" layoutY="187.0" prefHeight="26.0" prefWidth="253.0" promptText="Enter Your Password" />
-                <Label layoutX="16.0" layoutY="250.0" text="Confirm Password" textFill="#021ceb">
+                <Label layoutX="16.0" layoutY="250.0" text="Reenter Password" textFill="#021ceb">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Label>
-                <PasswordField fx:id="password2" layoutX="174.0" layoutY="246.0" prefHeight="26.0" prefWidth="252.0" promptText="Confirm Your Password" />
-                <Button layoutX="173.0" layoutY="321.0" mnemonicParsing="false" onAction="#BackToLogin" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #00a6ff;" text="Back to login" textFill="WHITE">
+                <PasswordField fx:id="password2" layoutX="171.0" layoutY="246.0" prefHeight="26.0" prefWidth="252.0" promptText="Confirm Your Password" />
+                <Button layoutX="168.0" layoutY="321.0" mnemonicParsing="false" onAction="#BackToLogin" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #00a6ff;" text="Back to login" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Button>
-                <Label layoutX="110.0" layoutY="25.0" prefHeight="18.0" prefWidth="242.0" text="Register As Patient">
+                <Label layoutX="110.0" layoutY="25.0" prefHeight="18.0" prefWidth="242.0" text="Resset Password">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <Button layoutX="334.0" layoutY="321.0" mnemonicParsing="false" onAction="#SaveChanges" style="-fx-background-color: #00a6ff;" text="Register" textFill="WHITE">
+                <Button layoutX="318.0" layoutY="321.0" mnemonicParsing="false" onAction="#SaveChanges" style="-fx-background-color: #00a6ff;" text="Reset Password" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>

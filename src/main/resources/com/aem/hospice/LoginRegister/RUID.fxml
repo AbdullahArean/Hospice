@@ -45,7 +45,7 @@
    <center>
         <AnchorPane prefHeight="400.0" prefWidth="476.0" style="-fx-background-color: #A2A2A1FF;" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="20.0" layoutY="88.0" text="Mail" textFill="#021ceb">
+                <Label layoutX="20.0" layoutY="140.0" text="Mail" textFill="#021ceb">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Label>
@@ -53,18 +53,18 @@
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Label>
-                <TextField id="name" fx:id="mail" layoutX="171.0" layoutY="85.0" prefHeight="26.0" prefWidth="254.0" promptText="Enter Your Email" />
+                <TextField id="name" fx:id="mail" layoutX="171.0" layoutY="137.0" prefHeight="26.0" prefWidth="254.0" promptText="Enter Your Email" />
                 <PasswordField fx:id="pass" layoutX="171.0" layoutY="187.0" prefHeight="26.0" prefWidth="253.0" promptText="Enter Your Password" />
                 <Button layoutX="173.0" layoutY="321.0" mnemonicParsing="false" onAction="#BackToLogin" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #00a6ff;" text="Back to login" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Button>
-                <Label layoutX="110.0" layoutY="25.0" prefHeight="18.0" prefWidth="242.0" text="Recover UID">
+                <Label layoutX="137.0" layoutY="25.0" prefHeight="18.0" prefWidth="242.0" text="Recover UID">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <Button layoutX="334.0" layoutY="321.0" mnemonicParsing="false" onAction="#SaveChanges" style="-fx-background-color: #00a6ff;" text="Recover" textFill="WHITE">
+                <Button layoutX="334.0" layoutY="321.0" mnemonicParsing="false" onAction="#SaveChanges" style="-fx-background-color: #00a6ff;" text="Recover UID" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>

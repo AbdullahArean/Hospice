@@ -1,5 +1,7 @@
 package com.aem.hospice.LoginRegister;
+import com.aem.hospice.Classes.DBLogInManagerMySQL;
 import com.aem.hospice.PopUp.AlertBox;
+import javafx.beans.property.DoublePropertyBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,11 +13,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 
-
-
-    public class RecoverUIDcontroller {
+public class RecoverUIDcontroller {
         @FXML
         private TextField mail;
 
@@ -34,8 +35,8 @@ import java.io.IOException;
         }
 
         @FXML
-        void SaveChanges(ActionEvent event) {
-            AlertBox.display("Your UID","0000");
+        void SaveChanges(ActionEvent event) throws SQLException {
+            DBLogInManagerMySQL.RecoverUID(mail.getText(),pass.getText());
 
         }
 

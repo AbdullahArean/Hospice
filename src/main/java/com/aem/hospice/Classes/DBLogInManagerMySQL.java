@@ -1,6 +1,8 @@
 package com.aem.hospice.Classes;
 
 import com.aem.hospice.PopUp.AlertBox;
+
+import javax.swing.*;
 import java.sql.*;
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -91,23 +93,70 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
     }
     public static void ChangePassword(String uid, String oldpassword , String newpassword){
         if(LogInValidate(uid,oldpassword)){
-            if(!isValidPassword(newpassword)) return;
-            String query = "UPDATE login set password=? WHERE uid =? ;";
-            try {
-                PreparedStatement pstmt =  DBLogInManagerMySQL.MakeConnection().prepareStatement(query);
-                pstmt.setString(2, uid);
-                pstmt.setString(1, newpassword);
-                pstmt.executeUpdate();
-                AlertBox.display("Password Changed Successfully","Back to My Profile");
-            } catch(Exception e){
-                e.printStackTrace();
-            }
-
+            ChangePassword(uid,newpassword);
         }
         else {
             AlertBox.display("Wrong Password", "Try Again");
         }
 
+
+    }
+    private static void ChangePassword(String uid, String newpassword){
+        if(!isValidPassword(newpassword)) return;
+        String query = "UPDATE login set password=? WHERE uid =? ;";
+        try {
+            PreparedStatement pstmt =  DBLogInManagerMySQL.MakeConnection().prepareStatement(query);
+            pstmt.setString(2, uid);
+            pstmt.setString(1, newpassword);
+            pstmt.executeUpdate();
+            AlertBox.display("Password Changed Successfully","Back to My Profile");
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public  static void ResetPassword(String uid, String mail,String pass){
+        try{
+            Patient p1= new Patient(uid);
+            if(p1.getMail().equals(mail)){
+                ChangePassword(uid,pass);
+                //AlertBox.display("Password Changed", "Success!");
+            }
+            else{
+                AlertBox.display("Invalid Information","Please Try Again");
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+    public static void RecoverUID(String mail, String password) throws SQLException {
+        String uid= new String();
+        String sql = "Select * from hospice.login where password=\""+password+"\";";
+        ResultSet rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
+        while(rs.next()){
+            uid=rs.getString("uid");
+        }
+        if(uid.charAt(0)=='3'){
+            Employee e1= new Employee(uid);
+            if(e1.getMail().equals(mail)){
+                AlertBox.display("UID Information Found","UID: "+uid);
+                return;
+
+            }
+
+        }
+        else{
+            Patient p1= new Patient(uid);
+            if(p1.getMail().equals(mail)) {
+                AlertBox.display("UID Information Found","UID: "+uid);
+                return;
+
+            }
+        }
+        AlertBox.display("Incorrect Information","No uid found");
 
     }
     public static void ChangePasswordAdminPrevilage(String uid,String newpassword){
