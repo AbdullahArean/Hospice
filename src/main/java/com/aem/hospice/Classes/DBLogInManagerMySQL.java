@@ -138,6 +138,7 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
         ResultSet rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
         while(rs.next()){
             uid=rs.getString("uid");
+            break;
         }
         if(uid.charAt(0)=='3'){
             Employee e1= new Employee(uid);
