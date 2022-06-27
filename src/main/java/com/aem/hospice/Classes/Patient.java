@@ -27,13 +27,8 @@ public class Patient implements RealEntity {
         this.mail = mail;
         this.uid= GenerateUid("patient","uid",1,password);
         DBConnection.InsertIntoDatabase(this);
-        try{
-            AlertBox.display("Patient ID Creation Successfull","UID : "+ this.uid);
-        }catch (Exception e){
-            System.out.println("Patient ID Creation Unsuccessfull "+e);
-        }
-
-
+        if(this.uid==null)
+            System.out.println("Patient ID Creation Unsuccessfull ");
     }
     public Patient(String uid){
         this.uid = uid;

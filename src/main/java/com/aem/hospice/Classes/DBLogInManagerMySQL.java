@@ -63,7 +63,7 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
         return false;
     }
     public static String GenerateUid(String table, String uidcolname, int login){
-        return GenerateUid(table,uidcolname,login,"1234");
+        return GenerateUid(table,uidcolname,login,"a12345678A");
     }
     public static String GenerateUid(String table, String uidcolname, int login, String password){
         if(!isValidPassword(password)) {
@@ -84,6 +84,7 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
                 sql = "insert into login values ('" + generated_uid + "','"+password+"');";
                 DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql);
             }
+            AlertBox.display("ID Successfully Created","\nUID:=>"+generated_uid+"\nPassword:=>"+password);
             return generated_uid;
 
         }catch (Exception e){
@@ -171,13 +172,6 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
             } catch(Exception e){
                 e.printStackTrace();
             }
-
-
-    }
-
-    public static void main(String[] args) {
-        DBLogInManagerMySQL a = new DBLogInManagerMySQL();
-        System.out.println(a.isValidPassword("##%^1%#####"));
     }
 
 }

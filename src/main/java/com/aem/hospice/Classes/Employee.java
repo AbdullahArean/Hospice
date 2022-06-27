@@ -27,11 +27,8 @@ public class Employee implements RealEntity{
         this.MonthlySalary = monthlySalary;
         this.uid = DBLogInManagerMySQL.GenerateUid("employee","uid",1,"a12345678A");
         DBConnection.InsertIntoDatabase(this);
-        try{
-            AlertBox.display("Employee ID Creation Successfull","UID : "+ this.uid);
-        }catch (Exception e){
-            System.out.println("Employee ID Creation Failed "+" : "+ e);
-        }
+        if(this.uid==null)
+            System.out.println("Employee ID Creation Failed");
     }
 
     public Employee(String uid){
