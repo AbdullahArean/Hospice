@@ -78,8 +78,25 @@ public class LoginController {
     }
 
     public void resetpass(ActionEvent actionEvent) {
+        try{
+            ResetPasswordController rp=new ResetPasswordController();
+            rp.resetpassword(actionEvent);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
+
+
     public void recoveruid(ActionEvent actionEvent) {
+        try{
+            RecoverUIDcontroller rc=new RecoverUIDcontroller();
+            rc.recovery(actionEvent);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }

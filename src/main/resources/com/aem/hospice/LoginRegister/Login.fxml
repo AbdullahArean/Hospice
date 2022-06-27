@@ -60,7 +60,7 @@
                     </font>
                 </Button>
                 <Label layoutX="38.0" layoutY="285.0" prefHeight="12.0" prefWidth="79.0" text="Forgot UID?" />
-                <Button fx:id="recoveruid" layoutX="10.0" layoutY="303.0" mnemonicParsing="false" onAction="#recoveruid" prefHeight="28.0" prefWidth="128.0" style="-fx-background-color: #243fae;" text="Recover UID " textFill="#dddfe4">
+                <Button layoutX="10.0" layoutY="303.0" mnemonicParsing="false" onAction="#recoveruid" prefHeight="28.0" prefWidth="128.0" style="-fx-background-color: #243fae;" text="Recover UID " textFill="#dddfe4">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
