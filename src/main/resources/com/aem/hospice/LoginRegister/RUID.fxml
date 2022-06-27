@@ -31,7 +31,7 @@
     <left>
         <VBox prefHeight="366.0" prefWidth="122.0" style="-fx-background-color: #F1F4FFFF;" BorderPane.alignment="CENTER">
             <children>
-                <AnchorPane prefHeight="366.0" prefWidth="197.0">
+                <AnchorPane prefHeight="366.0" prefWidth="180.0">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -43,32 +43,42 @@
         </VBox>
     </left>
    <center>
-        <AnchorPane prefHeight="400.0" prefWidth="476.0" style="-fx-background-color: #A2A2A1FF;" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="400.0" prefWidth="476.0" style="-fx-background-color: #b58f8f;" BorderPane.alignment="CENTER">
             <children>
                 <Label layoutX="20.0" layoutY="140.0" text="Mail" textFill="#021ceb">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Label>
-                <Label layoutX="17.0" layoutY="190.0" text="Password" textFill="#021ceb">
+                <Label layoutX="9.0" layoutY="190.0" text="Password" textFill="#021ceb">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Label>
-                <TextField id="name" fx:id="mail" layoutX="171.0" layoutY="137.0" prefHeight="26.0" prefWidth="254.0" promptText="Enter Your Email" />
-                <PasswordField fx:id="pass" layoutX="171.0" layoutY="187.0" prefHeight="26.0" prefWidth="253.0" promptText="Enter Your Password" />
-                <Button layoutX="173.0" layoutY="321.0" mnemonicParsing="false" onAction="#BackToLogin" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #00a6ff;" text="Back to login" textFill="WHITE">
+                <TextField id="name" fx:id="mail" layoutX="103.0" layoutY="137.0" prefHeight="26.0" prefWidth="250.0" promptText="Enter Your Email" />
+                <PasswordField fx:id="pass" layoutX="102.0" layoutY="187.0" prefHeight="26.0" prefWidth="253.0" promptText="Enter Your Password" />
+                <Button layoutX="152.0" layoutY="321.0" mnemonicParsing="false" onAction="#BackToLogin" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #00a6ff;" text="Back to login" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Button>
-                <Label layoutX="137.0" layoutY="25.0" prefHeight="18.0" prefWidth="242.0" text="Recover UID">
+                <Label layoutX="194.0" layoutY="63.0" prefHeight="26.0" prefWidth="119.0" text="Recover">
                     <font>
-                        <Font name="System Bold Italic" size="14.0" />
+                        <Font name="System Bold Italic" size="22.0" />
                     </font>
                 </Label>
-                <Button layoutX="334.0" layoutY="321.0" mnemonicParsing="false" onAction="#SaveChanges" style="-fx-background-color: #00a6ff;" text="Recover UID" textFill="WHITE">
+                <Button layoutX="300.0" layoutY="321.0" mnemonicParsing="false" onAction="#SaveChanges" style="-fx-background-color: #00a6ff;" text="Recover UID" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
+            <ImageView fitHeight="49.0" fitWidth="41.0" layoutX="223.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/mp.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="208.0" layoutY="89.0" prefHeight="29.0" prefWidth="68.0" text=" UID">
+               <font>
+                  <Font name="System Bold Italic" size="22.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
    </center>

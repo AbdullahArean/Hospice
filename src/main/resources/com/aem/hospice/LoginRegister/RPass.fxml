@@ -65,16 +65,16 @@
                         <Font name="System Bold" size="14.0" />
                     </font></Label>
                 <PasswordField fx:id="password2" layoutX="171.0" layoutY="246.0" prefHeight="26.0" prefWidth="252.0" promptText="Confirm Your Password" />
-                <Button layoutX="168.0" layoutY="321.0" mnemonicParsing="false" onAction="#BackToLogin" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #00a6ff;" text="Back to login" textFill="WHITE">
+                <Button layoutX="147.0" layoutY="321.0" mnemonicParsing="false" onAction="#BackToLogin" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #00a6ff;" text="Back to login" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Button>
-                <Label layoutX="110.0" layoutY="25.0" prefHeight="18.0" prefWidth="242.0" text="Resset Password">
+                <Label layoutX="119.0" layoutY="55.0" prefHeight="18.0" prefWidth="242.0" text="Reset Password">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <Button layoutX="318.0" layoutY="321.0" mnemonicParsing="false" onAction="#SaveChanges" style="-fx-background-color: #00a6ff;" text="Reset Password" textFill="WHITE">
+                <Button layoutX="289.0" layoutY="321.0" mnemonicParsing="false" onAction="#SaveChanges" style="-fx-background-color: #00a6ff;" text="Reset Password" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
