@@ -9,9 +9,9 @@ import static com.aem.hospice.Classes.DBLogInManagerMySQL.GenerateUid;
 public class Employee implements RealEntity{
     private String uid=" ";
     private String name= " ";
-    private int type;
+    private int type=-1;
     private String gender=" ";
-    private int age;
+    private int age=0;
     private String mail=" ";
     private double MonthlySalary=0;
     private final ClassDBConnector DBConnection;

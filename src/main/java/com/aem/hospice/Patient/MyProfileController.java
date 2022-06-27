@@ -113,7 +113,7 @@ public class MyProfileController extends PatientpageController implements Initia
             myprofile.myprofile(event);
         }
         catch (Exception e){
-            System.out.println(e.getMessage());
+            AlertBox.display("Invalid Input","Fill Up the boxes with correct data");
         }
 
 

@@ -60,14 +60,38 @@ public class EmployeeDBConnectorMySQL implements ClassDBConnector{
             e.printStackTrace();
         }
     }
-        public static void Employeedelete(String uid) throws SQLException {
+        public static void Employeedelete(String uid) {
             String sql = "DELETE from hospice.employee where uid=\""+uid+"\";";
             String sql1 = "DELETE from hospice.login where uid=\""+uid+"\";";
             String sql2 = "DELETE from hospice.providedservice WHERE e_uid= '" + uid +"' ;";
-            DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql);
-            DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql1);
-            //Comment it out if you dont want it to delete record from provided service
-            DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql2);
+            try {
+                DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql);
+                DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql1);
+                //Comment it out if you dont want it to delete record from provided service
+                DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql2);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+
+            }
+
         }
+    public static boolean IsEmployeeAvailable(String uid) {
+        String sql = "Select * from hospice.employee where uid=\"" + uid + "\";";
+        ResultSet rs = null;
+        int count=0;
+        try {
+            rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
+            while(rs.next()){ count++;}
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (count==0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
 }

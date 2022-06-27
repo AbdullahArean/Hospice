@@ -83,45 +83,67 @@ public class EServiceController extends EmployeepageController implements Initia
 
     @FXML
     void bt_addservice_p(ActionEvent event) throws IOException {
-        String sname = add_sname.getText();
-        Integer st = Integer.parseInt(add_st.getText());
-        Double cpu  = Double.parseDouble(add_cpu.getText());
-        String sd =add_sd.getText();
-        Service s1 = new Service(sname,st,sd,cpu,0);
-        AlertBox.display("New Service Added","Please Click Ok to continue");
-        EServiceController es = new EServiceController();
-        es.eservice(event);
+        try{
+            Integer st = Integer.parseInt(add_st.getText());
+            Double cpu  = Double.parseDouble(add_cpu.getText());
+            String sname = add_sname.getText();
+            String sd =add_sd.getText();
+            Service s1 = new Service(sname,st,sd,cpu,0);
+            AlertBox.display("New Service Added","Please Click Ok to continue");
+            EServiceController es = new EServiceController();
+            es.eservice(event);
+        }
+        catch (NumberFormatException e){
+            AlertBox.display("Invalid Input","Fill Up the boxes with correct data");
+        }
+
 
     }
 
     @FXML
     void bt_delservice_p(ActionEvent event) throws SQLException, IOException {
-        ServiceDBConnectorMySQL.Servicedelete(del_suid.getText());
-        AlertBox.display("Service Deleted","Please Click Ok to continue");
-        EServiceController es = new EServiceController();
-        es.eservice(event);
+        String givenuid =upd_suid.getText();
+        if(ServiceDBConnectorMySQL.IsServiceAvailable(givenuid)) {
+            ServiceDBConnectorMySQL.Servicedelete(givenuid);
+            AlertBox.display("Service Deleted", "Please Click Ok to continue");
+            EServiceController es = new EServiceController();
+            es.eservice(event);
+        }
+        else{
+            AlertBox.display("Service Details Not Available", "Please Give Valid Input");
+        }
     }
 
     @FXML
     void bt_loadservice_p(ActionEvent event) {
         String givenuid =upd_suid.getText();
-        Service s1 = new Service(givenuid);
-        upd_sname.setText(""+s1.getName());
-        upd_cpu.setText(""+s1.getCost_unit());
-        upd_sd.setText(""+s1.getDescription());
-        upd_st.setText(""+s1.getType());
+        if(ServiceDBConnectorMySQL.IsServiceAvailable(givenuid)){
+            Service s1 = new Service(givenuid);
+            upd_sname.setText(""+s1.getName());
+            upd_cpu.setText(""+s1.getCost_unit());
+            upd_sd.setText(""+s1.getDescription());
+            upd_st.setText(""+s1.getType());
+        }
+        else{
+            AlertBox.display("Service Details Not Available", "Please Give Valid Input");
+        }
+
     }
 
     @FXML
     void bt_update_p(ActionEvent event) throws IOException {
+    try{
         Service s1 = new Service(upd_suid.getText());
         s1.setName(upd_sname.getText());
         s1.setCost_unit(Double.parseDouble(upd_cpu.getText()));
         s1.setDescription(upd_sd.getText());
         s1.setType(Integer.parseInt(upd_st.getText()));
-        AlertBox.display("Service Updated","Please Click Ok to continue");
+        AlertBox.display("Service Updated", "Please Click Ok to continue");
         EServiceController es = new EServiceController();
         es.eservice(event);
+    }catch (NumberFormatException e){
+            AlertBox.display("Invalid Input","Fill Up the boxes with correct data");
+        }
 
 
     }

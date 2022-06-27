@@ -82,4 +82,21 @@ public class ProvidedServiceDBConnectorMySQL implements ClassDBConnector{
         String sql = "DELETE from hospice.providedservice where ps_uid=\""+uid+"\";";
         DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql);
     }
+    public static boolean IsProvidedServiceAvailable(String uid){
+        String sql = "Select * from hospice.providedservice where uid=\""+uid+"\";";
+        ResultSet rs = null;
+        int count=0;
+        try {
+            rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
+            while(rs.next()){ count++;}
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (count==0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

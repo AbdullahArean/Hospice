@@ -100,6 +100,7 @@ public class EPServiceController extends EmployeepageController implements Initi
     }
     @FXML
     void bt_addpservice_p(ActionEvent event) throws SQLException, IOException {
+        try{
         String suid = add_suid.getText();
         String puid =add_puid.getText();
         String euid = employee.getUid();
@@ -109,34 +110,46 @@ public class EPServiceController extends EmployeepageController implements Initi
         ps1.setPaid(Double.valueOf(add_paid.getText()));
         AlertBox.display("New Provided Service Created","Please Click Ok to continue");
         EPServiceController eps = new EPServiceController();
-        eps.epservice(event);
+        eps.epservice(event);}
+        catch (NumberFormatException e){
+            AlertBox.display("Invalid Input","Fill Up the boxes with correct data");
+        }
 
     }
 
     @FXML
     void bt_delpservice_p(ActionEvent event) throws SQLException, IOException {
+        String givenuid =del_psuid.getText();
+        if(ProvidedServiceDBConnectorMySQL.IsProvidedServiceAvailable(givenuid)){
         ProvidedServiceDBConnectorMySQL.ProvidedServicedelete(del_psuid.getText());
         AlertBox.display("Provided Service Deleted","Please Click Ok to continue");
         EPServiceController eps = new EPServiceController();
-        eps.epservice(event);
+        eps.epservice(event);}
+        else{
+            AlertBox.display("Provided Service Details Unavailable", "Invalid Input");
+        }
 
     }
 
     @FXML
     void bt_psload_p(ActionEvent event) throws SQLException {
         String givenuid =upd_psuid.getText();
+        if(ProvidedServiceDBConnectorMySQL.IsProvidedServiceAvailable(givenuid)){
         ProvidedService ps1 = new ProvidedService(givenuid);
         upd_bill.setText(""+ps1.getBill());
         upd_euid.setText(""+ps1.getE_uid());
         upd_paid.setText(""+ps1.getPaid());
         upd_q.setText(""+ps1.getQuantity());
         upd_suid.setText(""+ps1.getS_uid());
-        upd_puid.setText(""+ps1.getP_uid());
+        upd_puid.setText(""+ps1.getP_uid());}
+        else{
+            AlertBox.display("Provided Service Details Unavailable", "Invalid Input");
+        }
     }
 
     @FXML
     void bt_psupdate_p(ActionEvent event) throws SQLException, IOException {
-        ProvidedService ps2 = new ProvidedService(upd_psuid.getText());
+        try{ProvidedService ps2 = new ProvidedService(upd_psuid.getText());
         ps2.setQuantity(Integer.parseInt(upd_q.getText()));
         ps2.setS_uid(upd_suid.getText());
         ps2.setE_uid(upd_euid.getText());
@@ -144,7 +157,10 @@ public class EPServiceController extends EmployeepageController implements Initi
         ps2.setP_uid(upd_puid.getText());
         AlertBox.display("Provided Service Updated","Please Click Ok to continue");
         EPServiceController eps = new EPServiceController();
-        eps.epservice(event);
+        eps.epservice(event);}
+        catch (NumberFormatException e){
+        AlertBox.display("Invalid Input","Fill Up the boxes with correct data");
+    }
 
     }
 

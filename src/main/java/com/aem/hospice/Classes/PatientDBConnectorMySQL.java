@@ -80,4 +80,21 @@ public class PatientDBConnectorMySQL implements ClassDBConnector{
         //Comment it out if you dont want it to delete record from provided service
         DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql2);
     }
+    public static boolean IsPatientAvailable(String uid) {
+        String sql = "Select * from hospice.patient where uid=\"" + uid + "\";";
+        ResultSet rs = null;
+        int count=0;
+        try {
+            rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
+            while(rs.next()){ count++;}
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (count==0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

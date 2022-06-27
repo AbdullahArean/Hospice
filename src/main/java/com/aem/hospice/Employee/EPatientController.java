@@ -82,37 +82,56 @@ public class EPatientController extends EmployeepageController implements Initia
 
     @FXML
     void bt_addpatient_p(ActionEvent event) throws SQLException, IOException {
+        try{
+            NumberFormatException e= new NumberFormatException();
+            if((add_pname.getText().isEmpty() && add_pmail.getText().isEmpty())) throw e;
         Patient p1 = new Patient(add_pname.getText(),add_pmail.getText(),"a12345678A");
-        p1.setAge(Integer.parseInt(add_page.getText()));
         p1.setGender(add_pgender.getText());
         p1.setMedicalhistory(add_mh.getText());
+        p1.setAge(Integer.parseInt(add_page.getText()));
         EPatientController epa = new EPatientController();
-        epa.epatient(event);
+        epa.epatient(event);}
+        catch (NumberFormatException e){
+            AlertBox.display("Invalid Input","Fill Up the boxes with correct data");
+        }
     }
 
     @FXML
     void bt_delpatient_p(ActionEvent event) throws SQLException, IOException {
-        PatientDBConnectorMySQL.Patientdelete(del_puid.getText());
+        String givenuid =del_puid.getText();
+        if(PatientDBConnectorMySQL.IsPatientAvailable(givenuid)){
+        PatientDBConnectorMySQL.Patientdelete(givenuid);
         AlertBox.display("Patient Successfully Deleted","Press Ok to Continue");
         EPatientController epa = new EPatientController();
-        epa.epatient(event);
+        epa.epatient(event);}
+        else{
+                AlertBox.display("Patient Details Unavailable", "Invalid Input");
+
+        }
     }
 
     @FXML
     void bt_loadpatient_p(ActionEvent event) {
         String givenuid = upd_puid.getText();
-        Patient p1 = new Patient(givenuid);
-        upd_mh.setText(""+p1.getMedicalhistory());
-        upd_page.setText(""+p1.getAge());
-        upd_pmail.setText(""+p1.getMail());
-        upd_pname.setText(""+p1.getName());
-        upd_pgender.setText(""+p1.getGender());
+        if(PatientDBConnectorMySQL.IsPatientAvailable(givenuid)) {
+            Patient p1 = new Patient(givenuid);
+            upd_mh.setText("" + p1.getMedicalhistory());
+            upd_page.setText("" + p1.getAge());
+            upd_pmail.setText("" + p1.getMail());
+            upd_pname.setText("" + p1.getName());
+            upd_pgender.setText("" + p1.getGender());
+        }
+        else{
+            AlertBox.display("Patient Details Unavailable", "Invalid Input");
+
+        }
 
 
     }
 
     @FXML
     void bt_updatepatient_p(ActionEvent event) throws IOException {
+        try{
         Patient p1 = new Patient(upd_puid.getText());
         p1.setGender(upd_pgender.getText());
         p1.setName(upd_pname.getText());
@@ -121,7 +140,9 @@ public class EPatientController extends EmployeepageController implements Initia
         p1.setMedicalhistory(upd_mh.getText());
         AlertBox.display("Patient Info Sucessfully Updated", "Press Ok to continue");
         EPatientController epa = new EPatientController();
-        epa.epatient(event);
+        epa.epatient(event);} catch (NumberFormatException e){
+            AlertBox.display("Invalid Input","Fill Up the boxes with correct data");
+        }
 
 
     }
@@ -168,8 +189,15 @@ public class EPatientController extends EmployeepageController implements Initia
     }
     @FXML
     void bt_setdefaultpass_p(ActionEvent event) {
-        DBLogInManagerMySQL.ChangePasswordAdminPrevilage(upd_puid.getText(),"a12345678A");
-        AlertBox.display("Password Changed to Default", "Password is set to a12345678A");
+        if(PatientDBConnectorMySQL.IsPatientAvailable(upd_puid.getText())) {
+            DBLogInManagerMySQL.ChangePasswordAdminPrevilage(upd_puid.getText(),"a12345678A");
+            AlertBox.display("Password Changed to Default", "Password is set to a12345678A");
+
+        }
+        else{
+            AlertBox.display("Patient Details Unavailable", "Invalid Input");
+
+        }
 
     }
 }
