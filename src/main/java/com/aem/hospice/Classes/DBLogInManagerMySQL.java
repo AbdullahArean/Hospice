@@ -122,8 +122,15 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
             Patient p1= new Patient(uid);
             if(p1.getMail().equals(mail)){
                 ChangePassword(uid,pass);
+                return;
                 //AlertBox.display("Password Changed", "Success!");
             }
+            Employee e1 = new Employee(uid);
+            if(e1.getMail().equals(mail)){
+                ChangePassword(uid,pass);
+                return;
+            }
+
             else{
                 AlertBox.display("Invalid Information","Please Try Again");
             }
@@ -139,25 +146,25 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
         ResultSet rs = DBLogInManagerMySQL.MakeConnection().createStatement().executeQuery(sql);
         while(rs.next()){
             uid=rs.getString("uid");
-            break;
-        }
-        if(uid.charAt(0)=='3'){
-            Employee e1= new Employee(uid);
-            if(e1.getMail().equals(mail)){
-                AlertBox.display("UID Information Found","UID: "+uid);
-                return;
-
+            if(uid.charAt(0)=='3'){
+                Employee e1= new Employee(uid);
+                if(e1.getMail().equals(mail)){
+                    AlertBox.display("UID Information Found","UID: "+uid);
+                    return;
+    
+                }
+    
             }
-
-        }
-        else{
-            Patient p1= new Patient(uid);
-            if(p1.getMail().equals(mail)) {
-                AlertBox.display("UID Information Found","UID: "+uid);
-                return;
-
+            else{
+                Patient p1= new Patient(uid);
+                if(p1.getMail().equals(mail)) {
+                    AlertBox.display("UID Information Found","UID: "+uid);
+                    return;
+    
+                }
             }
         }
+        
         AlertBox.display("Incorrect Information","No uid found");
 
     }
