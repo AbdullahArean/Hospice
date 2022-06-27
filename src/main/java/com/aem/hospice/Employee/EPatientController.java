@@ -82,7 +82,7 @@ public class EPatientController extends EmployeepageController implements Initia
 
     @FXML
     void bt_addpatient_p(ActionEvent event) throws SQLException, IOException {
-        Patient p1 = new Patient(add_pname.getText(),add_pmail.getText(),"1234");
+        Patient p1 = new Patient(add_pname.getText(),add_pmail.getText(),"a12345678A");
         p1.setAge(Integer.parseInt(add_page.getText()));
         p1.setGender(add_pgender.getText());
         p1.setMedicalhistory(add_mh.getText());
@@ -146,7 +146,7 @@ public class EPatientController extends EmployeepageController implements Initia
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
-            stage.setTitle("Hospice Employee Page");
+            stage.setTitle("Hospice Employee Patient Mangement Page");
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -168,8 +168,8 @@ public class EPatientController extends EmployeepageController implements Initia
     }
     @FXML
     void bt_setdefaultpass_p(ActionEvent event) {
-        DBLogInManagerMySQL.ChangePasswordAdminPrevilage(upd_puid.getText(),"1234");
-        AlertBox.display("Password Changed to Default", "Password is set to 1234");
+        DBLogInManagerMySQL.ChangePasswordAdminPrevilage(upd_puid.getText(),"a12345678A");
+        AlertBox.display("Password Changed to Default", "Password is set to a12345678A");
 
     }
 }
