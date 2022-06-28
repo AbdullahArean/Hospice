@@ -82,6 +82,10 @@ public class EPatientController extends EmployeepageController implements Initia
 
     @FXML
     void bt_addpatient_p(ActionEvent event) throws SQLException, IOException {
+        if(employee.getType()>4){
+            AlertBox.display("Action Not Permitted!","Restricted Entity");
+            return;
+        }
         try{
             NumberFormatException e= new NumberFormatException();
             if((add_pname.getText().isEmpty() && add_pmail.getText().isEmpty())) throw e;
@@ -98,6 +102,10 @@ public class EPatientController extends EmployeepageController implements Initia
 
     @FXML
     void bt_delpatient_p(ActionEvent event) throws SQLException, IOException {
+        if(employee.getType()>1){
+            AlertBox.display("Action Not Permitted!","Restricted Entity");
+            return;
+        }
         String givenuid =del_puid.getText();
         if(PatientDBConnectorMySQL.IsPatientAvailable(givenuid)){
         PatientDBConnectorMySQL.Patientdelete(givenuid);
@@ -189,6 +197,10 @@ public class EPatientController extends EmployeepageController implements Initia
     }
     @FXML
     void bt_setdefaultpass_p(ActionEvent event) {
+        if(employee.getType()>4){
+            AlertBox.display("Action Not Permitted!","Restricted Entity");
+            return;
+        }
         if(PatientDBConnectorMySQL.IsPatientAvailable(upd_puid.getText())) {
             DBLogInManagerMySQL.ChangePasswordAdminPrevilage(upd_puid.getText(),"a12345678A");
             AlertBox.display("Password Changed to Default", "Password is set to a12345678A");

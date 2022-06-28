@@ -90,6 +90,10 @@ public class EEmployeeController extends EmployeepageController implements Initi
 
     @FXML
     void bt_addemployee_p(ActionEvent event) {
+        if(employee.getType()>0){
+            AlertBox.display("Action Not Permitted!","Restricted Entity");
+            return;
+        }
         String ename = null;
         Integer etype = null;
         String egender = null;
@@ -115,6 +119,10 @@ public class EEmployeeController extends EmployeepageController implements Initi
 
     @FXML
     void bt_delemployee_p(ActionEvent event){
+        if(employee.getType()>0){
+            AlertBox.display("Action Not Permitted!","Restricted Entity");
+            return;
+        }
         if(EmployeeDBConnectorMySQL.IsEmployeeAvailable(del_euid.getText())){
         EmployeeDBConnectorMySQL.Employeedelete(del_euid.getText());
         AlertBox.display("Employee Successfully Deleted","Press Ok to Continue");
@@ -151,6 +159,10 @@ public class EEmployeeController extends EmployeepageController implements Initi
 
     @FXML
     void bt_setdefaultpass_p(ActionEvent event) {
+        if(employee.getType()>0){
+            AlertBox.display("Action Not Permitted!","Restricted Entity");
+            return;
+        }
         if(EmployeeDBConnectorMySQL.IsEmployeeAvailable(upd_euid.getText())){
 
             DBLogInManagerMySQL.ChangePasswordAdminPrevilage(upd_euid.getText(),"a12345678A");
@@ -166,6 +178,10 @@ public class EEmployeeController extends EmployeepageController implements Initi
 
     @FXML
     void bt_updateemployee_p(ActionEvent event) {
+        if(employee.getType()>0){
+            AlertBox.display("Action Not Permitted!","Restricted Entity");
+            return;
+        }
         if(EmployeeDBConnectorMySQL.IsEmployeeAvailable(upd_euid.getText())){
 
             Employee p1 = new Employee(upd_euid.getText());
