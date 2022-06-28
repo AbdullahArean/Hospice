@@ -3,6 +3,10 @@
 ## Introduction
 
 Healthcare is the most critical aspect of our society, and many health care providers face challenges to offer practical and active services to patients. Considering a multispeciality hospital, many people enter and exit the hospital in a day, and maintaining their records safely is tedious. To reduce this type of burden and to manage the financial, hospital administration, and clinical aspects, the Hospital management system came into existence. A Hospital management system will benefit Hospitals or clinics by increasing Processing Speed and Results, Cost Effective, Reduction in Errors, Data Security and Retrieving Ability, Improved Patient Care with Quality and Compliance.
+## How To Install And Use Hospice
+1. Download and set up Jdk and MySQL (Username root and Password : "password") in your computer. Then Enter the Lines from this docs [SQL Commands](https://docs.google.com/document/d/1A5Mv9oiv6KOahX3cGO2Vhvm4pno7qXcm7eH4NKu9dKY/edit?usp=sharing)
+2. Download Hospice.jar from [Github](https://github.com/AbdullahArean/Hospice/blob/main/Hospice.jar) or [Drive](https://drive.google.com/file/d/10oLrboXyFaI7ZM46jlEBBbWruAL8pMmy/view?usp=sharing)
+3. Then run with the command "java -jar Hospice.jar" and Login With uid="00000", password="a12345678A"
 
 ## Requirement Analysis & Objectives
 
