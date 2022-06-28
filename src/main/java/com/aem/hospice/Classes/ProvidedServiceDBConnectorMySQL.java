@@ -83,7 +83,7 @@ public class ProvidedServiceDBConnectorMySQL implements ClassDBConnector{
         DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql);
     }
     public static boolean IsProvidedServiceAvailable(String uid){
-        String sql = "Select * from hospice.providedservice where uid=\""+uid+"\";";
+        String sql = "Select * from hospice.providedservice where ps_uid=\""+uid+"\";";
         ResultSet rs = null;
         int count=0;
         try {

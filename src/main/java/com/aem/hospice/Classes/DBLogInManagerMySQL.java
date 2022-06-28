@@ -1,12 +1,8 @@
 package com.aem.hospice.Classes;
 
 import com.aem.hospice.PopUp.AlertBox;
-
-import javax.swing.*;
 import java.sql.*;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
     public static Connection MakeConnection() {
@@ -84,7 +80,7 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
                 sql = "insert into login values ('" + generated_uid + "','"+password+"');";
                 DBLogInManagerMySQL.MakeConnection().createStatement().execute(sql);
             }
-            AlertBox.display("ID Successfully Created","\nUID:=>"+generated_uid+"\nPassword:=>"+password);
+            if(login==1) AlertBox.display("ID Successfully Created","\nUID:=>"+generated_uid+"\nPassword:=>"+password);
             return generated_uid;
 
         }catch (Exception e){

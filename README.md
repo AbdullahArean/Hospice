@@ -118,17 +118,17 @@ Our main classes and interfaces are in the “Classes Package”. Let's briefly 
 6.  EmployeeType : A rough idea of the types of the employees. Basically, their type has been mapped by numbers. There are 6 types of employees.
     
 
-1.  System admin (mapped by the number 0)
+    1.  System admin (mapped by the number 0)
     
-2.  Doctor (mapped by the number 1)
+    2.  Doctor (mapped by the number 1)
     
-3.  Nurse (mapped by the number 2)
+    3.  Nurse (mapped by the number 2)
     
-4.  Lab Assistant (mapped by the number 3)
+    4.  Lab Assistant (mapped by the number 3)
     
-5.  Pharmacist (mapped by the number 4)
+    5.  Pharmacist (mapped by the number 4)
     
-6.  Worker (mapped by the number 5)
+    6.  Worker (mapped by the number 5)
     
 
 7.  LogInManager(Interface) : This interface contains four (default) methods which can be inherited by subclasses to validate the login system, generate uid and change the passwords.
