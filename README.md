@@ -14,8 +14,11 @@ sudo mysql_secure_installation
 The last command will prompt you to set a root password. You can enter “password” when prompted. You are done! It is that easy!
 After Executing the command, Login in Hospice using “uid”: “00000” and “password”: “a12345678A”
 I hope this helps!
-2. Download Hospice.jar from [Github](https://github.com/AbdullahArean/Hospice/blob/main/Hospice.jar) or [Drive](https://drive.google.com/file/d/10oLrboXyFaI7ZM46jlEBBbWruAL8pMmy/view?usp=sharing)
-3. Then run with the command "java -jar Hospice.jar" and Login With uid="00000", password="a12345678A"
+2. Clone the git repository and open in an ide (Intellij recommended)
+```
+git clone github.com/AbdullahArean/Hospice
+```
+3. Then run the following file "src/main/java/com/aem/hospice/Hospice.java" and Login With uid="00000", password="a12345678A"
 
 ## Requirement Analysis & Objectives
 
