@@ -10,6 +10,7 @@ public class DBLogInManagerMySQL implements LogInManager,DatabaseManager{
         String username = "root";
         String password = "password";
         try {
+            DatabaseMaker.run();
             return DriverManager.getConnection(url,username,password);
 
         }
