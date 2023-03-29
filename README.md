@@ -11,10 +11,10 @@ sudo apt-get install openjdk-8-jdk openjfx
 sudo apt-get install mysql-server
 sudo mysql_secure_installation
 ```
-The last command will prompt you to set a root password. You can enter “password” when prompted. You are done! It is that easy!
+The last command will prompt you to set a root password. You can enter “password” when prompted. If any more question just write "no" and give enter. You are done! It is that easy!
 2. Clone the git repository and open in an ide (Intellij recommended)
 ```
-git clone github.com/AbdullahArean/Hospice
+git clone https://github.com/AbdullahArean/Hospice
 ```
 3. Then run the following file "src/main/java/com/aem/hospice/Hospice.java" and Login With uid="00000", password="a12345678A"
 
