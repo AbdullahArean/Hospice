@@ -12,8 +12,6 @@ sudo apt-get install mysql-server
 sudo mysql_secure_installation
 ```
 The last command will prompt you to set a root password. You can enter “password” when prompted. You are done! It is that easy!
-After Executing the command, Login in Hospice using “uid”: “00000” and “password”: “a12345678A”
-I hope this helps!
 2. Clone the git repository and open in an ide (Intellij recommended)
 ```
 git clone github.com/AbdullahArean/Hospice
