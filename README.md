@@ -247,7 +247,7 @@ Ishwor Prasad Dhungana, IH-63 (2019-119-430), Team Member
 ## Project Source:
 
 GitHub Repository: [https://github.com/AbdullahArean/Hospice](https://github.com/AbdullahArean/Hospice) _
-Live Report of the Project: [Google Docs Report Link](https://docs.google.com/document/d/1DnXGlUN2Cq8pv-_rFWupxkF7x0JYhwmLk4Y8IG9wSps/edit?usp=sharing)
+Live Report of the Project: [Google Docs Report Link](https://docs.google.com/document/d/1P4DUHawIp7ITC7jj05CVA0smOY7xwsQ7keC2HjCDU_U/edit?usp=sharing)
 
 
 ## Limitations:
